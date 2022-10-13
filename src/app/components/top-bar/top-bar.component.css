@@ -1,0 +1,18 @@
+.button{
+  cursor: pointer;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid darkgrey;
+  border-radius: 10px;
+  background: ;
+}
+*{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  }
+.navbar{
+  
+}
