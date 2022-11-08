@@ -1,7 +1,7 @@
 <div class="navbar">
-<a [routerLink]="['/']" style="text-decoration: none">HOMEIMAGE</a>
+<a [routerLink]="['/']" style="text-decoration: none">Home</a>
 
-  <a [routerLink]="['/Basics']" class="button">
+  <a [routerLink]="['/Basics']" class="button desktop">
     <h1>
       Basics
     </h1>
@@ -14,7 +14,7 @@
 
 
   <!-- Only Mobile-->
-  <a [routerLink]="['/Test']" class="button">
+  <a [routerLink]="['/Test']" class="button mobile">
     <h1>
       Tests
     </h1>
@@ -22,22 +22,29 @@
 
 
 <!-- Only PC-->
-  <a [routerLink]="['/NoCode']" class="button">
+  <a [routerLink]="['/NoCode']" class="button desktop">
     <h1>
       NoCode
     </h1>
   </a>
 <!-- Only PC-->
 
-<a [routerLink]="['/Account']" class="button">
+<a [routerLink]="['/Account']" class="button desktop">
   <h1>
     Account
   </h1>
 </a>
 
-<a [routerLink]="['/Login']" class="button">
+<a [routerLink]="['/Login']" class="button desktop">
   <h1>
     Login
+  </h1>
+</a>
+
+
+<a [routerLink]="['/Login']" class="button mobile">
+  <h1>
+    EXTRA MENU
   </h1>
 </a>
 </div>

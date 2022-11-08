@@ -14,8 +14,37 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   }
+
+@media only screen and (max-width: 767px) {
+  .mobile {
+    display: flex;
+  }
+  .desktop {
+    display: none;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 767px) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: flex;
+  }
+
+
+
+}
+
 .navbar{
 
 }
