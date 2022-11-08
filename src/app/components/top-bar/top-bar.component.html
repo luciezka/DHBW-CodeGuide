@@ -1,22 +1,33 @@
 <div class="navbar">
 <a [routerLink]="['/']" style="text-decoration: none">HOMEIMAGE</a>
-<a [routerLink]="['/Flashcard']" class="button">
-  <h1>
-   Flashcards
-  </h1>
-</a>
-
-<a [routerLink]="['/NoCode']" class="button">
-  <h1>
-    NoCode
-  </h1>
-</a>
 
   <a [routerLink]="['/Basics']" class="button">
     <h1>
       Basics
     </h1>
   </a>
+  <a [routerLink]="['/Flashcard']" class="button">
+    <h1>
+     Flashcards
+    </h1>
+  </a>
+
+
+  <!-- Only Mobile-->
+  <a [routerLink]="['/Test']" class="button">
+    <h1>
+      Tests
+    </h1>
+  </a>
+
+
+<!-- Only PC-->
+  <a [routerLink]="['/NoCode']" class="button">
+    <h1>
+      NoCode
+    </h1>
+  </a>
+<!-- Only PC-->
 
 <a [routerLink]="['/Account']" class="button">
   <h1>

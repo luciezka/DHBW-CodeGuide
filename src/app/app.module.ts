@@ -11,6 +11,9 @@ import { NoCodeComponent } from './components/no-code/no-code.component';
 import {RouterModule} from "@angular/router";
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
 import { BasicInformationComponent } from './components/basic-information/basic-information.component';
+import { TestMenuComponent } from './components/test-menu/test-menu.component';
+import { TestingScreenComponent } from './components/testing-screen/testing-screen.component';
+import { FlashcardMenuComponent } from './components/flashcard-menu/flashcard-menu.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,17 @@ import { BasicInformationComponent } from './components/basic-information/basic-
     BottomBarComponent,
     NoCodeComponent,
     HomeScreenComponent,
-    BasicInformationComponent
+    BasicInformationComponent,
+    TestMenuComponent,
+    TestingScreenComponent,
+    FlashcardMenuComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path:'',component:HomeScreenComponent},
-      {path:'Flashcard',component:FlashcardComponent},
+      {path:'Flashcard',component:FlashcardMenuComponent},
+      {path:'Test',component:TestMenuComponent},
       {path:'NoCode',component:NoCodeComponent},
       {path:'Basics',component:BasicInformationComponent},
       {path:'Account',component:UserAccountComponent},

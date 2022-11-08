@@ -3,16 +3,19 @@
   text-decoration: none;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   border: 2px solid darkgrey;
   border-radius: 10px;
-  background: ;
 }
 *{
+  margin-top: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   }
 .navbar{
-  
+
 }
