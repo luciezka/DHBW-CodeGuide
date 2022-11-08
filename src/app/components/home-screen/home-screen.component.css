@@ -1,0 +1,16 @@
+@media (any-pointer: fine) {
+  .mobile {
+    display: none;
+  }
+  .container{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 5vh;
+    margin-left: 2vh;
+  }
+}
+
+p{
+  margin-top: 1vh;
+}

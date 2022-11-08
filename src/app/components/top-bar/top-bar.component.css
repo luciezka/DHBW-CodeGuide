@@ -16,7 +16,7 @@
   align-items: center;
   }
 
-@media only screen and (max-width: 767px) {
+@media (any-pointer: coarse) {
   .mobile {
     display: flex;
   }
@@ -24,6 +24,8 @@
     display: none;
   }
   .navbar {
+    margin-right: 50px;
+    margin-left: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,16 +35,13 @@
     width: 100%;
   }
 }
-@media only screen and (min-width: 767px) {
+@media (any-pointer: fine) {
   .mobile {
     display: none;
   }
   .desktop {
     display: flex;
   }
-
-
-
 }
 
 .navbar{

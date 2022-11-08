@@ -3,8 +3,17 @@
   min-height: 100px;
 }
 
-@media only screen and (max-width: 767px) {
+@media (any-pointer: coarse) {
   .desktop {
     display: none;
   }
 }
+@media (any-pointer: fine) {
+  .desktop {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+}
+
+

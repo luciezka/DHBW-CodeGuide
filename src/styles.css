@@ -2,4 +2,38 @@
   margin: 0;
 }
 
+@media (any-pointer: coarse) {
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+  }
+
+  .desktop {
+    display: none;
+  }
+}
+
+
+
+@media (any-pointer: fine) {
+  .mobile {
+    display: none;
+  }
+}
+
+
+h1{
+  font-size: 3vh;
+  font-weight: 100;
+  color: #000000;
+}
+a{
+  font-size:1.5vh;
+}
+p{
+  font-size:2.5vh;
+}
 
