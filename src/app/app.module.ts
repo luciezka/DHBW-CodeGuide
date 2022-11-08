@@ -14,6 +14,7 @@ import { BasicInformationComponent } from './components/basic-information/basic-
 import { TestMenuComponent } from './components/test-menu/test-menu.component';
 import { TestingScreenComponent } from './components/testing-screen/testing-screen.component';
 import { FlashcardMenuComponent } from './components/flashcard-menu/flashcard-menu.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FlashcardMenuComponent } from './components/flashcard-menu/flashcard-me
       {path:'Basics',component:BasicInformationComponent},
       {path:'Account',component:UserAccountComponent},
       {path:'Login',component:LoginScreenComponent},
-    ])
+    ]),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
