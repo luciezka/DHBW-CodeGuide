@@ -15,6 +15,7 @@ import { TestMenuComponent } from './components/test-menu/test-menu.component';
 import { TestingScreenComponent } from './components/testing-screen/testing-screen.component';
 import { FlashcardMenuComponent } from './components/flashcard-menu/flashcard-menu.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FlashcardCreatorComponent } from './components/flashcard-creator/flashcard-creator.component';
 
 @NgModule({
   declarations: [
@@ -29,18 +30,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BasicInformationComponent,
     TestMenuComponent,
     TestingScreenComponent,
-    FlashcardMenuComponent
+    FlashcardMenuComponent,
+    FlashcardCreatorComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path:'',component:HomeScreenComponent},
-      {path:'Flashcard',component:FlashcardMenuComponent},
+      {path:'FlashcardMenu',component:FlashcardMenuComponent},
+      {path:'FlashcardCreator',component:FlashcardCreatorComponent},
+      {path:'TestingScreen',component:TestingScreenComponent},
       {path:'Test',component:TestMenuComponent},
       {path:'NoCode',component:NoCodeComponent},
       {path:'Basics',component:BasicInformationComponent},
       {path:'Account',component:UserAccountComponent},
-      {path:'Login',component:LoginScreenComponent},
+      {path:'Login',component:LoginScreenComponent}
     ]),
     FontAwesomeModule
   ],

@@ -1,29 +1,45 @@
-
 <div class="container">
-<div>
 
-  <h1>Willkommen Nutzer</h1>
+<div>
+  <h1 style="align-content: center">Willkommen {{userName}}</h1>
+
+
+      <p>
+        Möchtest du ein paar Basics Lernen ?
+      </p>
+
+  <a [routerLink]="['/FlashcardMenu']">
+      <p>
+        Lerne ein paar Karten!
+      </p>
+  </a>
+
+
+      <p>
+        Zuletzt gelernt: 0
+      </p>
+
+<a [routerLink]="['/Test']" >
+      <p class="mobile">
+        Dein Testergebnis ist bei {{testResultPrecentage}} %
+      </p>
+</a>
+
+  <a>
+    <p>
+      Die Letzten hinzugefügten Kartensätze:
+      {{lastCardName}}
+    </p>
+  </a>
+
+  
+<a [routerLink]="['/FlashcardCreator']">
   <p>
-    Möchtest du ein paar Basics Lernen ?<br>
+    Erstell ein paar neue Karten
   </p>
-  <p>
-    Lerne ein paar Karten!<br>
-  </p>
-  <p>
-    Zuletzt gelernt: 0<br>
-  </p>
-  <p class="mobile">
-    NUR IN MOBILE<br>
-    Dein Testergebnis ist bei X %<br>
-    NUR IN MOBILE<br>
-  </p>
-  <p>
-    Die Letzten hinzugefügten Kartensätze:<br>
-    Arrays oder sowas<br>
-  </p>
-  <p>
-    Erstell ein paar neue Karten<br>
-  </p>
+</a>
+
+
 
 </div>
 </div>

@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeScreenComponent implements OnInit {
 
+  userName : string = "User Name";
+  testResultPrecentage : number = 80;
+  lastCardName : string = "Arrays and Positions";
+
   constructor() { }
 
   ngOnInit(): void {
