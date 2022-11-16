@@ -1,12 +1,15 @@
+
 <div class="container">
+
 
 <div>
   <h1 style="align-content: center">Willkommen {{userName}}</h1>
 
-
+  <a [routerLink]="['/Basics']">
       <p>
         Möchtest du ein paar Basics Lernen ?
       </p>
+  </a>
 
   <a [routerLink]="['/FlashcardMenu']">
       <p>
@@ -15,9 +18,13 @@
   </a>
 
 
+  <!-- Add Routing -->
+
       <p>
         Zuletzt gelernt: 0
       </p>
+
+
 
 <a [routerLink]="['/Test']" >
       <p class="mobile">
@@ -32,7 +39,7 @@
     </p>
   </a>
 
-  
+
 <a [routerLink]="['/FlashcardCreator']">
   <p>
     Erstell ein paar neue Karten

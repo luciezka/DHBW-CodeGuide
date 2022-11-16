@@ -1,0 +1,45 @@
+
+
+.container{
+  display: flex;
+  margin-top: 5vh;
+  flex-direction: column;
+}
+
+.innerContainer{
+  display:flex;
+  margin-left: 2vh ;
+  margin-top: 1vh;
+}
+
+
+.centerTheText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spaceLeftSmall{
+  margin-left: 3.5vh;
+}
+
+
+.rightText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  right: 0;
+}
+
+.leftText {
+  align-items: flex-start;
+}
+
+fa-icon{
+  font-size: 3em;
+}
+
+.material-icons{
+  padding-left: 1vh;
+}

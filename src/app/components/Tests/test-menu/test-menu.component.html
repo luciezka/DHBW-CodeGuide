@@ -1,0 +1,34 @@
+
+<div style="padding-bottom: 8vh;">
+<div class="container" *ngFor="let items of testTest ">
+
+      <div class="centerTheText spaceLeftSmall">
+        <h1>{{items.name}}</h1>
+
+
+        <ng-container *ngIf="items.downloaded; else notDownloaded">
+          <span class="material-icons md-72">download_done</span>
+        </ng-container>
+
+
+        <ng-template #notDownloaded>
+          <span class="material-icons md-72">download</span>
+        </ng-template>
+      </div>
+
+
+      <div class="centerTheText">
+        <p >{{items.completion}}%</p>
+      </div>
+
+
+
+
+
+  <div class="innerContainer" *ngFor="let exercises of items.exercises">
+    <p class="leftText" > {{exercises}}</p>
+  </div>
+
+</div>
+
+</div>

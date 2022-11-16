@@ -1,13 +1,12 @@
+
 *{
   margin: 0;
 }
 
 @media (any-pointer: coarse) {
-
   .container{
     display: flex;
     justify-content: center;
-    align-items: center;
   }
   .desktop {
     display: none;
@@ -19,6 +18,9 @@
     display: none;
   }
 }
+
+
+
 
 a{
   text-decoration: none;
@@ -35,5 +37,18 @@ p{
   color: #444444;
 }
 
+.material-icons.md-48 {
+  font-size: 48px;
+}
+.material-icons.md-60 {
+  font-size: 60px;
+}
+.material-icons.md-72 {
+  font-size: 72px;
+}
 
+
+
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
