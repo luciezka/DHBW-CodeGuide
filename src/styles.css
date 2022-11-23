@@ -1,4 +1,4 @@
-
+@import 'material-icons/iconfont/material-icons.css';
 *{
   margin: 0;
 }
@@ -37,14 +37,14 @@ p{
   color: #444444;
 }
 
-.material-icons.md-48 {
-  font-size: 48px;
+.material-icons.medium {
+  font-size: 1vh;
 }
-.material-icons.md-60 {
-  font-size: 60px;
+.material-icons.large {
+  font-size: 2vh;
 }
-.material-icons.md-72 {
-  font-size: 72px;
+.material-icons.x-large {
+  font-size: 4vh;
 }
 
 

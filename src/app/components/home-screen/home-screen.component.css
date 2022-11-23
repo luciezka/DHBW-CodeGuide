@@ -18,6 +18,9 @@
   }
 }
 
+.response{
+  margin-top: 2vh;
+}
 
 h1{
   margin-bottom: 5vh;
@@ -26,5 +29,7 @@ h1{
 p{
   margin-top: 2vh;
 }
+
+
 
 

@@ -32,10 +32,12 @@
       </p>
 </a>
 
-  <a>
+
     <p>
       Die Letzten hinzugefügten Kartensätze:
-      {{lastCardName}}
+    </p>
+  <a [routerLink]="['/lastCard']" class="response">
+    <p> {{lastCardName}}
     </p>
   </a>
 

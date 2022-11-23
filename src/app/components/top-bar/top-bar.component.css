@@ -3,7 +3,6 @@
   text-decoration: none;
   padding-left: 10px;
   padding-right: 10px;
-  padding-bottom: 20px;
   padding-top: 20px;
 }
 *{
@@ -32,6 +31,7 @@
     align-items: center;
     background-color: #dedede;
   }
+
   .material-icons{
     margin-left: 2vh;
     margin-right: 2vh;
