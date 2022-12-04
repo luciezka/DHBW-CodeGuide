@@ -5,14 +5,14 @@
 <div>
   <h1 style="align-content: center">Willkommen {{userName}}</h1>
 
-  <a [routerLink]="['/Basics']">
-      <p>
+  <a [routerLink]="['/Basics']" class="selectable">
+      <p class="selectable">
         Möchtest du ein paar Basics Lernen ?
       </p>
   </a>
 
-  <a [routerLink]="['/FlashcardMenu']">
-      <p>
+  <a [routerLink]="['/FlashcardMenu']" >
+      <p class="selectable">
         Lerne ein paar Karten!
       </p>
   </a>
@@ -20,31 +20,32 @@
 
   <!-- Add Routing -->
 
-      <p>
+      <p class="response">
         Zuletzt gelernt: 0
       </p>
 
 
 
-<a [routerLink]="['/Test']" >
-      <p class="mobile">
-        Dein Testergebnis ist bei {{testResultPrecentage}} %
+<a [routerLink]="['/Test']">
+      <p class="selectable mobile">
+       Dein Testergebnis ist bei {{testResultPrecentage}} %
       </p>
 </a>
 
 
-    <p>
-      Die Letzten hinzugefügten Kartensätze:
-    </p>
-  <a [routerLink]="['/lastCard']" class="response">
-    <p> {{lastCardName}}
+
+  <p class="selectable">
+  Die Letzten hinzugefügten Kartensätze:
+</p>
+
+  <a [routerLink]="['/lastCard']" >
+    <p class="response"> {{lastCardName}}
     </p>
   </a>
 
 
 <a [routerLink]="['/FlashcardCreator']">
-  <p>
-    Erstell ein paar neue Karten
+  <p class="selectable">Erstell ein paar neue Karten
   </p>
 </a>
 

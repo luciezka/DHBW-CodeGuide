@@ -1,11 +1,11 @@
-@media (any-pointer: fine) {
+@media (pointer:fine) {
   .mobile {
     display: none;
   }
 }
 
 
-@media (any-pointer: coarse) {
+@media (pointer:none), (pointer:coarse){
   .desktop {
     display: none;
   }
@@ -20,6 +20,17 @@
 
 .response{
   margin-top: 2vh;
+  margin-left: 2vh;
+  padding: 1vh;
+
+}
+.selectable{
+  border-top: #444444 1px solid;
+  border-bottom: #444444 1px solid;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  background-color: #fcfcfc;
+  border-radius: 0.3vh;
 }
 
 h1{

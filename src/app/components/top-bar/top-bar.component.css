@@ -13,12 +13,14 @@
   align-items: center;
   }
 
-@media (any-pointer: coarse) {
+@media (pointer:none), (pointer:coarse) {
   .mobile {
     display: flex;
   }
   .desktop {
-    display: none;
+    position: absolute;
+    right: -9999px;
+    display:none;
   }
 
   .navbar {
@@ -40,7 +42,7 @@
 
 
 }
-@media (any-pointer: fine) {
+@media  (pointer:fine) {
   .mobile {
     display: none;
   }

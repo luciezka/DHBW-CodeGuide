@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -15,7 +15,8 @@ import { TestMenuComponent } from './components/Tests/test-menu/test-menu.compon
 import { TestingScreenComponent } from './components/Tests/testing-screen/testing-screen.component';
 import { FlashcardMenuComponent } from './components/FlashCards/flashcard-menu/flashcard-menu.component';
 import { FlashcardCreatorComponent } from './components/FlashCards/flashcard-creator/flashcard-creator.component';
-import { MatIconModule } from '@angular/material/icon';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 @NgModule({
   declarations: [
@@ -34,10 +35,12 @@ import { MatIconModule } from '@angular/material/icon';
     FlashcardCreatorComponent
   ],
   imports: [
-    MatIconModule,
     BrowserModule,
     RouterModule.forRoot([
       {path:'',component:HomeScreenComponent},
+
+      {path:'Flashcard',component:FlashcardComponent},
+
       {path:'FlashcardMenu',component:FlashcardMenuComponent},
       {path:'FlashcardCreator',component:FlashcardCreatorComponent},
       {path:'TestingScreen',component:TestingScreenComponent},
@@ -47,6 +50,12 @@ import { MatIconModule } from '@angular/material/icon';
       {path:'Account',component:UserAccountComponent},
       {path:'Login',component:LoginScreenComponent}
     ]),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
