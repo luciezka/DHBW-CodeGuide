@@ -16,6 +16,7 @@ import { TestingScreenComponent } from './components/Tests/testing-screen/testin
 import { FlashcardMenuComponent } from './components/FlashCards/flashcard-menu/flashcard-menu.component';
 import { FlashcardCreatorComponent } from './components/FlashCards/flashcard-creator/flashcard-creator.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import {environment} from "../environments/environment";
 
 
 @NgModule({
@@ -51,10 +52,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       {path:'Login',component:LoginScreenComponent}
     ]),
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      enabled: environment.production,
+      registrationStrategy: 'registerImmediately',
     }),
   ],
   providers: [],
