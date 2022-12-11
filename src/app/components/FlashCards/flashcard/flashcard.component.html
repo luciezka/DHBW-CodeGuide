@@ -1,1 +1,16 @@
-<p>flashcard works!</p>
+<div class="container">
+
+<div class="flashcard" [ngClass]="{'flipped': isFlipped}">
+  <a class="front" (click)="isFlipped = !isFlipped">
+    Int sind Zahlen ohne Nachkommastellen
+  </a>
+  <a class="back" (click)="isFlipped = !isFlipped">
+    in Javascript <br>
+    x = 5 <br>
+    um sicher zu stellen das es ein int ist <br>
+    x = parseInt(x) <br>
+
+  </a>
+</div>
+</div>
+

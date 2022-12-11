@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlashcardComponent implements OnInit {
 
+
+  isFlipped = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+
