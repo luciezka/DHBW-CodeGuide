@@ -12,6 +12,7 @@
   .container{
     display: flex;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     margin-top: 5vh;
   }
@@ -23,23 +24,84 @@
   padding: 1vh;
 
 }
-.selectable{
-  border-top: #444444 1px solid;
-  border-bottom: #444444 1px solid;
+p.selectable{
   padding-bottom: 1vh;
   padding-top: 1vh;
-  background-color: #fcfcfc;
-  border-radius: 0.3vh;
+  border-radius: 40px;
+  color: coral;
+  border: 2px solid coral;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+p.selectable:hover {
+  letter-spacing: 1.25px;
+  color: white;
+  background-color: coral;
+}
+p.selectable:active {
+  letter-spacing: 1.25px;
+  color: white;
+  background-color: coral;
+}
+p.selectable:focus {
+  letter-spacing: 1.25px;
+  color: white;
+  background-color: coral;
 }
 
 h1{
   margin-bottom: 5vh;
 }
-
 p{
   margin-top: 2vh;
+  margin-left: auto;
+  margin-left: auto;
+}
+a{
+  margin-left: auto;
+  margin-left: auto;
 }
 
+.css-list{
+  border-radius: 20px;
+  background-color: white;
+  border: 2px solid coral;
+  width: 82.5%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.25s ease;
+}
+.top-list{
+  margin-top: 0px;
+  border-radius: 15px 15px 0px 0px;
+  border: 5px solid coral;
+  background-color: coral;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color:white;
+}
+.list-element{
+  margin-top: 0px;
+  letter-spacing: 1px;
+  color:coral;
+  text-align: center;
+}
+.list-element:hover{
+  letter-spacing: 1.25px;
+}
+.list-element:active{
+  letter-spacing: 1.25px;
+}
+.list-element:focus{
+  letter-spacing: 1.25px;
+}
 
 
 

@@ -7,7 +7,7 @@
 
   <a [routerLink]="['/Basics']" class="selectable">
       <p class="selectable">
-        Möchtest du ein paar Basics Lernen ?
+        Möchtest du ein paar Basics Lernen?
       </p>
   </a>
 
@@ -33,16 +33,12 @@
 </a>
 
 
-
-  <p class="selectable">
-  Die Letzten hinzugefügten Kartensätze:
-</p>
-
-  <a [routerLink]="['/lastCard']" >
-    <p class="response"> {{lastCardName}}
-    </p>
-  </a>
-
+<div class="css-list">
+<p class="top-list">Die Letzten hinzugefügten Kartensätze:</p>
+<a [routerLink]="['/lastCard']" >
+<p class="response list-element">{{lastCardName}}</p>
+</a>
+</div>
 
 <a [routerLink]="['/FlashcardCreator']">
   <p class="selectable">Erstell ein paar neue Karten
