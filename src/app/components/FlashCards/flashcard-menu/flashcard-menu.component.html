@@ -27,7 +27,7 @@
 
 
     <div class="innerContainer" *ngFor="let exercises of items.exercises">
-      <p class="leftText" > {{exercises}}</p>
+      <a class="leftText" [routerLink]="['/Flashcard']" > {{exercises}}</a>
     </div>
 
   </div>

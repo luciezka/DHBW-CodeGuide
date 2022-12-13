@@ -51,10 +51,7 @@ import {environment} from "../environments/environment";
       {path:'Account',component:UserAccountComponent},
       {path:'Login',component:LoginScreenComponent}
     ]),
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      registrationStrategy: 'registerImmediately',
-    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
