@@ -12,4 +12,7 @@ export class TestingScreenComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submitTest(input: number) {
+
+  }
 }
