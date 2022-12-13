@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "exmatrikulator": {
+      "hosting": {
+        "Exmatrikulator": [
+          "exmatrikulator"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "exmatrikulator"
+  }
+}

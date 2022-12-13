@@ -3,7 +3,7 @@
 .container{
   display: flex;
   margin-top: 5vh;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .innerContainer{

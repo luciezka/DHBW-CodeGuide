@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FlashcardTaskService} from "../../../services/flashcard-task.service";
+import {FlashCard} from "../../../models/flash-card.model";
+import {firstValueFrom, observable} from "rxjs";
 
 @Component({
   selector: 'app-flashcard-menu',
@@ -7,32 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlashcardMenuComponent implements OnInit {
 
-  constructor() { }
+  topics!: any[];
 
-  ngOnInit(): void {
+  flashCardData!: FlashCard[];
+
+  constructor(private flashcardService: FlashcardTaskService) {
   }
 
-  testTest: testSubjet[] =
-    [
-      {name: "Variables", description: "This is a test", exercises: ["Integer", "Strings", "Booleans"], id: 1,completion: 80,downloaded: false},
-      {name: "Test 3", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-      {name: "Test 4", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-      {name: "Test 5", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-      {name: "Test 6", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-      {name: "Test 7", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-    ]
+  ngOnInit(): void {
+    //Subscribe to the available data in Service
+    this.flashcardService.getFlashcards().subscribe(async data => {
+      this.flashCardData = data;
+    }, error => {
+      console.log(error);
+    }, () => {
+    });
+
+  }
 
 
+async getAllTopics() {
+  try {
+    await this.flashCardData.forEach((flashcard) => {
+      if (!this.topics.includes(flashcard.topic)) {
+        this.topics.push(flashcard.topic);
+      }
+    });
+  } catch {
+    console.log("No flashcards available");
+  }
 }
 
 
-class testSubjet {
-  name!: string;
-  description!: string;
-  exercises!: string[];
-  id!: number
-  completion!: number;
-  downloaded!: boolean;
+
+
+
+
 }
 
 

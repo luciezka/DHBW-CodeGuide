@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {FlashcardComponent} from "../../FlashCards/flashcard/flashcard.component";
+import {FlashcardTaskService} from "../../../services/flashcard-task.service";
 
 @Component({
   selector: 'app-test-menu',
@@ -26,10 +27,14 @@ export class TestMenuComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor( private databaseService : FlashcardTaskService ) { }
 
   ngOnInit(): void {
+
   }
+
+
+
 
 }
 
