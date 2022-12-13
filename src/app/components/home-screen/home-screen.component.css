@@ -4,7 +4,6 @@
   }
 }
 
-
 @media (pointer:none), (pointer:coarse){
   .desktop {
     display: none;
@@ -16,14 +15,21 @@
     align-items: center;
     margin-top: 5vh;
   }
+  .css-list{
+    margin-top: 10px;
+    background: linear-gradient(to bottom, coral 40px, transparent 40px);
+  }
+  .top-list{
+    margin-bottom: 10px;
+  }
 }
 
-.response{
+/*.response{
   margin-top: 2vh;
   margin-left: 1vh;
   padding: 1vh;
+}*/
 
-}
 p.selectable{
   padding-bottom: 1vh;
   padding-top: 1vh;
@@ -39,17 +45,9 @@ p.selectable{
   margin-right: auto;
   padding: 10px;
 }
-p.selectable:hover {
-  letter-spacing: 1.25px;
-  color: white;
-  background-color: coral;
-}
-p.selectable:active {
-  letter-spacing: 1.25px;
-  color: white;
-  background-color: coral;
-}
-p.selectable:focus {
+p.selectable:hover,
+p.selectable:active,
+p.selectable:focus{
   letter-spacing: 1.25px;
   color: white;
   background-color: coral;
@@ -58,47 +56,43 @@ p.selectable:focus {
 h1{
   margin-bottom: 5vh;
 }
+
 p{
   margin-top: 2vh;
   margin-left: auto;
   margin-left: auto;
 }
-a{
+
+/*a{
   margin-left: auto;
   margin-left: auto;
-}
+}*/
 
 .css-list{
   border-radius: 20px;
-  background-color: white;
-  border: 2px solid coral;
+  background: linear-gradient(to bottom, coral calc(2.5vh + 10px), transparent calc(2.5vh + 10px));
+  border: 2px solid #ff7f50;
   width: 82.5%;
   margin-left: auto;
   margin-right: auto;
   transition: all 0.25s ease;
+  overflow: hidden;
 }
 .top-list{
   margin-top: 0px;
-  border-radius: 15px 15px 0px 0px;
-  border: 5px solid coral;
-  background-color: coral;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
   text-align: center;
   color:white;
 }
 .list-element{
-  margin-top: 0px;
+  margin-top: 2.5px;
+  padding: 5px;
   letter-spacing: 1px;
   color:coral;
   text-align: center;
 }
-.list-element:hover{
-  letter-spacing: 1.25px;
-}
-.list-element:active{
-  letter-spacing: 1.25px;
-}
+.list-element:hover,
+.list-element:active,
 .list-element:focus{
   letter-spacing: 1.25px;
 }
