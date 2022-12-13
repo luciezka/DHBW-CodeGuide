@@ -17,6 +17,7 @@ import { FlashcardMenuComponent } from './components/FlashCards/flashcard-menu/f
 import { FlashcardCreatorComponent } from './components/FlashCards/flashcard-creator/flashcard-creator.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {environment} from "../environments/environment";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -38,20 +39,20 @@ import {environment} from "../environments/environment";
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path:'',component:HomeScreenComponent},
+      {path: '', component: HomeScreenComponent},
 
-      {path:'Flashcard',component:FlashcardComponent},
-
-      {path:'FlashcardMenu',component:FlashcardMenuComponent},
-      {path:'FlashcardCreator',component:FlashcardCreatorComponent},
-      {path:'TestingScreen',component:TestingScreenComponent},
-      {path:'Test',component:TestMenuComponent},
-      {path:'NoCode',component:NoCodeComponent},
-      {path:'Basics',component:BasicInformationComponent},
-      {path:'Account',component:UserAccountComponent},
-      {path:'Login',component:LoginScreenComponent}
+      {path: 'Flashcard', component: FlashcardComponent},
+      {path: 'FlashcardMenu', component: FlashcardMenuComponent},
+      {path: 'FlashcardCreator', component: FlashcardCreatorComponent},
+      {path: 'TestingScreen', component: TestingScreenComponent},
+      {path: 'TestMenu', component: TestMenuComponent},
+      {path: 'NoCode', component: NoCodeComponent},
+      {path: 'Basics', component: BasicInformationComponent},
+      {path: 'Account', component: UserAccountComponent},
+      {path: 'Login', component: LoginScreenComponent}
     ]),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

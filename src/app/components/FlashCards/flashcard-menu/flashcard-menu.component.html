@@ -1,3 +1,6 @@
+<div class="container centerTheText">
+  <h1> Flashcards</h1>
+</div>
 
 <div style="padding-bottom: 10vh;">
   <div class="container" *ngFor="let items of testTest ">
@@ -8,12 +11,12 @@
 
 
       <ng-container *ngIf="items.downloaded; else notDownloaded">
-        <span class="material-icons md-72">download_done</span>
+        <img style="" src="assets/icons/svg/downloadDone.svg">
       </ng-container>
 
 
       <ng-template #notDownloaded>
-        <span class="material-icons md-72">download</span>
+        <img style="" src="assets/icons/svg/download.svg">
       </ng-template>
     </div>
 
