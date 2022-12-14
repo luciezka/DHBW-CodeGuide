@@ -1,35 +1,8 @@
-@media (pointer:fine) {
-  .mobile {
-    display: none;
-  }
-}
-
-@media (pointer:none), (pointer:coarse){
-  .desktop {
-    display: none;
-  }
-  .container{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    margin-top: 5vh;
-  }
-  .css-list{
-    margin-top: 10px;
-    background: linear-gradient(to bottom, coral 40px, transparent 40px);
-  }
-  .top-list{
-    margin-bottom: 10px;
-  }
-}
-
 /*.response{
   margin-top: 2vh;
   margin-left: 1vh;
   padding: 1vh;
 }*/
-
 p.selectable{
   padding-bottom: 1vh;
   padding-top: 1vh;
@@ -54,21 +27,26 @@ p.selectable:focus{
 }
 
 h1{
-  margin-bottom: 5vh;
+  margin-bottom: 2.5vh;
+  margin-top: 2.5vh;
+  text-align: center;
+  font-weight: 100;
+  font-family: 'Montserrat';
 }
 
 p{
-  margin-top: 2vh;
+  margin-top: 10px;
   margin-left: auto;
   margin-left: auto;
+  font-family: 'Montserrat';
 }
 
-/*a{
-  margin-left: auto;
-  margin-left: auto;
-}*/
+a{
+  font-family: 'Montserrat Light';
+}
 
 .css-list{
+  margin-top: 10px;
   border-radius: 20px;
   background: linear-gradient(to bottom, coral calc(2.5vh + 10px), transparent calc(2.5vh + 10px));
   border: 2px solid #ff7f50;
@@ -88,13 +66,39 @@ p{
   margin-top: 2.5px;
   padding: 5px;
   letter-spacing: 1px;
-  color:coral;
+  color:rgb(255, 127, 80);
   text-align: center;
 }
 .list-element:hover,
 .list-element:active,
 .list-element:focus{
   letter-spacing: 1.25px;
+}
+
+@media (pointer:fine) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media (pointer:none), (pointer:coarse){
+  .desktop {
+    display: none;
+  }
+  .container{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin-top: 5vh;
+  }
+  .css-list{
+    width: 80%;
+    background: linear-gradient(to bottom, coral 6.5vh, transparent 6.5vh);
+  }
+  .top-list{
+    margin-bottom: 0px;
+  }
 }
 
 

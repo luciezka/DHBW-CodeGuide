@@ -24,6 +24,7 @@ export class FlashcardTaskService {
       return changes.map(a  => {
         const data = a.payload.doc.data() as FlashCard;
         data.id = a.payload.doc.id;
+        console.log(data);
         return data;
       })
     }));

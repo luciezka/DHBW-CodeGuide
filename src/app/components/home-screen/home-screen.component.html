@@ -20,24 +20,36 @@
 
   <!-- Add Routing -->
 
-      <p class="response">
-        Zuletzt gelernt: 0
-      </p>
-
-
-
 <a [routerLink]="['/TestMenu']">
       <p class="selectable mobile">
-       Dein Testergebnis ist bei {{testResultPrecentage}} %
+       Dein Testergebnis ist bei {{testResultPrecentage}}%
       </p>
 </a>
 
 
 <div class="css-list">
-<p class="top-list">Die Letzten hinzugefügten Kartensätze:</p>
-<a [routerLink]="['/lastCard']" >
-<p class="response list-element">{{lastCardName}}</p>
-</a>
+  <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
+  <a [routerLink]="['/lastCard']" >
+    <p class="response list-element">{{lastCardName}}</p>
+  </a>
+  <a [routerLink]="['/lastCard']" >
+    <p class="response list-element">{{lastCardName}}</p>
+  </a>
+  <a [routerLink]="['/lastCard']" >
+    <p class="response list-element">{{lastCardName}}</p>
+  </a>
+  <a [routerLink]="['/lastCard']" >
+    <p class="response list-element">{{lastCardName}}</p>
+  </a>
+  <a [routerLink]="['/lastCard']" >
+    <p class="response list-element">{{lastCardName}}</p>
+  </a>
+  <a [routerLink]="['/lastCard']" >
+    <p class="response list-element">{{lastCardName}}</p>
+  </a>
+  <a [routerLink]="['/lastCard']" >
+    <p class="response list-element">{{lastCardName}}</p>
+  </a>
 </div>
 
 <a [routerLink]="['/FlashcardCreator']">
