@@ -1,37 +1,51 @@
-<div class="container centerTheText">
+<div>
   <h1> Tests</h1>
 </div>
-<div style="padding-bottom: 10vh;">
-<div class="container" *ngFor="let items of testTest ">
 
-      <div class="centerTheText spaceLeftSmall">
+<div *ngFor="let items of testCardData ;index as i;">
 
-        <h1>{{items.name}}</h1>
-
-
-        <ng-container *ngIf="items.downloaded; else notDownloaded">
-          <img style="" src="assets/icons/svg/downloadDone.svg">
-        </ng-container>
-
-
-        <ng-template #notDownloaded>
-          <img style="" src="assets/icons/svg/download.svg">
-        </ng-template>
-      </div>
-
-
-      <div class="centerTheText">
-        <p >{{items.completion}}%</p>
-      </div>
+  <div>
+    <div *ngIf=" i== 0 ||  items.topic != testCardData[i-1].topic">
+      <h1>{{items.topic}}</h1>
+    </div>
+    <a (click)="routeToTestCard(items)">{{items.name}}</a>
 
 
 
 
 
-  <div class="innerContainer" *ngFor="let exercises of items.exercises">
-    <a [routerLink]="['/TestingScreen']" class="leftText" > {{exercises}}</a>
+
+    <!--    DOWNLOADABLE CONTENT
+
+     <ng-container *ngIf="items.downloaded; else notDownloaded">
+           <img style="" src="assets/icons/svg/downloadDone.svg">
+         </ng-container>
+
+
+         <ng-template #notDownloaded>
+           <img style="" src="assets/icons/svg/download.svg">
+         </ng-template>
+       </div>
+
+
+       <div class="centerTheText">
+         <p >{{items.completion}}%</p>
+       </div>
+
+
+
+
+
+       <div class="innerContainer" *ngFor="let exercises of items.exercises">
+         <a class="leftText" [routerLink]="['/Flashcard']" > {{exercises}}</a>
+       </div>
+
+     </div>
+   -->
+
+
+
   </div>
-
 </div>
 
-</div>
+

@@ -1,5 +1,5 @@
 
-export class FlashCard {
+export class FlashCardModel {
   id?: any;
   topic?: string
   name? : string;

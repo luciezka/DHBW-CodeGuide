@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import {WebRequestService} from "./web-request.service";
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
 import {map, Observable} from "rxjs";
-import {FlashCard} from "../models/flash-card.model";
+import {FlashCardModel} from "../models/flash-card.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlashcardTaskService {
 
-  flashcardCollection! : AngularFirestoreCollection<FlashCard>
-  flashcards!: Observable<FlashCard[]>
+  flashcardCollection! : AngularFirestoreCollection<FlashCardModel>
+  flashcards!: Observable<FlashCardModel[]>
 
   constructor(private fireStore : AngularFirestore) {
 
@@ -22,7 +22,7 @@ export class FlashcardTaskService {
     this.flashcards = this.flashcardCollection.snapshotChanges().pipe(map((changes) => {
       // @ts-ignore
       return changes.map(a  => {
-        const data = a.payload.doc.data() as FlashCard;
+        const data = a.payload.doc.data() as FlashCardModel;
         data.id = a.payload.doc.id;
         return data;
       })

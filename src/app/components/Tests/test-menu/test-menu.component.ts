@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FlashcardComponent} from "../../FlashCards/flashcard/flashcard.component";
 import {FlashcardTaskService} from "../../../services/flashcard-task.service";
+import {Router} from "@angular/router";
+import {TestCardModel} from "../../../models/testCard.model";
+import {TestTastService} from "../../../services/test-tast.service";
 
 @Component({
   selector: 'app-test-menu',
@@ -11,28 +14,24 @@ import {FlashcardTaskService} from "../../../services/flashcard-task.service";
 
 export class TestMenuComponent implements OnInit {
 
+  testCardData!: TestCardModel[];
 
 
-
-  testTest: testSubjet[] =
-    [
-      {name: "Variables", description: "This is a test", exercises: ["Integer", "Strings", "Booleans"], id: 1,completion: 80,downloaded: false},
-      {name: "Test 3", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-      {name: "Test 4", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-      {name: "Test 5", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-      {name: "Test 6", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-      {name: "Test 7", description: "This is a test", exercises: ["Exercise 1", "Exercise 2", "Exercise 3"], id: 1,completion: 10,downloaded: true},
-    ]
-
-
-
-
-  constructor( private databaseService : FlashcardTaskService ) { }
+  constructor( private testcardservice : TestTastService, private _router:Router) { }
 
   ngOnInit(): void {
-
+    //Subscribe to the available data in Service
+    this.testcardservice.getTestCard().subscribe(async data => {
+      this.testCardData = data;
+    }, error => {
+    }, () => {
+    });
   }
 
+  routeToTestCard(testcard: TestCardModel) {
+    // bring the info the the route
+    this._router.navigate(['/TestingScreen'], { queryParams: testcard });
+  }
 
 
 

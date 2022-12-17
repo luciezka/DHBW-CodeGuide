@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FlashcardTaskService} from "../../../services/flashcard-task.service";
-import {FlashCard} from "../../../models/flash-card.model";
+import {FlashCardModel} from "../../../models/flash-card.model";
 import {ActivatedRoute} from "@angular/router";
 import {map, Observable} from "rxjs";
 

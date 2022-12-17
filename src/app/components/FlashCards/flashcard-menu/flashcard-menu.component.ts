@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FlashcardTaskService} from "../../../services/flashcard-task.service";
-import {FlashCard} from "../../../models/flash-card.model";
+import {FlashCardModel} from "../../../models/flash-card.model";
 import {Router,ActivatedRoute,ParamMap} from "@angular/router";
 import {state} from "@angular/animations";
 
@@ -12,13 +12,11 @@ import {state} from "@angular/animations";
 })
 export class FlashcardMenuComponent implements OnInit {
 
-  topics!: any[];
 
-  flashCardData!: FlashCard[];
+  flashCardData!: FlashCardModel[];
 
   constructor(private flashcardService: FlashcardTaskService,private _router: Router) {
-    this.topics = [];
-    this.getAllTopics();
+
   }
 
 
@@ -33,21 +31,7 @@ export class FlashcardMenuComponent implements OnInit {
   }
 
 
-async getAllTopics() {
-  try {
-    await this.flashCardData.forEach((flashcard) => {
-      if (!this.topics.includes(flashcard.topic)) {
-        this.topics.push(flashcard.topic);
-      }
-    });
-  } catch {
-    console.log("getting topics...");
-  }
-
-
-}
-
-  routeToFlashcard(flashcard: FlashCard) {
+  routeToFlashcard(flashcard: FlashCardModel) {
     // bring the info the the route
     this._router.navigate(['/Flashcard'], { queryParams: flashcard });
   }
