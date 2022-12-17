@@ -2,10 +2,10 @@
 <div class="container">
   <div class="flashcard" [ngClass]="{'flipped': isFlipped}">
     <div class="flashcard-face flashcard-face--front" (click)="isFlipped = !isFlipped">
-        {{flashCardData[0].basetext}}
+        {{flashCardData.basetext}}
     </div>
     <div class="flashcard-face flashcard-face--back" (click)="isFlipped = !isFlipped">
-      {{flashCardData[0].fliptext}}
+      {{flashCardData.fliptext}}
     </div>
   </div>
 </div>

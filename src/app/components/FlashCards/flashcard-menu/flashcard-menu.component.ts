@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FlashcardTaskService} from "../../../services/flashcard-task.service";
 import {FlashCard} from "../../../models/flash-card.model";
-import {firstValueFrom, observable} from "rxjs";
+import {Router,ActivatedRoute,ParamMap} from "@angular/router";
+import {state} from "@angular/animations";
+
 
 @Component({
   selector: 'app-flashcard-menu',
@@ -14,15 +16,17 @@ export class FlashcardMenuComponent implements OnInit {
 
   flashCardData!: FlashCard[];
 
-  constructor(private flashcardService: FlashcardTaskService) {
+  constructor(private flashcardService: FlashcardTaskService,private _router: Router) {
+    this.topics = [];
+    this.getAllTopics();
   }
+
 
   ngOnInit(): void {
     //Subscribe to the available data in Service
     this.flashcardService.getFlashcards().subscribe(async data => {
       this.flashCardData = data;
     }, error => {
-      console.log(error);
     }, () => {
     });
 
@@ -37,11 +41,16 @@ async getAllTopics() {
       }
     });
   } catch {
-    console.log("No flashcards available");
+    console.log("getting topics...");
   }
+
+
 }
 
-
+  routeToFlashcard(flashcard: FlashCard) {
+    // bring the info the the route
+    this._router.navigate(['/Flashcard'], { queryParams: flashcard });
+  }
 
 
 
