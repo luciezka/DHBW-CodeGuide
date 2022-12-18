@@ -11,5 +11,11 @@ export class NoCodeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  public isTextVisible = [false,false];
+  reduceText(position: number) {
+    this.isTextVisible[position] = !this.isTextVisible[position] ;
+  }
+
+
 
 }

@@ -30,11 +30,8 @@ export class TestMenuComponent implements OnInit {
 
   routeToTestCard(testcard: TestCardModel) {
     // bring the info the the route
-    this._router.navigate(['/TestingScreen'], { queryParams: testcard });
+    this._router.navigate(['/Testcard'], { queryParams: testcard });
   }
-
-
-
 }
 
 
