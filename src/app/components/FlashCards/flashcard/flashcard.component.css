@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 5vh;
-  perspective: 1000px;
+  perspective: 10000px;
 }
 
 .flashcard {
