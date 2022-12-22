@@ -1,10 +1,56 @@
+
+<!--   Einleitung         -->
+
 <h1 (click)="reduceText(0)" style="cursor: pointer">Was ist no Code?</h1>
 <span *ngIf="isTextVisible[0]">
+  <p>Bevor wir in die tatsächliche Programmierung einsteigen, wollen wir einen Ausblick in die No-Code Umgebung wagen</p>
 <p>wie der Name schon sagt wird keine bzw. kaum tatsächlicher Code in einer Programmiersprache geschrieben.</p>
-<p>Die Programmierung erfolgt vielmehr über eine grafische Benutzeroberfläche, oft in einer Art Blockstil, bei der Drag n‘ Drop Artig Bausteine eingesetzt werden. </p><br>
+<p>Die Programmierung erfolgt vielmehr über eine grafische Benutzeroberfläche, oft in einer Art Blockstil, bei der Drag n‘ Drop Artig Bausteine eingesetzt werden. </p>
+  <p>hier wurde mithilfe von <a href="https://developers.google.com/blockly/" target="_blank"> Blocky </a> ein Baustein geschrieben mit dem "Hello World" in die Console geschrieben wird </p>
+  <p>an der Seite ist der Zusammengesetzte Code in einer Programiersprache representiert, hierbei die Sprache Python</p>
+  <u>Zukünftig werden Aufgaben in Blocky und MakeCode bearbeitet</u>
+  <br>
 <img src="assets/studienArbeit/NoCodeExample.png">
+
+
+
 </span>
 <h1 (click)="reduceText(1)" style="cursor:pointer">Das erste Projekt</h1>
 <span *ngIf="isTextVisible[1]">
-<p>Für das Folgende Projekt wurde auf der Webseite </p> <a>https://arcade.makecode.com/</a> <p> erstellt</p>
+<p>Das Folgende Projekt wurde auf der Webseite  <a href="https://arcade.makecode.com/" target="_blank"> MakeCode </a> erstellt</p>
+<p>Das neu erstellte Projekt wird in einem Fenster dargestelt das links dem Game Boy ähnelt und rechts, eine Entwicklungsoberfläche bereitstellt</p>
+  <p>worin der Entwickelte Code zusammen gebaut werden kann </p>
+  <p>Der Startblock ist standardmäßig und wird benötigt um den Code auszuführen.</p>
+  <img src="assets/studienArbeit/firstStep.png">
 </span>
+
+
+
+ <!--   AUFGABE 1        -->
+<h1 (click)="reduceText(2)" style="cursor:pointer">Aufgabe 1</h1>
+<span *ngIf="isTextVisible[2]">
+ <p>1. geben sie mit Hilfe eines weiteren Blocks Hello World auf dem Bildschirm der <a href="https://arcade.makecode.com/" target="_blank"> MakeCode </a> Konsole aus.<br> Schauen sie sich den Python-Code an und</p>
+ <p>2. stellen Sie eine Überlegung an weshalb der Code so unterschiedlich ist zum Beispiel mit <a href="https://developers.google.com/blockly/" target="_blank"> Blocky </a>.</p>
+ <small>Tipps: Die Kategorie Text ist nicht vorhanden. Eine Textausgabe ist analog zu einer Spielhandlung</small>
+  <h1 (click)="reduceText(3)" style="cursor:pointer">Lösung Aufgabe 1</h1>
+<span *ngIf="isTextVisible[3]">
+<p>1.</p><img src="assets/studienArbeit/loesungA1.png">
+  <br>
+  <p>2.<br>
+    game.show_long_text("Hello World", DialogLayout.BOTTOM)</p>
+  <br>
+   <p> a. komplexer Ausblick in die Zukunft. Wir befinden uns hier nicht in einer Standard Python Umgebung,</p>
+   <p>   wie beispielsweise dem Terminal. Die Darstellung soll auf der simulierten Arcade Konsole stattfinden.</p>
+   <p>   Deshalb wird hier die Funktion zur Textausgabe des Games</p>
+</span>
+</span>
+
+
+
+<!--   Variablen und Arrays       -->
+<h1 (click)="reduceText(4)" style="cursor:pointer">Variablen und Arrays</h1>
+<span *ngIf="isTextVisible[4]">
+
+
+
+  </span>
