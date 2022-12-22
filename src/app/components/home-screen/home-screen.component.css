@@ -7,8 +7,8 @@ p.selectable{
   padding-bottom: 1vh;
   padding-top: 1vh;
   border-radius: 40px;
-  color: coral;
-  border: 2px solid coral;
+  color: #E2001A;
+  border: 2px solid #E2001A;
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -23,7 +23,7 @@ p.selectable:active,
 p.selectable:focus{
   letter-spacing: 1.25px;
   color: white;
-  background-color: coral;
+  background-color: #E2001A;
 }
 
 h1{
@@ -48,8 +48,8 @@ a{
 .css-list{
   margin-top: 10px;
   border-radius: 20px;
-  background: linear-gradient(to bottom, coral calc(2.5vh + 10px), transparent calc(2.5vh + 10px));
-  border: 2px solid #ff7f50;
+  background: linear-gradient(to bottom, #E2001A calc(2.5vh + 10px), transparent calc(2.5vh + 10px));
+  border: 2px solid #E2001A;
   width: 82.5%;
   margin-left: auto;
   margin-right: auto;
@@ -94,7 +94,7 @@ a{
   }
   .css-list{
     width: 80%;
-    background: linear-gradient(to bottom, coral 6.5vh, transparent 6.5vh);
+    background: linear-gradient(to bottom, #E2001A 6.5vh, transparent 6.5vh);
   }
   .top-list{
     margin-bottom: 0px;
