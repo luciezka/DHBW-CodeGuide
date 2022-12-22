@@ -29,8 +29,9 @@
  <!--   AUFGABE 1        -->
 <h1 (click)="reduceText(2)" style="cursor:pointer">Aufgabe 1</h1>
 <span *ngIf="isTextVisible[2]">
- <p>1. geben sie mit Hilfe eines weiteren Blocks Hello World auf dem Bildschirm der <a href="https://arcade.makecode.com/" target="_blank"> MakeCode </a> Konsole aus.<br> Schauen sie sich den Python-Code an und</p>
- <p>2. stellen Sie eine Überlegung an weshalb der Code so unterschiedlich ist zum Beispiel mit <a href="https://developers.google.com/blockly/" target="_blank"> Blocky </a>.</p>
+ <p>1. Gebe mit Hilfe eines weiteren Blocks Hello World auf dem Bildschirm der <a href="https://arcade.makecode.com/" target="_blank"> MakeCode </a> Konsole aus.<br>
+   Betrachte den Python-Code an und</p>
+ <p>2. Stellen eine Überlegung an weshalb der Code so unterschiedlich ist, zum Beispiel mit <a href="https://developers.google.com/blockly/" target="_blank"> Blocky </a>.</p>
  <small>Tipps: Die Kategorie Text ist nicht vorhanden. Eine Textausgabe ist analog zu einer Spielhandlung</small>
   <h1 (click)="reduceText(3)" style="cursor:pointer">Lösung Aufgabe 1</h1>
 <span *ngIf="isTextVisible[3]">
@@ -45,12 +46,70 @@
 </span>
 </span>
 
-
-
 <!--   Variablen und Arrays       -->
 <h1 (click)="reduceText(4)" style="cursor:pointer">Variablen und Arrays</h1>
 <span *ngIf="isTextVisible[4]">
+  <p>Betrachten wir in <a href="https://developers.google.com/blockly/" target="_blank"> Blocky </a> die Leiste Variables, ist es möglich Variablen zu erstellen die im Code verwendet werden können.</p>
+  <p>Variablen können im Laufe des Codes verändert werden und Speichern verschiedene Arten von Daten.</p>
+  <p>In diesem Blocky beispiel sind die Variablen Namens: number , string und shoppingCart zu sehen.</p>
+  <p>Der Generierte Code ist in JavaScript, wie auch Python sind diese beiden Sprachen "loosely typed"</p>
+  <p>Eine andere beliebte Sprache ist Java, diese hat feste werte und hierbei wäre number vom Typen Int,</p>
+  <p>diese bestehen nur aus ganzen Zahlen, für Fließkommazahlen wäre ein float Datentyp der richtige.</p>
+  <p>Die Variable String währe hier vom Typen String.</p>
+  <img src="assets/studienArbeit/variables.png">
+  <p>Die Komlpexität der Variablen kann anhand von Listen oder auch sogennanten Arrays Steigen, diese können eine Liste von Variablen beinhalten.</p>
+  <p>Die Liste shoppingCart zeigt hierbei zwei Einträge mit Cheese und Tomato.</p>
+  <p>Die Variablen können anhand deren Namen im Verlaufe des Codes Aufgerufen werden.</p>
+  </span>
 
 
+<!--   Aufgabe 2       -->
+<h1 (click)="reduceText(5)" style="cursor:pointer">Aufgabe 2</h1>
+<span *ngIf="isTextVisible[5]">
+ <p>1. Erstelle in MakeCode oder Blocky drei Text-Variablen und geben diese in der Console aus.</p>
+   <small>Tipps: die Funtion print kann dabei helfen und ist in Blocky unter Text zu finden</small>
+ <p>2. Definiere  weitere Variablen und experimentiere mit den verschiedenen Werten.</p>
+ <small>Hierbei gibt es bei Blocky Strings, Integers, Floats, Booleans wie auch Colors</small>
+  <h1 (click)="reduceText(6)" style="cursor:pointer">Lösung Aufgabe 2</h1>
+<span *ngIf="isTextVisible[6]">
+<p>1.</p><img src="assets/studienArbeit/loesungA2.png">
+</span>
+</span>
 
+<!--   Arrays und Objekte       -->
+<h1 (click)="reduceText(7)" style="cursor:pointer">Vertiefung Arrays und Objekte</h1>
+<span *ngIf="isTextVisible[7]">
+  <p>In der Vorherigen Lektion wurden Strings als Variablen betietelt, jedoch sind diese Komplexer als primitive Variablen wie Integers und Booleans.</p>
+  <p>Strings sind eigentlich Objekte und bestehen aus eine Kette aus Chars, welche aus nur einem Character bestehen (z.B. "E")</p>
+  <p>Somit sind Strings keine primitiven Variablen sondern Objekte, Objekte können aus mehreren primitiven Variablen bestehen, jedoch wird dies Bereits komplexer als für diese Lektion Vorgesehen.</p>
+  <p>Betrachten wir die Definierten Arrays sind diese Eindimensional, und beinhalten viele Einträge unter einem Namen.</p>
+  <p>Möchte mann nur eine der gespeicherten Werte abrufen so nutzt man den Index, in dem Vorherigen Beispiel wäre im Index shoppingCart[2] </p>
+  <p>die Tomate hinterlegt da Blocky Arrays mit 1 beginnen. Zubeachten ist hierbei das Arrays gewöhnlich von 0 beginnen, in sprachen wie LUA beginnen diese jedoch mit 1.</p>
+  <p>Arrays können in der Entwicklung mehr Dimensional sein, desto mehr Dimensionen, desto Komplexer werden die Listen</p>
+  </span>
+
+<!--   Aufgabe 3       -->
+<h1 (click)="reduceText(8)" style="cursor:pointer">Aufgabe 3</h1>
+<span *ngIf="isTextVisible[8]">
+ <p>1. Erstelle in Blocky einen Array und gebe den Wert in Position 2 in der Konsole aus.</p>
+   <p>2. Schreibe in die Position 2 einen neuen Wert rein.</p>
+  <h1 (click)="reduceText(9)" style="cursor:pointer">Lösung Aufgabe 3</h1>
+<span *ngIf="isTextVisible[9]">
+<p>1 und 2</p><img src="assets/studienArbeit/loesungA3.png">
+</span>
+</span>
+
+<!--   Arrays und Objekte       -->
+<h1 (click)="reduceText(10)" style="cursor:pointer">Schleifen und Funktionen</h1>
+<span *ngIf="isTextVisible[10]">
+ <p>Schleifen ermöglichen es mehrere Iterationen einer Ausführung zu wiederholen.</p>
+  <p>Sie werden sehr oft in Verbindung mit Schleifen verwendet um durch alle Positionen einer Schleife zu Iterieren.</p>
+  <img src="assets/studienArbeit/loops.png">
+   <p>Hier wurden alle Angaben im ShoppingCart mit den Zahlen 1 bis 3 ersetzt</p>
+  <br>
+  <p>Der Gesamte Block in Blocky könnte als eine Funktion Definiert werden. Funktionen können im Code Aufgerufen werden </p>
+  <p>und Beispielsweise auch innerhalb einer Schleife mehrfach ausgeführt werden.</p>
+  <br>
+  <p>Die Welt der Informatik bietet noch sehr viel weiteres zu lernen und hiermit Endet der Einblick in die NoCode Umgebung.</p>
+  <p>Weitere Code Beispiele können in den Flashcards betrachtet werden und wir wünschen noch viel Spaß beim Programmieren </p>
   </span>
