@@ -19,6 +19,28 @@
   }
 }
 
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: gray;
+}
+.hover-underline-animation::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: gray;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.hover-underline-animation:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -28,14 +50,14 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: coral;
+  background-color: #F7F9F9;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(253, 147, 109);
+  background-color: #F7F9F9;
 }
 
 @font-face {
@@ -81,5 +103,9 @@ p{
   font-size: 4vh;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body{ 
+  margin: 0; 
+  font-family: 'Montserrat';
+  background-color: #F7F9F9;
+}
 
