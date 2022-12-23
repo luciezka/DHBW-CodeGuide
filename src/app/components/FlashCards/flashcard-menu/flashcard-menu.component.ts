@@ -12,24 +12,24 @@ import {state} from "@angular/animations";
 })
 export class FlashcardMenuComponent implements OnInit {
 
-
-  flashCardData!: FlashCardModel[];
+  flashCardData!: any[];
 
   constructor(private flashcardService: FlashcardTaskService,private _router: Router) {
-
   }
-
 
   ngOnInit(): void {
-    //Subscribe to the available data in Service
-    this.flashcardService.getFlashcards().subscribe(async data => {
-      this.flashCardData = data;
-    }, error => {
-    }, () => {
-    });
-
+    if (!navigator.onLine) {
+      console.log("["+this.flashcardService.getFlashcardCache() +"]")
+     this.flashCardData = JSON.parse("["+this.flashcardService.getFlashcardCache() +"]");
+    }else {
+      //Subscribe to the available data in Service
+      this.flashcardService.getFlashcards().subscribe(async data => {
+        this.flashCardData = data;
+      }, error => {
+      }, () => {
+      });
+    }
   }
-
 
   routeToFlashcard(flashcard: FlashCardModel) {
     // bring the info the the route
