@@ -27,7 +27,7 @@ export class TestTaskService {
     this.flashcardCollection = this.fireStore.collection('tests', ref => ref.orderBy('topic', 'desc'));
     // subscribeflashcards to an Observable and detect changes in the Dataset
     this.tests = this.flashcardCollection.snapshotChanges().pipe(map((changes) => {
-      // @ts-ignore 
+      // @ts-ignore
       return changes.map(a => {
         const data = a.payload.doc.data() as FlashCardModel;
         if (this.updates.isEnabled && navigator.onLine) {
