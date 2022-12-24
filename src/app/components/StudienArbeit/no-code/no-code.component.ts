@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-no-code',
@@ -7,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoCodeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-  public isTextVisible = [false,false];
-  reduceText(position: number) {
-    this.isTextVisible[position] = !this.isTextVisible[position] ;
-  }
 
+  public isTextVisible = [false, false];
+
+  reduceText(position: number) {
+    this.isTextVisible[position] = !this.isTextVisible[position];
+  }
 
 
 }

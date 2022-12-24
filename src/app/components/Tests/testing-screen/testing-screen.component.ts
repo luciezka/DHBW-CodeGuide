@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-testing-screen',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestingScreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activatedRoute: ActivatedRoute) {
+  }
+
+  testData!: any;
 
   ngOnInit(): void {
+    this.testData = this.activatedRoute.snapshot.queryParams;
   }
 
   submitTest(input: number) {

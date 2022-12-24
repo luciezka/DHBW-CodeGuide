@@ -1,50 +1,14 @@
 <div>
   <h1> Flashcards</h1>
 </div>
-  <div *ngFor="let items of flashCardData ;index as i;">
+<div *ngFor="let items of flashCardData ;index as i;">
 
-    <div>
-      <div *ngIf=" i== 0 ||  items.topic != flashCardData[i-1].topic">
-       <h1>{{items.topic}}</h1>
-      </div>
-       <a (click)="routeToFlashcard(items)">{{items.name}}</a>
-
-
-
-
-
-
- <!--    DOWNLOADABLE CONTENT
-
-  <ng-container *ngIf="items.downloaded; else notDownloaded">
-        <img style="" src="assets/icons/svg/downloadDone.svg">
-      </ng-container>
-
-
-      <ng-template #notDownloaded>
-        <img style="" src="assets/icons/svg/download.svg">
-      </ng-template>
+  <div>
+    <div *ngIf=" i== 0 ||  items.topic != flashCardData[i-1].topic">
+      <h1>{{items.topic}}</h1>
     </div>
-
-
-    <div class="centerTheText">
-      <p >{{items.completion}}%</p>
-    </div>
-
-
-
-
-
-    <div class="innerContainer" *ngFor="let exercises of items.exercises">
-      <a class="leftText" [routerLink]="['/Flashcard']" > {{exercises}}</a>
-    </div>
-
+    <a (click)="routeToFlashcard(items)">{{items.name}}</a>
   </div>
--->
-
-
-
 </div>
-  </div>
 
 

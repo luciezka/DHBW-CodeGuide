@@ -1,63 +1,61 @@
-
 <div class="container">
 
 
-<div>
-  <h1 style="align-content: center">Willkommen {{userName}}</h1>
+  <div>
+    <h1 style="align-content: center">Willkommen {{userName}}</h1>
 
-  <a [routerLink]="['/Basics']" class="selectable">
+    <a [routerLink]="['/Basics']" class="selectable">
       <p class="selectable">
         Möchtest du ein paar Basics Lernen?
       </p>
-  </a>
+    </a>
 
-  <a [routerLink]="['/FlashcardMenu']" >
+    <a [routerLink]="['/FlashcardMenu']">
       <p class="selectable">
         Lerne ein paar Karten!
       </p>
-  </a>
+    </a>
 
 
-  <!-- Add Routing -->
+    <!-- Add Routing -->
 
-<a [routerLink]="['/TestMenu']">
+    <a [routerLink]="['/TestMenu']">
       <p class="selectable mobile">
-       Dein Testergebnis ist bei {{testResultPrecentage}}%
+        Dein Testergebnis ist bei {{testResultPrecentage}}%
       </p>
-</a>
+    </a>
 
 
-<div class="css-list">
-  <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-</div>
+    <div class="css-list">
+      <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+    </div>
 
-<a [routerLink]="['/FlashcardCreator']">
-  <p class="selectable">Erstell ein paar neue Karten
-  </p>
-</a>
+    <a [routerLink]="['/FlashcardCreator']">
+      <p class="selectable">Erstell ein paar neue Karten
+      </p>
+    </a>
 
 
-
-</div>
+  </div>
 </div>
