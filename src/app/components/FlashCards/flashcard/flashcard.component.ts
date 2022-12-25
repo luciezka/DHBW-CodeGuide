@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FlashcardTaskService} from "../../../services/flashcard-task.service";
 import {FlashCardModel} from "../../../models/flash-card.model";
 import {ActivatedRoute} from "@angular/router";
@@ -13,16 +13,15 @@ export class FlashcardComponent implements OnInit {
 
 
   isFlipped = false;
-  flashCardData! :any;
+  flashCardData!: any;
 
-  constructor(public activatedRoute : ActivatedRoute) { }
+  constructor(public activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     // get the Information from route
-   this.flashCardData = this.activatedRoute.snapshot.queryParams;
+    this.flashCardData = this.activatedRoute.snapshot.queryParams;
   }
-
-
 
 
 }

@@ -23,6 +23,7 @@
         <p class="selectable">Lerne ein paar Karten!</p>
       </a>
 
+<<<<<<< HEAD
       <!-- Add Routing -->
 
       <a [routerLink]="['/TestMenu']">
@@ -62,3 +63,63 @@
     </div>
   </div>
 </div>
+=======
+  <div>
+    <h1 style="align-content: center">Willkommen {{userName}}</h1>
+
+    <a [routerLink]="['/NoCode']" class="selectable">
+      <p class="selectable">
+        Möchtest du NoCode Lernen?
+      </p>
+    </a>
+
+    <a [routerLink]="['/FlashcardMenu']">
+      <p class="selectable">
+        Lerne ein paar Karten!
+      </p>
+    </a>
+
+
+    <!-- Add Routing -->
+
+    <a [routerLink]="['/TestMenu']">
+      <p class="selectable mobile">
+        Dein Testergebnis ist bei {{testResultPrecentage}}%
+      </p>
+    </a>
+
+
+    <div class="css-list">
+      <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+      <a [routerLink]="['/lastCard']">
+        <p class="response list-element">{{lastCardName}}</p>
+      </a>
+    </div>
+
+    <a [routerLink]="['/FlashcardCreator']">
+      <p class="selectable">Erstell ein paar neue Karten
+      </p>
+    </a>
+
+
+  </div>
+</div>
+>>>>>>> ca9bf9f8144efc184979f1337cef50c37d5c6039

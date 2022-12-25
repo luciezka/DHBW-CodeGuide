@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home-screen',
@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeScreenComponent implements OnInit {
 
-  userName : string = "User Name";
-  testResultPrecentage : number = 80;
-  lastCardName : string = "Arrays and Positions";
+  userName: string = "User Name";
+  testResultPrecentage: number = 80;
+  lastCardName: string = "Arrays and Positions";
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

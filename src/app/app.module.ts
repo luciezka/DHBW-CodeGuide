@@ -9,20 +9,18 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
 import {RouterModule} from "@angular/router";
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
-import { BasicInformationComponent } from './components/StudienArbeit/basic-information/basic-information.component';
 import { TestMenuComponent } from './components/Tests/test-menu/test-menu.component';
 import { TestingScreenComponent } from './components/Tests/testing-screen/testing-screen.component';
 import { FlashcardMenuComponent } from './components/FlashCards/flashcard-menu/flashcard-menu.component';
 import { FlashcardCreatorComponent } from './components/FlashCards/flashcard-creator/flashcard-creator.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {environment} from "../environments/environment";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
-import { ProgrammingBasicsComponent } from './components/StudienArbeit/programming-basics/programming-basics.component';
-import { LearnToCodeComponent } from './components/StudienArbeit/learn-to-code/learn-to-code.component';
 import {NoCodeComponent} from "./components/StudienArbeit/no-code/no-code.component";
+import { FlashcardAdminMenuComponent } from './components/FlashCards/flashcard-admin-menu/flashcard-admin-menu.component';
 
 
 
@@ -35,14 +33,12 @@ import {NoCodeComponent} from "./components/StudienArbeit/no-code/no-code.compon
     TopBarComponent,
     BottomBarComponent,
     HomeScreenComponent,
-    BasicInformationComponent,
     TestMenuComponent,
     TestingScreenComponent,
     FlashcardMenuComponent,
     FlashcardCreatorComponent,
-    ProgrammingBasicsComponent,
-    LearnToCodeComponent,
-    NoCodeComponent
+    NoCodeComponent,
+    FlashcardAdminMenuComponent
 
   ],
   imports: [
@@ -53,22 +49,22 @@ import {NoCodeComponent} from "./components/StudienArbeit/no-code/no-code.compon
       {path: 'Flashcard', component: FlashcardComponent},
       {path: 'FlashcardMenu', component: FlashcardMenuComponent},
       {path: 'FlashcardCreator', component: FlashcardCreatorComponent},
+      {path: 'FlashcardAdminMenu', component: FlashcardAdminMenuComponent},
       {path: 'Testcard', component: TestingScreenComponent},
       {path: 'TestMenu', component: TestMenuComponent},
-      {path: 'Basics', component: BasicInformationComponent},
       {path: 'Account', component: UserAccountComponent},
       {path: 'Login', component: LoginScreenComponent},
       {path: 'NoCode', component: NoCodeComponent},
-      {path: 'ProgrammingBasics', component: ProgrammingBasicsComponent},
-      {path: 'LearnToCode', component: LearnToCodeComponent}
 
     ]),
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     ReactiveFormsModule,
-   // provideFirebaseApp(() => initializeApp(environment.firebase)),
-   // provideFirestore(() => getFirestore())
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideFirestore(() => getFirestore())
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // Only required for database features
+    AngularFirestoreModule,
+    FormsModule,
+    // Only required for database features
 
   ],
   providers: [],

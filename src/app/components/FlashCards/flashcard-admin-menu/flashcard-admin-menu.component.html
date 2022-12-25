@@ -1,0 +1,19 @@
+<div class="container">
+  <h1> Flashcards</h1>
+</div>
+
+<div  *ngFor="let items of flashCardData ;index as i;">
+  <div>
+
+    <div style="background: blueviolet" *ngIf=" i== 0 ||  items.topic != flashCardData[i-1].topic">
+      <h1 (click)="expandTopic(items.topic!)">{{items.topic}}</h1>
+    </div>
+
+    <div id="{{items.topic}}" style="display:none" >
+      <a (click)="routeToFlashcardCreator(items)">{{items.name}}  <img src="assets/icons/svg/edit.svg"></a>
+      <a style="float: right" (click)="deleteFlashcard(items.id)">DELETE</a>
+    </div>
+  </div>
+</div>
+
+

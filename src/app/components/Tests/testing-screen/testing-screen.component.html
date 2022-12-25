@@ -1,31 +1,45 @@
-<div class="container center-screen">
-<form>
-<h3>Question 1</h3>
-<p>Welche dieser Variablen ist ein INT?</p>
-<label>
-  <input type="checkbox" name="answer0" value="0" />
-  12
-</label><br />
-<label>
-  <input type="checkbox" name="answer1" value="1" />
-  44.4
-</label><br />
-<label>
-  <input type="checkbox" name="answer2" value="2" />
-"44"
-</label><br />
-<label>
-  <input type="checkbox" name="answer3" value="3" />
-  2147483649
-</label><br/>
-<h3>Question 2</h3>
-<p>Definiere eine Zahl</p>
-  <div style="display: flex; flex-direction: row"> <p>x = </p> <input type="text" name="answer2" />
+<div *ngIf="!showSubmitScreen">
+  <form [formGroup]="submitForm" (ngSubmit)="submitTest()">
+
+
+    <div *ngIf="testData.questionType ==1">
+      <p>{{testData.questionText}}</p>
+      <div *ngFor="let option of answerTable index as i">
+        <input type="checkbox" [value]="option" (change)="onCheckboxChange($event)">
+        {{option}}
+        <br>
+      </div>
+      <button type="submit">Submit</button>
+    </div>
+
+
+    <div *ngIf="testData.questionType ==2 ">
+      <p>{{testData.questionText}}</p>
+      <div style="display: flex; flex-direction: row">
+        <input type="text" formControlName="answer" id="answer"/>
+      </div>
+      <button type="submit">Submit</button>
+    </div>
+    <div *ngIf="testData.questionType == 3">
+      <p>{{testData.questionText}}</p>
+      <button formControlName="answer" type="button" (click)="checkRightAnswerBool(true)">Wahr</button>
+      <button formControlName="answer" type="button" (click)="checkRightAnswerBool(false )">Falsch</button>
+       <br/><br/>
+    </div>
+  </form>
+</div>
+
+
+<div *ngIf="showSubmitScreen">
+  <div *ngIf="showMistakeScreen">
+    Die richtige Antwort ist:
+    <div *ngFor="let items of testData.answerRight">
+      <p>{{items}}</p>
+    </div>
   </div>
-  <h3>Question 3</h3>
-  <p>ein Int besteht aus einem Wort</p>
-  <button type="button">Wahr</button>   <button type="button">Falsch</button>
-<br/><br/>
-  <button type="submit">Submit</button>
-</form>
+
+  <div *ngIf="!showMistakeScreen">
+    <p>Dies ist richtig</p>
+  </div>
+
 </div>

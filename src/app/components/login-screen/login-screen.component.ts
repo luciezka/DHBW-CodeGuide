@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 
 @Component({
@@ -8,16 +8,17 @@ import {FormBuilder} from "@angular/forms";
 })
 export class LoginScreenComponent implements OnInit {
 
-  constructor(private fb : FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit(): void {
   }
 
   loginUser() {
-  console.log("Username: " + this.loginForm.value.email+ " Password: " +  this.loginForm.value.password );
+    console.log("Username: " + this.loginForm.value.email + " Password: " + this.loginForm.value.password);
   }
 
-  loginForm= this.fb.group({
+  loginForm = this.fb.group({
     email: [''],
     password: ['']
   });

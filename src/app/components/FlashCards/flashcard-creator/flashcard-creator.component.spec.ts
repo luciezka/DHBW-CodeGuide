@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FlashcardCreatorComponent } from './flashcard-creator.component';
+import {FlashcardCreatorComponent} from './flashcard-creator.component';
 
 describe('FlashcardCreatorComponent', () => {
   let component: FlashcardCreatorComponent;
@@ -8,9 +8,9 @@ describe('FlashcardCreatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlashcardCreatorComponent ]
+      declarations: [FlashcardCreatorComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FlashcardCreatorComponent);
     component = fixture.componentInstance;

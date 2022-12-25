@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FlashcardComponent} from "../../FlashCards/flashcard/flashcard.component";
 import {FlashcardTaskService} from "../../../services/flashcard-task.service";
 import {Router} from "@angular/router";
 import {TestCardModel} from "../../../models/testCard.model";
-import {TestTastService} from "../../../services/test-tast.service";
+import {TestTaskService} from "../../../services/test-task.service";
 
 @Component({
   selector: 'app-test-menu',
@@ -16,21 +16,33 @@ export class TestMenuComponent implements OnInit {
 
   testCardData!: TestCardModel[];
 
-
-  constructor( private testcardservice : TestTastService, private _router:Router) { }
+  constructor(private testcardservice: TestTaskService, private _router: Router) {
+  }
 
   ngOnInit(): void {
-    //Subscribe to the available data in Service
-    this.testcardservice.getTestCard().subscribe(async data => {
-      this.testCardData = data;
-    }, error => {
-    }, () => {
-    });
+    this.testcardservice.clearData();
+    this.initTestCard();
+  }
+
+  initTestCard() {
+    //If offline get cache
+    if (!navigator.onLine) {
+      this.testCardData = JSON.parse("[" + this.testcardservice.getTestCardCache() + "]");
+    } else {
+      //Subscribe to the available data in Service
+
+      this.testcardservice.getTestCard().subscribe(async data => {
+        this.testCardData = data;
+      }, error => {
+      }, () => {
+      });
+
+    }
   }
 
   routeToTestCard(testcard: TestCardModel) {
     // bring the info the the route
-    this._router.navigate(['/Testcard'], { queryParams: testcard });
+    this._router.navigate(['/Testcard'], {queryParams: testcard});
   }
 }
 

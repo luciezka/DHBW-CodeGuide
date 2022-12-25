@@ -1,16 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {FlashcardTaskService} from "../../../services/flashcard-task.service";
+import { Component, OnInit } from '@angular/core';
 import {FlashCardModel} from "../../../models/flash-card.model";
-import {Router, ActivatedRoute, ParamMap} from "@angular/router";
-import {state} from "@angular/animations";
-
+import {FlashcardTaskService} from "../../../services/flashcard-task.service";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-flashcard-menu',
-  templateUrl: './flashcard-menu.component.html',
-  styleUrls: ['./flashcard-menu.component.css']
+  selector: 'app-flashcard-admin-menu',
+  templateUrl: './flashcard-admin-menu.component.html',
+  styleUrls: ['./flashcard-admin-menu.component.css']
 })
-export class FlashcardMenuComponent implements OnInit {
+export class FlashcardAdminMenuComponent implements OnInit {
 
   flashCardData!: FlashCardModel[];
 
@@ -38,16 +36,14 @@ export class FlashcardMenuComponent implements OnInit {
     }
   }
 
-  routeToFlashcard(flashcard: FlashCardModel) {
+  routeToFlashcardCreator(flashcard: FlashCardModel) {
     // bring the info the the Flashcard
-    this._router.navigate(['/Flashcard'], {queryParams: flashcard});
+    this._router.navigate(['/FlashcardCreator'], {queryParams: flashcard});
   }
-
-
 
   expandTopic(topic: string) {
     // @ts-ignore
-    let elements = document.querySelectorAll("[id='"+topic+"']");
+    let elements = document.querySelectorAll("[id='" + topic + "']");
     for (let i = 0; i < elements.length; i++) {
       let element = elements[i] as HTMLElement;
       if (element.style.display === "block") {
@@ -56,12 +52,12 @@ export class FlashcardMenuComponent implements OnInit {
         element.style.display = "block";
       }
     }
-
   }
 
 
+  deleteFlashcard(flashcardid: FlashCardModel) {
 
+    this.flashcardService.deleteFlashcard(flashcardid)
+  }
 }
-
-
 
