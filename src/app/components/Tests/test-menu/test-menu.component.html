@@ -3,14 +3,12 @@
 </div>
 
 <div *ngFor="let items of testCardData ;index as i;">
-
   <div>
     <div *ngIf=" i== 0 ||  items.topic != testCardData[i-1].topic">
       <h1>{{items.topic}}</h1>
     </div>
-    <a (click)="routeToTestCard(items)">{{items.name}}</a>
 
-
+    <a id="{{items.topic}}" (click)="routeToTestCard(items)">{{items.name}}</a>
   </div>
 </div>
 

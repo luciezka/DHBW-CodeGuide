@@ -29,6 +29,7 @@ export class FlashcardTaskService {
       // @ts-ignore
       return changes.map(a => {
         const data = a.payload.doc.data() as FlashCardModel;
+        data.id = a.payload.doc.id;
         //Write to cache
         if (this.updates.isEnabled && navigator.onLine) {
           this.cache.store('/api/data/flashcard', data);
@@ -43,10 +44,19 @@ export class FlashcardTaskService {
   }
 
   addFlashcard(flashcard: any) {
-    if (flashcard.name != "") {
+    if (flashcard.id == "") {
+      flashcard.id =[];
       this.flashcardCollection.add(flashcard);
+    }else {
+      this.flashcardCollection.doc(flashcard.id).set(flashcard);
     }
   }
+
+  deleteFlashcard(flashcardid: any) {
+    console.log(flashcardid);
+    this.flashcardCollection.doc(flashcardid).delete();
+  }
+
 
   getFlashcardCache() {
     return this.cache.retrieve('/api/data/flashcard');
@@ -55,5 +65,7 @@ export class FlashcardTaskService {
   clearData() {
     this.cache.clearData();
   }
+
+
 
 }

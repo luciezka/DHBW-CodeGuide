@@ -20,6 +20,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {NoCodeComponent} from "./components/StudienArbeit/no-code/no-code.component";
+import { FlashcardAdminMenuComponent } from './components/FlashCards/flashcard-admin-menu/flashcard-admin-menu.component';
 
 
 
@@ -36,7 +37,8 @@ import {NoCodeComponent} from "./components/StudienArbeit/no-code/no-code.compon
     TestingScreenComponent,
     FlashcardMenuComponent,
     FlashcardCreatorComponent,
-    NoCodeComponent
+    NoCodeComponent,
+    FlashcardAdminMenuComponent
 
   ],
   imports: [
@@ -47,6 +49,7 @@ import {NoCodeComponent} from "./components/StudienArbeit/no-code/no-code.compon
       {path: 'Flashcard', component: FlashcardComponent},
       {path: 'FlashcardMenu', component: FlashcardMenuComponent},
       {path: 'FlashcardCreator', component: FlashcardCreatorComponent},
+      {path: 'FlashcardAdminMenu', component: FlashcardAdminMenuComponent},
       {path: 'Testcard', component: TestingScreenComponent},
       {path: 'TestMenu', component: TestMenuComponent},
       {path: 'Account', component: UserAccountComponent},

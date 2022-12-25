@@ -1,1 +1,12 @@
-<p>flashcard-creator works!</p>
+<form [formGroup]="flashcardForm" (ngSubmit)="submitFlashcard()">
+  <h1>Kartenbearbeitung</h1>
+  <p>Thema: </p>  <input type="text" formControlName="topic" id="topic"/>
+  <p>Name: </p>  <input type="text" formControlName="name" id="name"/>
+  <p>Text :</p>  <input type="text" formControlName="basetext" id="basetext"/>
+  <p>Rückseite :</p>  <input type="text" formControlName="fliptext" id="fliptext"/>
+  <br>
+  <small>Tipp: nutze < br > um einen Umbruch zu erstellen  </small>
+  <br>
+  <button  type="submit">Absenden</button>
+</form>
+

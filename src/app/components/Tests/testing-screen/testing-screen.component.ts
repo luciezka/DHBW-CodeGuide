@@ -11,36 +11,35 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angul
 
 
 export class TestingScreenComponent implements OnInit {
-  checkoutForm: FormGroup;
+  submitForm: FormGroup;
   testData!: TestCardModel;
   answerTable!: string[];
 
   showSubmitScreen = false;
   showMistakeScreen = false;
+  showMistakeScreenBolean = false;
 
   constructor(public activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
-    this.checkoutForm = this.formBuilder.group({
+    this.submitForm = this.formBuilder.group({
       optionArray: this.formBuilder.array([], [Validators.required]),
       answer: ''
     });
   }
 
   ngOnInit(): void {
-    this.testData = this.activatedRoute.snapshot.queryParams;
+    this.testData = this.activatedRoute.snapshot.queryParams
+    this.randomizeAnswers()
 
-    if (this.testData.questionType == 1) {
-      this.randomizeAnswers()
-    }
   }
 
   //sunmit button was pressed
   submitTest() {
-    console.log(this.checkoutForm.value);
+    console.log(this.submitForm.value);
     this.checkRightAnswers()
     //this.showSubmitScreen = true;
   }
 
-//check which questiontype is used in this question
+//check if questiontype 1 or 2 is used in this question
   checkRightAnswers() {
     this.showSubmitScreen = true;
     // @ts-ignore
@@ -51,11 +50,18 @@ export class TestingScreenComponent implements OnInit {
       case 2:
         this.checkRightAnswerTextInput()
         break;
-      case 3:
-        break;
       default:
         console.log("invalid case");
         break;
+    }
+  }
+
+  checkRightAnswerBool(input :boolean) {
+    this.showSubmitScreen = true;
+    let rightAnswers = this.testData.answerRight![0];
+    console.log(rightAnswers);
+    if( JSON.parse(rightAnswers) == input){
+      this.showMistakeScreen = true;
     }
   }
 
@@ -68,7 +74,7 @@ export class TestingScreenComponent implements OnInit {
       rightAnswers[i] = rightAnswers[i].replace(/\s/g,"").toLowerCase();
       }
     // cleans string from whitespace and to lowercase
-    if (!rightAnswers.includes(this.checkoutForm.value.answer.replace(/\s/g, "").toLowerCase())) {
+    if (!rightAnswers.includes(this.submitForm.value.answer.replace(/\s/g, "").toLowerCase())) {
       this.showMistakeScreen = true;
     }
   }
@@ -85,7 +91,7 @@ export class TestingScreenComponent implements OnInit {
     let rightAnswers = this.testData.answerRight;
     let wrongAnswers = [];
     //checks all answers if they are right or wrong
-    for (let item of this.checkoutForm.value.optionArray) {
+    for (let item of this.submitForm.value.optionArray) {
       if (rightAnswers?.includes(item)) {
         rightAnswers = rightAnswers.filter((str) => str !== item);
       } else {
@@ -93,7 +99,7 @@ export class TestingScreenComponent implements OnInit {
       }
     }
     //checks if not all right answers are checked and if there are wrong answers
-    if (wrongAnswers.length != 0 || rightAnswers!.length != 0) {
+    if (wrongAnswers.length  || rightAnswers!.length ) {
       this.showMistakeScreen = true;
     }
   }
@@ -101,7 +107,7 @@ export class TestingScreenComponent implements OnInit {
 
 // write Checkboxes into array
   onCheckboxChange(e: any) {
-    const optionArray: FormArray = this.checkoutForm.get('optionArray') as FormArray;
+    const optionArray: FormArray = this.submitForm.get('optionArray') as FormArray;
     if (e.target.checked) {
       optionArray.push(new FormControl(e.target.value));
     } else {

@@ -1,5 +1,5 @@
 <div *ngIf="!showSubmitScreen">
-  <form [formGroup]="checkoutForm" (ngSubmit)="submitTest()">
+  <form [formGroup]="submitForm" (ngSubmit)="submitTest()">
 
 
     <div *ngIf="testData.questionType ==1">
@@ -20,12 +20,11 @@
       </div>
       <button type="submit">Submit</button>
     </div>
-
     <div *ngIf="testData.questionType == 3">
       <p>{{testData.questionText}}</p>
-      <button type="button">Wahr</button>
-      <button type="button">Falsch</button>
-      <br/><br/>
+      <button formControlName="answer" type="button" (click)="checkRightAnswerBool(true)">Wahr</button>
+      <button formControlName="answer" type="button" (click)="checkRightAnswerBool(false )">Falsch</button>
+       <br/><br/>
     </div>
   </form>
 </div>
@@ -33,14 +32,14 @@
 
 <div *ngIf="showSubmitScreen">
   <div *ngIf="showMistakeScreen">
-    the right Answers would be
+    Die richtige Antwort ist:
     <div *ngFor="let items of testData.answerRight">
       <p>{{items}}</p>
     </div>
   </div>
 
   <div *ngIf="!showMistakeScreen">
-    <p>Your Answer is Correct</p>
+    <p>Dies ist richtig</p>
   </div>
 
 </div>

@@ -1,14 +1,26 @@
 <div>
+  <a [routerLink]="['/FlashcardAdminMenu']" style="float: right">Edit</a>
+</div>
+
+
+<div>
   <h1> Flashcards</h1>
 </div>
 <div *ngFor="let items of flashCardData ;index as i;">
-
   <div>
+
+
+
     <div *ngIf=" i== 0 ||  items.topic != flashCardData[i-1].topic">
-      <h1>{{items.topic}}</h1>
+      <h1 (click)="expandTopic(items.topic!)">{{items.topic}}</h1>
     </div>
-    <a (click)="routeToFlashcard(items)">{{items.name}}</a>
+
+    <div>
+      <a id="{{items.topic}}" style="display:none" (click)="routeToFlashcard(items)">{{items.name}}</a>
+    </div>
+
   </div>
+
 </div>
 
 
