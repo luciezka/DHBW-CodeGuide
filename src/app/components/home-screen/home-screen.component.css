@@ -1,105 +1,288 @@
-/*.response{
-  margin-top: 2vh;
-  margin-left: 1vh;
-  padding: 1vh;
-}*/
-p.selectable{
-  padding-bottom: 1vh;
-  padding-top: 1vh;
-  border-radius: 40px;
-  color: #E2001A;
-  border: 2px solid #E2001A;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-align: center;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-}
-p.selectable:hover,
-p.selectable:active,
-p.selectable:focus{
-  letter-spacing: 1.25px;
-  color: white;
-  background-color: #E2001A;
-}
-
-h1{
-  margin-bottom: 2.5vh;
-  margin-top: 2.5vh;
-  text-align: center;
-  font-weight: 100;
-  font-family: 'Montserrat';
-}
-
-p{
-  margin-top: 10px;
-  margin-left: auto;
-  margin-left: auto;
-  font-family: 'Montserrat';
-}
-
-a{
-  font-family: 'Montserrat Light';
-}
-
-.css-list{
-  margin-top: 10px;
-  border-radius: 20px;
-  background: linear-gradient(to bottom, #E2001A calc(2.5vh + 10px), transparent calc(2.5vh + 10px));
-  border: 2px solid #E2001A;
-  width: 82.5%;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all 0.25s ease;
-  overflow: hidden;
-}
-.top-list{
-  margin-top: 0px;
-  margin: 0;
-  text-align: center;
-  color:white;
-}
-.list-element{
-  margin-top: 2.5px;
-  padding: 5px;
-  letter-spacing: 1px;
-  color:rgb(255, 127, 80);
-  text-align: center;
-}
-.list-element:hover,
-.list-element:active,
-.list-element:focus{
-  letter-spacing: 1.25px;
-}
-
-@media (pointer:fine) {
+@media (pointer: fine) {
   .mobile {
     display: none;
   }
-}
+  .buttons{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .text-left{
+    vertical-align: middle;
+  }
+  .highlight {
+    background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #e2001a 50%);
+  }
+  p.selectable {
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+    border-radius: 15px;
+    color: #e2001a;
+    border: 2px solid #e2001a;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  p.selectable:hover,
+  p.selectable:active,
+  p.selectable:focus {
+    letter-spacing: 1.25px;
+    color: white;
+    background-color: #e2001a;
+  }
+  h1 {
+    margin-bottom: 2.5vh;
+    margin-top: 2.5vh;
+    margin-left: 2.5vh;
+    font-weight: 100;
+    font-size: xx-large;
+    font-family: "Montserrat";
+    color: white;
+  }
+  @keyframes typing {
+    2.1739130650000233%,
+    47.82608696800001% {
+      content: "";
+    }
+    4.347826108000024%,
+    45.652173925000014% {
+      content: "J";
+    }
+    6.521739151000023%,
+    43.478260882000015% {
+      content: "Ja";
+    }
+    8.695652194000024%,
+    41.304347839000016% {
+      content: "Jav";
+    }
+    10.869565237000025%,
+    39.13043479600002% {
+      content: "Java";
+    }
+    13.043478280000025%,
+    36.95652175300002% {
+      content: "JavaS";
+    }
+    15.217391323000026%,
+    34.78260871000002% {
+      content: "JavaSc";
+    }
+    17.391304366000025%,
+    32.60869566700002% {
+      content: "JavaScr";
+    }
+    19.565217409000024%,
+    30.43478262400002% {
+      content: "JavaScri";
+    }
+    21.739130452000023%,
+    28.260869581000023% {
+      content: "JavaScrip";
+    }
+    23.91304349500002%,
+    26.086956538000024% {
+      content: "JavaScript";
+    }
 
-@media (pointer:none), (pointer:coarse){
+    50.00000001100001%,
+    78.26086957000001% {
+      content: "";
+    }
+    52.17391305400001%,
+    76.08695652700001% {
+      content: "P";
+    }
+    54.34782609700001%,
+    73.91304348400001% {
+      content: "Py";
+    }
+    56.52173914000001%,
+    71.73913044100001% {
+      content: "Pyt";
+    }
+    58.69565218300001%,
+    69.56521739800002% {
+      content: "Pyth";
+    }
+    60.869565226000006%,
+    67.39130435500002% {
+      content: "Pytho";
+    }
+    63.043478269000005%,
+    65.21739131200002% {
+      content: "Python";
+    }
+
+    80.43478261300001%,
+    100% {
+      content: "";
+    }
+    82.60869565600001%,
+    97.826086957% {
+      content: "J";
+    }
+    84.78260869900001%,
+    95.652173914% {
+      content: "Ja";
+    }
+    86.956521742%,
+    93.478260871% {
+      content: "Jav";
+    }
+    89.130434785%,
+    91.304347828% {
+      content: "Java";
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .typewriter {
+    --caret: currentcolor;
+    color: #e2001a;
+    font-family: "Montserrat Bold";
+  }
+
+  .typewriter::before {
+    content: "";
+    animation: typing 13.5s infinite;
+  }
+
+  .typewriter::after {
+    content: "";
+    border-right: 1px solid var(--caret);
+    animation: blink 0.5s linear infinite;
+  }
+
+  @media (prefers-reduced-motion) {
+    .typewriter::after {
+      animation: none;
+    }
+    @keyframes sequencePopup {
+      0%,
+      100% {
+        content: "JavaScript";
+      }
+      52% {
+        content: "Python";
+      }
+      87% {
+        content: "Java";
+      }
+    }
+    .typewriter::before {
+      content: "developer";
+      animation: sequencePopup 12s linear infinite;
+    }
+  }
+}
+@media (pointer: none), (pointer: coarse) {
   .desktop {
     display: none;
   }
-  .container{
+  h1 {
+    margin-bottom: 2.5vh;
+    margin-top: 2.5vh;
+    margin-left: 2.5vh;
+    font-weight: 100;
+    font-size: large;
+    font-family: "Montserrat";
+    color: coral;
+  }
+  p.selectable {
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+    border-radius: 40px;
+    color: #e2001a;
+    border: 2px solid #e2001a;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+  }
+  p.selectable:hover,
+  p.selectable:active,
+  p.selectable:focus {
+    letter-spacing: 1.25px;
+    color: white;
+    background-color: #e2001a;
+  }
+  .container {
     display: flex;
     justify-content: center;
     justify-items: center;
     align-items: center;
     margin-top: 5vh;
   }
-  .css-list{
+  .css-list {
     width: 80%;
-    background: linear-gradient(to bottom, #E2001A 6.5vh, transparent 6.5vh);
+    background: linear-gradient(to bottom, #e2001a 6.5vh, transparent 6.5vh);
   }
-  .top-list{
+  .top-list {
     margin-bottom: 0px;
   }
 }
 
 
+p{
+  margin-top: 10px;
+  font-family: "Montserrat";
+}
 
+a {
+  font-family: "Montserrat Light";
+}
+
+.css-list {
+  margin-top: 10px;
+  border-radius: 20px;
+  background: linear-gradient(
+    to bottom,
+    #e2001a calc(2.5vh + 10px),
+    transparent calc(2.5vh + 10px)
+  );
+  border: 2px solid #e2001a;
+  width: 82.5%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+.top-list {
+  margin-top: 0px;
+  margin: 0;
+  text-align: center;
+  color: white;
+}
+.list-element {
+  margin-top: 2.5px;
+  padding: 5px;
+  letter-spacing: 1px;
+  color: rgb(255, 127, 80);
+  text-align: center;
+}
+.list-element:hover,
+.list-element:active,
+.list-element:focus {
+  letter-spacing: 1.25px;
+}

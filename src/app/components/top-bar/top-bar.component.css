@@ -1,29 +1,24 @@
-.button{
-  cursor: pointer;
-  text-decoration: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 20px;
-}
-*{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  }
-
-.filter-white{
-  filter: invert(100%) sepia(0%) saturate(11%) hue-rotate(274deg) brightness(104%) contrast(105%);
+.filter-white {
+  filter: invert(100%) sepia(0%) saturate(11%) hue-rotate(274deg)
+    brightness(104%) contrast(105%);
 }
 
-@media (pointer:none), (pointer:coarse) {
+@media (pointer: none), (pointer: coarse) {
   .mobile {
     display: flex;
   }
+
+  * {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .desktop {
     position: absolute;
     right: -9999px;
-    display:none;
+    display: none;
   }
 
   .navbar {
@@ -34,42 +29,70 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #E2001A;
+    background-color: #e2001a;
     border-radius: 20px 20px 0px 0px;
-    box-shadow: 10px 10px 34px 0px rgba(0,0,0,0.25);
+    box-shadow: 10px 10px 34px 0px rgba(0, 0, 0, 0.25);
   }
 
-  .button{
+  .button {
     margin-bottom: 10px;
-    color: gray;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
   }
 
-  .material-icons{
+  .material-icons {
     margin-left: 2vh;
     margin-right: 2vh;
     margin-bottom: 1vh;
   }
 }
-@media  (pointer:fine) {
+@media (pointer: fine) {
   .mobile {
     display: none;
   }
   .desktop {
     display: flex;
   }
-  .button{
+
+  .top-right-corner-svg {
+    z-index: -100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .button {
     margin-bottom: 20px;
-    color: gray;
-    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
   }
-  h1{
-    color: gray;
+
+  .hover-underline-animation {
+    color: white;
+  }
+
+  .hover-underline-animation::after {
+    background-color: white;
+  }
+
+  h1 {
+    color: white;
     letter-spacing: 1px;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
   }
-
-  
 }
-
-
-

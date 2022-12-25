@@ -1,50 +1,35 @@
 <div>
-  <h1> Flashcards</h1>
+  <h1 style="text-align:center; color:white; font-family: 'Montserrat'; font-size: xx-large;;">Flashcards</h1>
 </div>
-  <div *ngFor="let items of flashCardData ;index as i;">
+<div *ngFor="let items of flashCardData; index as i">
+  <div>
+    <div *ngIf="i == 0 || items.topic != flashCardData[i - 1].topic">
+      <img src="../../../../assets/bg/text-image.svg" class="txt-svg"><h1 class="topic">{{ items.topic }}</h1>
+    </div>
+    <a (click)="routeToFlashcard(items)">{{ items.name }}</a>
 
-    <div>
-      <div *ngIf=" i== 0 ||  items.topic != flashCardData[i-1].topic">
-       <h1>{{items.topic}}</h1>
+    <!--    DOWNLOADABLE CONTENT
+
+    <ng-container *ngIf="items.downloaded; else notDownloaded">
+          <img style="" src="assets/icons/svg/downloadDone.svg">
+        </ng-container>
+
+        <ng-template #notDownloaded>
+          <img style="" src="assets/icons/svg/download.svg">
+        </ng-template>
       </div>
-       <a (click)="routeToFlashcard(items)">{{items.name}}</a>
 
+      <div class="centerTheText">
+        <p >{{items.completion}}%</p>
+      </div>
 
+      <div class="innerContainer" *ngFor="let exercises of items.exercises">
+        <a class="leftText" [routerLink]="['/Flashcard']" > {{exercises}}</a>
+      </div>
 
-
-
-
- <!--    DOWNLOADABLE CONTENT
-
-  <ng-container *ngIf="items.downloaded; else notDownloaded">
-        <img style="" src="assets/icons/svg/downloadDone.svg">
-      </ng-container>
-
-
-      <ng-template #notDownloaded>
-        <img style="" src="assets/icons/svg/download.svg">
-      </ng-template>
     </div>
-
-
-    <div class="centerTheText">
-      <p >{{items.completion}}%</p>
-    </div>
-
-
-
-
-
-    <div class="innerContainer" *ngFor="let exercises of items.exercises">
-      <a class="leftText" [routerLink]="['/Flashcard']" > {{exercises}}</a>
-    </div>
-
+    -->
   </div>
--->
-
-
-
 </div>
-  </div>
 
-
+<script src="../../../../assets/checkForScrolling.js"></script>

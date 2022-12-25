@@ -1,63 +1,64 @@
-
 <div class="container">
+  <div>
+    <div class="text-left">
+      <h1 style="align-content: center" class="desktop">Willkommen {{ userName }},</h1>
+      <h1 style="align-content: center" class="mobile">Willkommen {{ userName }}</h1>
+      <h1 style="margin-left: 5vh" aria-label="Learn to code!" class="desktop">
+        Learn how to code with&nbsp;<span class="typewriter"></span>
+      </h1>
+      <a class="desktop highlight" style="color:white; font-size: larger; margin-left: 5vh; margin-top: 5vh; margin-bottom: 5vh;">Was erwartet dich hier?<br></a>
+      <a class="desktop" style="color:white; font-size: large; margin-left: 5vh;">Hier werden dir die absoluten Anfänge der Programmierung mit
+        <a class="desktop highlight" style="color:white; font-size: large; margin-left: 5px;">JavaScript</a>,
+        <a class="desktop highlight" style="color:white; font-size: large; margin-left: 5px;">Python</a> und
+        <a class="desktop highlight" style="color:white; font-size: large; margin-left: 5px;">Java</a> beigebracht.<br>
+      </a>
+      <a class="desktop" style="color:white; font-size: larger; margin-left: 5vh;">In einfachen von einander getrennten Aufgaben werden dir die ersten Schritte zum Verstehen einer Programmiersprache gezeigt.</a>
+    </div>
+    <div class="buttons">
+      <a [routerLink]="['/Basics']" class="selectable">
+        <p class="selectable">Möchtest du ein paar Basics Lernen?</p>
+      </a>
 
+      <a [routerLink]="['/FlashcardMenu']">
+        <p class="selectable">Lerne ein paar Karten!</p>
+      </a>
 
-<div>
-  <h1 style="align-content: center">Willkommen {{userName}}</h1>
+      <!-- Add Routing -->
 
-  <a [routerLink]="['/Basics']" class="selectable">
-      <p class="selectable">
-        Möchtest du ein paar Basics Lernen?
-      </p>
-  </a>
+      <a [routerLink]="['/TestMenu']">
+        <p class="selectable mobile">
+          Dein Testergebnis ist bei {{ testResultPrecentage }}%
+        </p>
+      </a>
 
-  <a [routerLink]="['/FlashcardMenu']" >
-      <p class="selectable">
-        Lerne ein paar Karten!
-      </p>
-  </a>
+      <div class="css-list mobile">
+        <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
+        <a [routerLink]="['/lastCard']">
+          <p class="response list-element">{{ lastCardName }}</p>
+        </a>
+        <a [routerLink]="['/lastCard']">
+          <p class="response list-element">{{ lastCardName }}</p>
+        </a>
+        <a [routerLink]="['/lastCard']">
+          <p class="response list-element">{{ lastCardName }}</p>
+        </a>
+        <a [routerLink]="['/lastCard']">
+          <p class="response list-element">{{ lastCardName }}</p>
+        </a>
+        <a [routerLink]="['/lastCard']">
+          <p class="response list-element">{{ lastCardName }}</p>
+        </a>
+        <a [routerLink]="['/lastCard']">
+          <p class="response list-element">{{ lastCardName }}</p>
+        </a>
+        <a [routerLink]="['/lastCard']">
+          <p class="response list-element">{{ lastCardName }}</p>
+        </a>
+      </div>
 
-
-  <!-- Add Routing -->
-
-<a [routerLink]="['/TestMenu']">
-      <p class="selectable mobile">
-       Dein Testergebnis ist bei {{testResultPrecentage}}%
-      </p>
-</a>
-
-
-<div class="css-list">
-  <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-  <a [routerLink]="['/lastCard']" >
-    <p class="response list-element">{{lastCardName}}</p>
-  </a>
-</div>
-
-<a [routerLink]="['/FlashcardCreator']">
-  <p class="selectable">Erstell ein paar neue Karten
-  </p>
-</a>
-
-
-
-</div>
+      <a [routerLink]="['/FlashcardCreator']">
+        <p class="selectable">Erstell ein paar neue Karten</p>
+      </a>
+    </div>
+  </div>
 </div>

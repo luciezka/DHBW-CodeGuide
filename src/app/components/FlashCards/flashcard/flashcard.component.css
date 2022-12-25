@@ -48,7 +48,7 @@
 }
 
 .flashcard-face--front {
-  background-color: transparent;
+  background-color: #282424;
   border-radius: 40px;
   border: 2px solid #E2001A;
 }

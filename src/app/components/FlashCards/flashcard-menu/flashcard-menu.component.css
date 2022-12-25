@@ -1,5 +1,3 @@
-
-
 .container{
   display: flex;
   margin-top: 5vh;
@@ -12,6 +10,18 @@
   margin-top: 1vh;
 }
 
+.txt-svg{
+  z-index: -100;
+  height: 40px;
+  position:absolute;
+  margin-left: 10px;
+}
+
+.topic{
+  color:white;
+  font-size: x-large;
+  margin-left: 20px;
+}
 
 .centerTheText{
   display: flex;
@@ -22,7 +32,6 @@
 .spaceLeftSmall{
   margin-left: 3.5vh;
 }
-
 
 .rightText{
   display: flex;

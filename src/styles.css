@@ -1,10 +1,9 @@
-
-*{
+* {
   margin: 0;
 }
 
 @media (any-pointer: coarse) {
-  .container{
+  .container {
     display: flex;
     justify-content: center;
   }
@@ -17,6 +16,13 @@
   .mobile {
     display: none;
   }
+  body {
+    background-color: #262626;
+  }
+}
+
+.filler {
+  flex-grow: 1;
 }
 
 .hover-underline-animation {
@@ -24,8 +30,8 @@
   position: relative;
   color: gray;
 }
-.hover-underline-animation::after{
-  content: '';
+.hover-underline-animation::after {
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
@@ -36,7 +42,7 @@
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
-.hover-underline-animation:hover::after{
+.hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
@@ -50,46 +56,45 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #F7F9F9;
+  background-color: #272022;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #F7F9F9;
+  background-color: #403538;
 }
 
 @font-face {
-  font-family: 'Montserrat Light';
+  font-family: "Montserrat Light";
   src: url("./assets/fonts/montserrat/Montserrat-Light.ttf");
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   src: url("./assets/fonts/montserrat/Montserrat-Regular.ttf");
 }
 
 @font-face {
-  font-family: 'Montserrat Bold';
+  font-family: "Montserrat Bold";
   src: url("./assets/fonts/montserrat/Montserrat-Bold.ttf");
 }
 
-a{
-  font-size:2.5vh;
+a {
+  font-size: 2.5vh;
   text-decoration: none;
-  color: #000000;
 }
 
-h1{
+h1 {
   font-size: 3vh;
   font-weight: 100;
   color: #444444;
-  font-family: 'Montserrat Light';
+  font-family: "Montserrat Light";
 }
 
-p{
-  font-size:2.5vh;
+p {
+  font-size: 2.5vh;
   color: #444444;
 }
 
@@ -103,9 +108,7 @@ p{
   font-size: 4vh;
 }
 
-body{ 
-  margin: 0; 
-  font-family: 'Montserrat';
-  background-color: #F7F9F9;
+body {
+  margin: 0;
+  font-family: "Montserrat";
 }
-
