@@ -5,5 +5,6 @@ export class FlashCardModel {
   name? : string;
   basetext? : string;
   fliptext? : string ;
+  creationDate?: Date;
 }
 

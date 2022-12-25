@@ -15,7 +15,7 @@ import { FlashcardMenuComponent } from './components/FlashCards/flashcard-menu/f
 import { FlashcardCreatorComponent } from './components/FlashCards/flashcard-creator/flashcard-creator.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {environment} from "../environments/environment";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
@@ -56,10 +56,12 @@ import {NoCodeComponent} from "./components/StudienArbeit/no-code/no-code.compon
     ]),
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     ReactiveFormsModule,
-   // provideFirebaseApp(() => initializeApp(environment.firebase)),
-   // provideFirestore(() => getFirestore())
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideFirestore(() => getFirestore())
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // Only required for database features
+    AngularFirestoreModule,
+    FormsModule,
+    // Only required for database features
 
   ],
   providers: [],
