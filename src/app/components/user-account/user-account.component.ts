@@ -12,10 +12,12 @@ export class UserAccountComponent implements OnInit {
 
   userData!:UserModel[];
 
-  constructor(public userTask : UserTaskService) { }
+  constructor(public userTask : UserTaskService) {
+    this.initUser();
+  }
 
   ngOnInit(): void {
-      this.initUser();
+
   }
   initUser() {
     this.userTask.getUser().subscribe(async data => {

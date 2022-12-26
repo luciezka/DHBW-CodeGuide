@@ -22,21 +22,19 @@ export class HomeScreenComponent implements OnInit {
   lastCardName: string = "Arrays and Positions";
 
   constructor(userTaskService: UserTaskService,testTaskService: TestTaskService,flashCardTaskService: FlashcardTaskService) {
+    userTaskService.getUser().subscribe((data: UserModel[]) => {
+      this.userData = data;
+    });
     testTaskService.getTestCard().subscribe(async data => {
       this.testData = data.length;
     });
-    userTaskService.getUser().subscribe((data: UserModel[]) => {
-      this.userData = data;
-      });
+
     flashCardTaskService.getNewestFlashcard().subscribe((data: TestCardModel[]) => {
       this.flashCardData = data;
     });
 
 
   }
-
-
-
 
   ngOnInit(): void {
 
