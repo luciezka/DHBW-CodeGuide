@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {FlashCardModel} from "../models/flash-card.model";
 import {map, Observable} from "rxjs";
 import {TestCardModel} from "../models/testCard.model";
 import {CacheService} from "./cache.service";
@@ -29,7 +28,7 @@ export class TestTaskService {
     this.tests = this.testcardCollection.snapshotChanges().pipe(map((changes) => {
       // @ts-ignore
       return changes.map(a => {
-        const data = a.payload.doc.data() as FlashCardModel;
+        const data = a.payload.doc.data() as TestCardModel;
         data.id = a.payload.doc.id;
         if (this.updates.isEnabled && navigator.onLine) {
           this.cache.store('/api/data/test', data);
@@ -44,7 +43,7 @@ export class TestTaskService {
       return this.fireStore.collection('tests', ref => ref.where('topic', '==', topic)).snapshotChanges().pipe(map((changes) => {
         // @ts-ignore
         return changes.map(a => {
-          const data = a.payload.doc.data() as FlashCardModel;
+          const data = a.payload.doc.data() as TestCardModel;
           data.id = a.payload.doc.id;
           return data;
         })

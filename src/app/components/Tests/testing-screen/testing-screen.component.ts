@@ -36,8 +36,18 @@ export class TestingScreenComponent implements OnInit {
 
   //sunmit button was pressed
   submitTest() {
-    this.checkRightAnswers()
-    //this.showSubmitScreen = true;
+    this.checkRightAnswers();
+  }
+
+
+  //randomize the answers for checkbox questions
+  randomizeAnswers() {
+    this.answerTable = this.testData.answerRight!.concat(this.testData.answerWrong!);
+    try {
+      this.answerTable.sort(() => Math.random() - 0.5);
+    }catch (e) {
+      console.log(e)
+    }
   }
 
 //check if questiontype 1 or 2 is used in this question
@@ -60,7 +70,8 @@ export class TestingScreenComponent implements OnInit {
   checkRightAnswerBool(input :boolean) {
     this.showSubmitScreen = true;
     let rightAnswers = this.testData.answerRight![0];
-    if( JSON.parse(rightAnswers) == input){
+    //Converts string to boolean
+    if( JSON.parse(rightAnswers) != input){
       this.showMistakeScreen = true;
     }else {
       this.updateUserWithTestID();
@@ -80,17 +91,6 @@ export class TestingScreenComponent implements OnInit {
     }else{
       this.updateUserWithTestID();
     }
-  }
-
-  //randomize the answers for checkbox questions
-  randomizeAnswers() {
-    this.answerTable = this.testData.answerRight!.concat(this.testData.answerWrong!);
-    try {
-      this.answerTable.sort(() => Math.random() - 0.5);
-    }catch (e) {
-      console.log(e)
-    }
-
   }
 
   //Checks the right answers for checkboxes
@@ -130,12 +130,7 @@ export class TestingScreenComponent implements OnInit {
       this.userData[0].passedTests.push(this.testData.id);
       this.userService.updateUser(this.userData[0])
     }
-
-
   }
-
-
-
 
 
 // write Checkboxes into array

@@ -1,5 +1,5 @@
 
-export class TestCardModel {
+export interface TestCardModel {
   id?: any;
   topic?: string
   name? : string;

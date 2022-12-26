@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {UserModel} from "../../models/user.model";
 import {UserTaskService} from "../../services/user-task.service";
+import {TestCardModel} from "../../models/testCard.model";
+import {TestTaskService} from "../../services/test-task.service";
+import {FlashcardTaskService} from "../../services/flashcard-task.service";
 
 @Component({
   selector: 'app-home-screen',
@@ -10,16 +13,33 @@ import {UserTaskService} from "../../services/user-task.service";
 export class HomeScreenComponent implements OnInit {
 
   userData!: UserModel[];
-  testResultPrecentage: number = 80;
+  flashCardData!: TestCardModel[];
+  testData!: number;
+
+  testResult : number = 0;
+  totalTests: number = 0;
+
   lastCardName: string = "Arrays and Positions";
 
-  constructor(userTaskService: UserTaskService) {
+  constructor(userTaskService: UserTaskService,testTaskService: TestTaskService,flashCardTaskService: FlashcardTaskService) {
+    testTaskService.getTestCard().subscribe(async data => {
+      this.testData = data.length;
+    });
     userTaskService.getUser().subscribe((data: UserModel[]) => {
       this.userData = data;
       });
+    flashCardTaskService.getNewestFlashcard().subscribe((data: TestCardModel[]) => {
+      this.flashCardData = data;
+    });
+
+
   }
 
+
+
+
   ngOnInit(): void {
+
   }
 
 }

@@ -1,5 +1,5 @@
 
-export class FlashCardModel {
+export interface FlashCardModel {
   id?: any;
   topic?: string
   name? : string;

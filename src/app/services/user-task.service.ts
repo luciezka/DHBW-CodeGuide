@@ -25,7 +25,7 @@ export class UserTaskService {
   }
 
   getUserByName(name:string) {
-    this.userCollection = this.fireStore.collection('user', ref => ref.where('name', '==', name))
+    this.userCollection = this.fireStore.collection('user', ref => ref.where('name', '==', name).limit(1));
     this.user = this.userCollection.snapshotChanges().pipe(map((changes) => {
       // @ts-ignore
       return changes.map(a => {

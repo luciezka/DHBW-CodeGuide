@@ -29,36 +29,18 @@
 
       <a [routerLink]="['/TestMenu']">
         <p class="selectable mobile">
-          Dein Testergebnis ist bei {{ testResultPrecentage }}%
+         Du hast {{ userData[0].passedTests.length }} von {{testData}} Aufgaben gelöst!
         </p>
       </a>
 
       <div class="css-list mobile">
         <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
+        <a [routerLink]="['/FlashcardMenu']">
+          <p class="response list-element">{{ flashCardData[0].name }}</p>
         </a>
       </div>
 
-      <a [routerLink]="['/FlashcardCreator']">
+        <a [routerLink]="['/FlashcardCreator']">
         <p class="selectable">Erstell ein paar neue Karten</p>
       </a>
     </div>
