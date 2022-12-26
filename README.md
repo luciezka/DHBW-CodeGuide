@@ -11,7 +11,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory, this is needed if you want to use Service Worker.
 
 
-## Enable Service Worker in testmode
+## Enable Service Worker in Development server
 
 To use Service Workers in test mode you will have to change the `production` Variable to true in src/environments/environment.ts
 further changing the Code will cause the Service Worker to keep updating and it can get stuck in a loop.
