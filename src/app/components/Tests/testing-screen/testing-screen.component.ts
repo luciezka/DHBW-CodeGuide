@@ -17,7 +17,7 @@ export class TestingScreenComponent implements OnInit {
 
   showSubmitScreen = false;
   showMistakeScreen = false;
-  showMistakeScreenBolean = false;
+
 
   constructor(public activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
     this.submitForm = this.formBuilder.group({
@@ -29,12 +29,10 @@ export class TestingScreenComponent implements OnInit {
   ngOnInit(): void {
     this.testData = this.activatedRoute.snapshot.queryParams
     this.randomizeAnswers()
-
   }
 
   //sunmit button was pressed
   submitTest() {
-    console.log(this.submitForm.value);
     this.checkRightAnswers()
     //this.showSubmitScreen = true;
   }
@@ -59,12 +57,10 @@ export class TestingScreenComponent implements OnInit {
   checkRightAnswerBool(input :boolean) {
     this.showSubmitScreen = true;
     let rightAnswers = this.testData.answerRight![0];
-    console.log(rightAnswers);
     if( JSON.parse(rightAnswers) == input){
       this.showMistakeScreen = true;
     }
   }
-
 
 //checks the right answers for text input
   checkRightAnswerTextInput() {
@@ -79,11 +75,15 @@ export class TestingScreenComponent implements OnInit {
     }
   }
 
-
   //randomize the answers for checkbox questions
   randomizeAnswers() {
     this.answerTable = this.testData.answerRight!.concat(this.testData.answerWrong!);
-    this.answerTable.sort(() => Math.random() - 0.5);
+    try {
+      this.answerTable.sort(() => Math.random() - 0.5);
+    }catch (e) {
+      console.log(e)
+    }
+
   }
 
   //Checks the right answers for checkboxes

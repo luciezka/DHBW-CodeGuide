@@ -1,7 +1,7 @@
+
+
 <div *ngIf="!showSubmitScreen">
   <form [formGroup]="submitForm" (ngSubmit)="submitTest()">
-
-
     <div *ngIf="testData.questionType ==1">
       <p>{{testData.questionText}}</p>
       <div *ngFor="let option of answerTable index as i">
@@ -11,8 +11,6 @@
       </div>
       <button type="submit">Submit</button>
     </div>
-
-
     <div *ngIf="testData.questionType ==2 ">
       <p>{{testData.questionText}}</p>
       <div style="display: flex; flex-direction: row">
@@ -28,8 +26,6 @@
     </div>
   </form>
 </div>
-
-
 <div *ngIf="showSubmitScreen">
   <div *ngIf="showMistakeScreen">
     Die richtige Antwort ist:
@@ -37,9 +33,7 @@
       <p>{{items}}</p>
     </div>
   </div>
-
   <div *ngIf="!showMistakeScreen">
     <p>Dies ist richtig</p>
   </div>
-
 </div>

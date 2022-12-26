@@ -11,7 +11,7 @@ import {SwUpdate} from "@angular/service-worker";
 })
 export class TestTaskService {
 
-  flashcardCollection!: AngularFirestoreCollection<FlashCardModel>
+  testcardCollection!: AngularFirestoreCollection<TestCardModel>
   tests!: Observable<TestCardModel[]>
 
   constructor(
@@ -23,13 +23,14 @@ export class TestTaskService {
   }
 
   initTask() {
-    // get request to google , get the collection of flashcards ordered by topic
-    this.flashcardCollection = this.fireStore.collection('tests', ref => ref.orderBy('topic', 'desc'));
+    // get request to google , get the collection of test ordered by topic
+    this.testcardCollection = this.fireStore.collection('tests', ref => ref.orderBy('topic', 'desc'));
     // subscribeflashcards to an Observable and detect changes in the Dataset
-    this.tests = this.flashcardCollection.snapshotChanges().pipe(map((changes) => {
+    this.tests = this.testcardCollection.snapshotChanges().pipe(map((changes) => {
       // @ts-ignore
       return changes.map(a => {
         const data = a.payload.doc.data() as FlashCardModel;
+        data.id = a.payload.doc.id;
         if (this.updates.isEnabled && navigator.onLine) {
           this.cache.store('/api/data/test', data);
         }
@@ -39,15 +40,34 @@ export class TestTaskService {
   }
 
 
+  // gets all the flashcards by topic querry
+  getTestCardByTopic(topic: string) {
+      return this.fireStore.collection('tests', ref => ref.where('topic', '==', topic)).snapshotChanges().pipe(map((changes) => {
+        // @ts-ignore
+        return changes.map(a => {
+          const data = a.payload.doc.data() as FlashCardModel;
+          data.id = a.payload.doc.id;
+          return data;
+        })
+      }));
+    }
+
+
   getTestCard() {
     return this.tests;
   }
 
+
+
   addTestCard(tests: any) {
-    if (tests.name != "") {
-      this.flashcardCollection.add(tests);
+    if (tests.id == "") {
+      tests.id =[];
+      this.testcardCollection.add(tests);
+    }else {
+      this.testcardCollection.doc(tests.id).set(tests);
     }
   }
+
 
   getTestCardCache() {
     return this.cache.retrieve('/api/data/test');
