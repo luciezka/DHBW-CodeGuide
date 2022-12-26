@@ -22,10 +22,12 @@
   }
   .center {
     margin-left: 25%;
+    cursor: pointer;
   }
   .center-items {
     margin-left: 26%;
     color:white;
+    cursor: pointer;
   }
 }
 
