@@ -17,7 +17,6 @@ export class UserAccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
   initUser() {
     this.userTask.getUser().subscribe(async data => {

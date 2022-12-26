@@ -6,23 +6,27 @@
       <h1 style="margin-left: 5vh" aria-label="Learn to code!" class="desktop">
         Learn how to code with&nbsp;<span class="typewriter"></span>
       </h1>
-      <a class="desktop highlight" style="color:white; font-size: larger; margin-left: 5vh; margin-top: 5vh; margin-bottom: 5vh;">Was erwartet dich hier?<br></a>
-      <a class="desktop" style="color:white; font-size: large; margin-left: 5vh;">Hier werden dir die absoluten Anfänge der Programmierung mit
-        <a class="desktop highlight" style="color:white; font-size: large; margin-left: 5px;">JavaScript</a>,
-        <a class="desktop highlight" style="color:white; font-size: large; margin-left: 5px;">Python</a> und
-        <a class="desktop highlight" style="color:white; font-size: large; margin-left: 5px;">Java</a> beigebracht.<br>
-      </a>
-      <a class="desktop" style="color:white; font-size: larger; margin-left: 5vh;">In einfachen von einander getrennten Aufgaben werden dir die ersten Schritte zum Verstehen einer Programmiersprache gezeigt.</a>
+      <div style="max-width: 70%; margin-left: 5vh;">
+        <a class="desktop highlight" style="color:white; font-size: larger; margin-top: 5vh; margin-bottom: 5vh;"><br>Was erwartet dich hier?<br><br></a>
+        <a class="desktop" style="color:white; font-size: large;">Hier werden dir die absoluten Anfänge der Programmierung mit
+          <a class="desktop highlight" style="color:white; font-size: large; margin-left: 3px;">JavaScript</a>,
+          <a class="desktop highlight" style="color:white; font-size: large; margin-left: 3px;">Python</a> und
+          <a class="desktop highlight" style="color:white; font-size: large; margin-left: 3px;">Java</a> beigebracht.<br>
+        </a>
+        <a class="desktop" style="color:white; font-size: larger;">In einfachen von einander getrennten Aufgaben werden dir die ersten Schritte zum Verstehen einer Programmiersprache gezeigt.</a>
+      </div>
     </div>
     <div class="buttons">
-      <a [routerLink]="['/NoCode']" class="selectable">
-        <p class="selectable">Möchtest du NoCode Lernen?</p>
-      </a>
-
       <!-- Add Routing -->
-
+      <div class="fake-terminal">
+          <div style="display:flex; flex-direction:row;justify-content: space-between; margin-left: 2vh; margin-right: 2vh;"><p class="top-list">/usr/etc/NoCode.js</p><p class="top-list">_ ☐ X</p></div>
+          <a [routerLink]="['/NoCode']" class="selectable">
+              <div class="desktop" style="font-family: 'Courier New', Courier, monospace;color:#9caaae;margin-left:2vh;" [innerHTML]="'function goTo(url) {'+ '<br />' +'&emsp;if(url === `NoCode`) {'+ '<br />' +'&emsp;&emsp;let answer = prompt(`Möchtest du NoCode lernen? [J/N]`);'+ '<br />' +'&emsp;&emsp;if(answer === `J`) {'+ '<br />' +'&emsp;&emsp;&emsp;console.log(`Redirecting...`);'+ '<br />' +'&emsp;&emsp;} else if(answer === `N`) {'+ '<br />' +'&emsp;&emsp;&emsp;console.log(`Ok dann halt nicht :(`);'+ '<br />' +'&emsp;&emsp;}'+ '<br />' +'&emsp;}'+ '<br />' +'}'+ '<br />' +'goTo(`NoCode`);'"></div>
+          </a>
+      </div>
+  
       <a [routerLink]="['/FlashcardMenu']">
-        <p class="selectable">
+        <p class="selectable mobile">
           Lerne ein paar Karten!
         </p>
       </a>
@@ -39,9 +43,10 @@
           <p class="response list-element">{{ flashCardData[0].name }}</p>
         </a>
       </div>
-
-        <a [routerLink]="['/FlashcardCreator']">
-        <p class="selectable">Erstell ein paar neue Karten</p>
+      <a [routerLink]="['/FlashcardCreator']">
+        <p class="selectable mobile">
+          Erstell ein paar Flashcards
+        </p>
       </a>
     </div>
   </div>

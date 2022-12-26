@@ -4,7 +4,6 @@ import {FlashCardModel} from "../../../models/flash-card.model";
 import {Router, ActivatedRoute, ParamMap} from "@angular/router";
 import {state} from "@angular/animations";
 
-
 @Component({
   selector: 'app-flashcard-menu',
   templateUrl: './flashcard-menu.component.html',
@@ -16,6 +15,11 @@ export class FlashcardMenuComponent implements OnInit {
 
 
   constructor(private flashcardService: FlashcardTaskService, private _router: Router) {
+  }
+
+  isActive = false;
+  toggleIconClass(icon: HTMLElement) {
+    icon.classList.toggle('down');
   }
 
   ngOnInit(): void {
@@ -42,8 +46,6 @@ export class FlashcardMenuComponent implements OnInit {
     // bring the info the the Flashcard
     this._router.navigate(['/Flashcard'], {queryParams: flashcard});
   }
-
-
 
   expandTopic(topic: string) {
     // @ts-ignore

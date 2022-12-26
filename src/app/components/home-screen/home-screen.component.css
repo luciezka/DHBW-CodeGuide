@@ -4,11 +4,30 @@
   }
   .buttons{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
   }
   .text-left{
     vertical-align: middle;
+  }
+  .fake-terminal {
+    margin-top: 10px;
+    border-radius: 20px;
+    background: linear-gradient(
+      to bottom,
+      black calc(2.5vh + 10px),
+      #0c0c0c calc(2.5vh + 10px)
+    );
+    width: 100%;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    transition: all 0.25s ease;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  .fake-terminal:hover{
+    transform: scale(1.01);
+    transform: rotate(-2deg);
   }
   .highlight {
     background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #e2001a 50%);
@@ -189,6 +208,9 @@
     .typewriter::before {
       content: "developer";
       animation: sequencePopup 12s linear infinite;
+    }
+    .container{
+      min-height: 100vh;
     }
   }
 }

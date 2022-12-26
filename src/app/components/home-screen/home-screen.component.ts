@@ -28,13 +28,15 @@ export class HomeScreenComponent implements OnInit {
     testTaskService.getTestCard().subscribe(async data => {
       this.testData = data.length;
     });
-
     flashCardTaskService.getNewestFlashcard().subscribe((data: TestCardModel[]) => {
       this.flashCardData = data;
     });
 
 
   }
+
+
+
 
   ngOnInit(): void {
 
