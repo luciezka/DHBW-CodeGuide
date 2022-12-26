@@ -1,7 +1,8 @@
 export interface User {
-  id: number;
+  id: string;
   name: string;
   email: string;
-  punkte: number;
-  istAdmin: boolean;
+  isAdmin: boolean;
 }
+
+

@@ -209,6 +209,9 @@
       content: "developer";
       animation: sequencePopup 12s linear infinite;
     }
+    .container{
+      min-height: 100vh;
+    }
   }
 }
 @media (pointer: none), (pointer: coarse) {

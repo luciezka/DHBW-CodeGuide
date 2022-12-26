@@ -10,6 +10,9 @@
   .desktop {
     display: none;
   }
+  body {
+    background-color: #262626;
+  }
 }
 
 @media (any-pointer: fine) {

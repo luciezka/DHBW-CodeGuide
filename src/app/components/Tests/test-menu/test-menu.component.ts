@@ -16,6 +16,8 @@ export class TestMenuComponent implements OnInit {
 
   testCardData!: TestCardModel[];
 
+
+
   constructor(private testcardservice: TestTaskService, private _router: Router) {
   }
 
@@ -30,7 +32,6 @@ export class TestMenuComponent implements OnInit {
       this.testCardData = JSON.parse("[" + this.testcardservice.getTestCardCache() + "]");
     } else {
       //Subscribe to the available data in Service
-
       this.testcardservice.getTestCard().subscribe(async data => {
         this.testCardData = data;
       }, error => {
@@ -44,16 +45,28 @@ export class TestMenuComponent implements OnInit {
     // bring the info the the route
     this._router.navigate(['/Testcard'], {queryParams: testcard});
   }
+
+
+
+
+  selectRandomTestFromTopic(topic: string) {
+    this.testcardservice.getTestCardByTopic(topic).subscribe(async data => {
+      let testDataByTopic = data;
+      try {
+        testDataByTopic.sort(() => Math.random() - 0.5);
+      }catch (e) {
+      }
+      this.routeToTestCard(testDataByTopic[0]);
+    }, error => {
+    }, () => {
+    });
+  }
+
+
+
 }
 
 
-class testSubjet {
-  name!: string;
-  description!: string;
-  exercises!: string[];
-  id!: number
-  completion!: number;
-  downloaded!: boolean;
-}
+
 
 
