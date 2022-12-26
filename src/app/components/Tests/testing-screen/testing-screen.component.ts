@@ -2,6 +2,8 @@ import {Component, forwardRef, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {TestCardModel} from "../../../models/testCard.model";
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {UserTaskService} from "../../../services/user-task.service";
+import {UserModel} from "../../../models/user.model";
 
 @Component({
   selector: 'app-testing-screen',
@@ -17,9 +19,9 @@ export class TestingScreenComponent implements OnInit {
 
   showSubmitScreen = false;
   showMistakeScreen = false;
+  userData! : UserModel[];
 
-
-  constructor(public activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(public activatedRoute: ActivatedRoute, private formBuilder: FormBuilder,public userService: UserTaskService) {
     this.submitForm = this.formBuilder.group({
       optionArray: this.formBuilder.array([], [Validators.required]),
       answer: ''
@@ -28,13 +30,24 @@ export class TestingScreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.testData = this.activatedRoute.snapshot.queryParams
+    this.initUser();
     this.randomizeAnswers()
   }
 
   //sunmit button was pressed
   submitTest() {
-    this.checkRightAnswers()
-    //this.showSubmitScreen = true;
+    this.checkRightAnswers();
+  }
+
+
+  //randomize the answers for checkbox questions
+  randomizeAnswers() {
+    this.answerTable = this.testData.answerRight!.concat(this.testData.answerWrong!);
+    try {
+      this.answerTable.sort(() => Math.random() - 0.5);
+    }catch (e) {
+      console.log(e)
+    }
   }
 
 //check if questiontype 1 or 2 is used in this question
@@ -57,8 +70,11 @@ export class TestingScreenComponent implements OnInit {
   checkRightAnswerBool(input :boolean) {
     this.showSubmitScreen = true;
     let rightAnswers = this.testData.answerRight![0];
-    if( JSON.parse(rightAnswers) == input){
+    //Converts string to boolean
+    if( JSON.parse(rightAnswers) != input){
       this.showMistakeScreen = true;
+    }else {
+      this.updateUserWithTestID();
     }
   }
 
@@ -72,18 +88,9 @@ export class TestingScreenComponent implements OnInit {
     // cleans string from whitespace and to lowercase
     if (!rightAnswers.includes(this.submitForm.value.answer.replace(/\s/g, "").toLowerCase())) {
       this.showMistakeScreen = true;
+    }else{
+      this.updateUserWithTestID();
     }
-  }
-
-  //randomize the answers for checkbox questions
-  randomizeAnswers() {
-    this.answerTable = this.testData.answerRight!.concat(this.testData.answerWrong!);
-    try {
-      this.answerTable.sort(() => Math.random() - 0.5);
-    }catch (e) {
-      console.log(e)
-    }
-
   }
 
   //Checks the right answers for checkboxes
@@ -101,6 +108,27 @@ export class TestingScreenComponent implements OnInit {
     //checks if not all right answers are checked and if there are wrong answers
     if (wrongAnswers.length  || rightAnswers!.length ) {
       this.showMistakeScreen = true;
+    }else{
+      this.updateUserWithTestID();
+    }
+  }
+
+
+// USER INTERACTION
+  initUser() {
+    this.userService.getUser().subscribe(async data => {
+      this.userData = data;
+    }, error => {
+    }, () => {
+    });
+  }
+
+
+  updateUserWithTestID() {
+// Falls nicht enthalten und nicht eingeloggt als Gast
+    if (!this.userData[0].passedTests.includes(this.testData.id) && this.userData[0].name != "Gast") {
+      this.userData[0].passedTests.push(this.testData.id);
+      this.userService.updateUser(this.userData[0])
     }
   }
 
@@ -121,4 +149,7 @@ export class TestingScreenComponent implements OnInit {
       });
     }
   }
+
+
+
 }

@@ -39,6 +39,19 @@ export class FlashcardTaskService {
     }));
   }
 
+
+  getNewestFlashcard() {
+    return this.fireStore.collection('flashcard', ref => ref.orderBy('creationDate', 'desc')).snapshotChanges().pipe(map((changes) => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as FlashCardModel;
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    }));
+  }
+
+
+
   getFlashcards() {
     return this.flashcards;
   }

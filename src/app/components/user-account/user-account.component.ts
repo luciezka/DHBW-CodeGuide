@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserTaskService} from "../../services/user-task.service";
+import {UserModel} from "../../models/user.model";
 
 @Component({
   selector: 'app-user-account',
@@ -9,32 +10,26 @@ import {UserTaskService} from "../../services/user-task.service";
 export class UserAccountComponent implements OnInit {
 
 
-  userData!:any[];
+  userData!:UserModel[];
 
   constructor(public userTask : UserTaskService) { }
 
   ngOnInit(): void {
-    this.userTask.addUser()
-    this.initUser()
+      this.initUser();
   }
-
   initUser() {
-      //If offline get cache
-      if (!navigator.onLine) {
-        this.userData = JSON.parse("[" + this.userTask.getUserCache() + "]");
-      } else {
-        //Subscribe to the available data in Service
-        this.userTask.getUser().subscribe(async data => {
-          this.userData = data;
-          console.log(this.userData)
-        }, error => {
-        }, () => {
-        });
-
-
-    }
+    this.userTask.getUser().subscribe(async data => {
+      this.userData = data;
+    }, error => {
+    }, () => {
+    });
   }
 
-
-
+  initUserByName(name : string) {
+    this.userTask.getUserByName(name).subscribe(async data => {
+      this.userData = data;
+    }, error => {
+    }, () => {
+    });
+  }
 }

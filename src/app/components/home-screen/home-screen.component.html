@@ -1,8 +1,8 @@
 <div class="container">
   <div>
     <div class="text-left">
-      <h1 style="align-content: center" class="desktop">Willkommen {{ userName }},</h1>
-      <h1 style="align-content: center" class="mobile">Willkommen {{ userName }}</h1>
+      <h1 style="align-content: center" class="desktop">Willkommen {{  userData[0].name }},</h1>
+      <h1 style="align-content: center" class="mobile">Willkommen {{ userData[0].name }}</h1>
       <h1 style="margin-left: 5vh" aria-label="Learn to code!" class="desktop">
         Learn how to code with&nbsp;<span class="typewriter"></span>
       </h1>
@@ -33,32 +33,14 @@
 
       <a [routerLink]="['/TestMenu']">
         <p class="selectable mobile">
-          Dein Testergebnis ist bei {{ testResultPrecentage }}%
+         Du hast {{ userData[0].passedTests.length }} von {{testData}} Aufgaben gelöst!
         </p>
       </a>
 
       <div class="css-list mobile">
         <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
-        </a>
-        <a [routerLink]="['/lastCard']">
-          <p class="response list-element">{{ lastCardName }}</p>
+        <a [routerLink]="['/FlashcardMenu']">
+          <p class="response list-element">{{ flashCardData[0].name }}</p>
         </a>
       </div>
       <a [routerLink]="['/FlashcardCreator']">
