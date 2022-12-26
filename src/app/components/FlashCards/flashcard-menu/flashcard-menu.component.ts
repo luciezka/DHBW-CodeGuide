@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FlashcardTaskService} from "../../../services/flashcard-task.service";
 import {FlashCardModel} from "../../../models/flash-card.model";
-import {Router, ActivatedRoute, ParamMap} from "@angular/router";
-import {state} from "@angular/animations";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-flashcard-menu',
@@ -15,31 +15,29 @@ export class FlashcardMenuComponent implements OnInit {
 
 
   constructor(private flashcardService: FlashcardTaskService, private _router: Router) {
-  }
-
-  isActive = false;
-  toggleIconClass(icon: HTMLElement) {
-    icon.classList.toggle('down');
-  }
-
-  ngOnInit(): void {
     this.flashcardService.clearData();
     this.initFlashCard();
   }
+  ngOnInit(): void {
+  }
+
+    isActive = false;
+    toggleIconClass(icon: HTMLElement) {
+    icon.classList.toggle('down');
+  }
+
+
 
   initFlashCard() {
-    //If offline get cache
-    if (!navigator.onLine) {
-      this.flashCardData = JSON.parse("[" + this.flashcardService.getFlashcardCache() + "]");
-    } else {
       //Subscribe to the available data in Service
       this.flashcardService.getFlashcards().subscribe(async data => {
+       // Checks if Connection is available
+        this.timeOutConnection(data);
         this.flashCardData = data;
-
       }, error => {
+
       }, () => {
       });
-    }
   }
 
   routeToFlashcard(flashcard: FlashCardModel) {
@@ -61,7 +59,14 @@ export class FlashcardMenuComponent implements OnInit {
 
   }
 
-
+  timeOutConnection(data : any){
+    console.log(data);
+    setTimeout(() => {
+      if (data.length < 1) {
+        console.log("No Connection, using Cache");
+        this.flashCardData = JSON.parse("[" + this.flashcardService.getFlashcardCache() + "]");
+      }}, 100);
+  }
 
 }
 

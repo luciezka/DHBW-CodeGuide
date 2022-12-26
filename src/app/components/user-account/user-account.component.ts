@@ -12,25 +12,43 @@ export class UserAccountComponent implements OnInit {
 
   userData!:UserModel[];
 
-  constructor(public userTask : UserTaskService) {
+  constructor(public userTaskService : UserTaskService) {
+    this.userTaskService.clearData();
     this.initUser();
   }
 
   ngOnInit(): void {
+
   }
   initUser() {
-    this.userTask.getUser().subscribe(async data => {
+    if (!navigator.onLine) {
+      this.userData = JSON.parse("[" + this.userTaskService.getUserCache() + "]");
+    } else {
+      this.userTaskService.getUser().subscribe(async data => {
+        this.timeOutConnection(data)
+        this.userData = data;
+      }, error => {
+      }, () => {
+      });
+    }
+  }
+
+  initUserByName(name : string) {
+    this.userTaskService.clearData();
+    this.userTaskService.getUserByName(name).subscribe(async data => {
       this.userData = data;
     }, error => {
     }, () => {
     });
   }
 
-  initUserByName(name : string) {
-    this.userTask.getUserByName(name).subscribe(async data => {
-      this.userData = data;
-    }, error => {
-    }, () => {
-    });
+
+  timeOutConnection(data : any){
+    console.log(data);
+    setTimeout(() => {
+      if (data.length < 1) {
+        this.userData = JSON.parse("[" + this.userTaskService.getUserCache() + "]");
+      }}, 100);
   }
+
 }

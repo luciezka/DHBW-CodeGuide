@@ -21,7 +21,6 @@ export class UserTaskService {
               private cache: CacheService,
               private updates: SwUpdate
   ) {
-   this.getUserByName("Gast")
   }
 
   getUserByName(name:string) {
@@ -41,6 +40,9 @@ export class UserTaskService {
   }
 
   getUser() {
+    if(this.user === undefined) {
+      this.getUserByName("Gast");
+    }
     return this.user;
   }
 
@@ -50,6 +52,9 @@ export class UserTaskService {
 
   updateUser(user: UserModel) {
     this.userCollection.doc(user.id).update(user);
+  }
+  clearData() {
+    this.cache.clearData();
   }
 
 

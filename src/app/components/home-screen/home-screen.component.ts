@@ -4,6 +4,7 @@ import {UserTaskService} from "../../services/user-task.service";
 import {TestCardModel} from "../../models/testCard.model";
 import {TestTaskService} from "../../services/test-task.service";
 import {FlashcardTaskService} from "../../services/flashcard-task.service";
+import {FlashCardModel} from "../../models/flash-card.model";
 
 @Component({
   selector: 'app-home-screen',
@@ -15,31 +16,54 @@ export class HomeScreenComponent implements OnInit {
   userData!: UserModel[];
   flashCardData!: TestCardModel[];
   testData!: number;
+  isOnline : boolean = true;
 
-  testResult : number = 0;
-  totalTests: number = 0;
+  constructor(public userTaskService: UserTaskService, public testTaskService: TestTaskService, public flashCardTaskService: FlashcardTaskService) {
+    this.tryLoginFromCache();
+    this.initData()
+  }
 
-  lastCardName: string = "Arrays and Positions";
+  ngOnInit(): void {
+  }
 
-  constructor(userTaskService: UserTaskService,testTaskService: TestTaskService,flashCardTaskService: FlashcardTaskService) {
-    userTaskService.getUser().subscribe((data: UserModel[]) => {
-      this.userData = data;
+  initData() {
+    this.flashCardTaskService.getNewestFlashcard().subscribe((data: FlashCardModel[]) => {
+      this.flashCardData = data;
+      this.timeOutConnection(data);
     });
-    testTaskService.getTestCard().subscribe(async data => {
+    this.flashCardTaskService.clearData();
+    this.testTaskService.returnTestCard().subscribe((data: TestCardModel[]) => {
       this.testData = data.length;
     });
-    flashCardTaskService.getNewestFlashcard().subscribe((data: TestCardModel[]) => {
-      this.flashCardData = data;
+    this.testTaskService.clearData();
+    this.userTaskService.getUser().subscribe((data: UserModel[]) => {
+      this.userData = data;
     });
-
-
+    this.userTaskService.clearData();
   }
 
 
+  tryLoginFromCache() {
+    // IF no user in cache
+    if (this.userTaskService.getUserCache() !== null) {
+       let userData = JSON.parse("[" + this.userTaskService.getUserCache() + "]");
+       // if User not Gast then try getting data from Cloud
+       if (userData[0].name !== "Gast") {
+        this.userTaskService.getUserByName(userData[0].name);
+       }
+    }
+  }
 
-
-  ngOnInit(): void {
-
+  // If timeout then get all Data
+  timeOutConnection(data : any){
+    console.log(data);
+    setTimeout(() => {
+      if (data.length < 1) {
+        this.userData = JSON.parse("[" + this.userTaskService.getUserCache() + "]");
+        this.flashCardData = JSON.parse("[" + this.flashCardTaskService.getFlashcardCache() + "]");
+        let testCardData = JSON.parse("[" + this.testTaskService.getTestCardCache() + "]");
+        this.testData = testCardData.length;
+      }}, 100);
   }
 
 }

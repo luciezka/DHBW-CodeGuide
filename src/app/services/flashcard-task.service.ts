@@ -18,6 +18,7 @@ export class FlashcardTaskService {
     private cache: CacheService,
     private updates: SwUpdate
   ) {
+    this.clearData()
     this.initTask()
   }
 
@@ -78,6 +79,8 @@ export class FlashcardTaskService {
   clearData() {
     this.cache.clearData();
   }
+
+
 
 
 

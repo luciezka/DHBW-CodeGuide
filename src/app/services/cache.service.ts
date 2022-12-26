@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {SwUpdate} from "@angular/service-worker";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,10 @@ import {SwUpdate} from "@angular/service-worker";
 export class CacheService {
   data: any = "";
 
-  constructor(private updates: SwUpdate) {
+  constructor(private http: HttpClient ,private updates: SwUpdate) {
   }
+
+  isOnline!: boolean;
 
   // Store data in Local Storage as JSON
   store(key: string, value: any): void {
@@ -37,4 +40,8 @@ export class CacheService {
   clearData() {
     this.data = "";
   }
+
+
+
+
 }

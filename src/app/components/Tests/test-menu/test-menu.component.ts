@@ -19,20 +19,23 @@ export class TestMenuComponent implements OnInit {
 
 
   constructor(private testcardservice: TestTaskService, private _router: Router) {
+    this.testcardservice.clearData();
+    this.initTestCard();
   }
 
   ngOnInit(): void {
-    this.testcardservice.clearData();
-    this.initTestCard();
+
   }
 
   initTestCard() {
     //If offline get cache
     if (!navigator.onLine) {
-      this.testCardData = JSON.parse("[" + this.testcardservice.getTestCardCache() + "]");
+
+      console.log(this.testCardData);
     } else {
       //Subscribe to the available data in Service
       this.testcardservice.getTestCard().subscribe(async data => {
+        this.timeOutConnection(data);
         this.testCardData = data;
       }, error => {
       }, () => {
@@ -46,9 +49,6 @@ export class TestMenuComponent implements OnInit {
     this._router.navigate(['/Testcard'], {queryParams: testcard});
   }
 
-
-
-
   selectRandomTestFromTopic(topic: string) {
     this.testcardservice.getTestCardByTopic(topic).subscribe(async data => {
       let testDataByTopic = data;
@@ -60,6 +60,15 @@ export class TestMenuComponent implements OnInit {
     }, error => {
     }, () => {
     });
+  }
+
+  timeOutConnection(data : any){
+    console.log(data);
+    setTimeout(() => {
+      if (data.length < 1) {
+        console.log("No Connection, using Cache");
+        this.testCardData = JSON.parse("[" + this.testcardservice.getTestCardCache() + "]");
+      }}, 100);
   }
 
 
