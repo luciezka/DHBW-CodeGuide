@@ -2,6 +2,8 @@ import {Component, forwardRef, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {TestCardModel} from "../../../models/testCard.model";
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {UserTaskService} from "../../../services/user-task.service";
+import {UserModel} from "../../../models/user.model";
 
 @Component({
   selector: 'app-testing-screen',
@@ -17,9 +19,9 @@ export class TestingScreenComponent implements OnInit {
 
   showSubmitScreen = false;
   showMistakeScreen = false;
+  userData! : UserModel[];
 
-
-  constructor(public activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(public activatedRoute: ActivatedRoute, private formBuilder: FormBuilder,public userService: UserTaskService) {
     this.submitForm = this.formBuilder.group({
       optionArray: this.formBuilder.array([], [Validators.required]),
       answer: ''
@@ -28,6 +30,7 @@ export class TestingScreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.testData = this.activatedRoute.snapshot.queryParams
+    this.initUser();
     this.randomizeAnswers()
   }
 
@@ -59,6 +62,8 @@ export class TestingScreenComponent implements OnInit {
     let rightAnswers = this.testData.answerRight![0];
     if( JSON.parse(rightAnswers) == input){
       this.showMistakeScreen = true;
+    }else {
+      this.updateUserWithTestID();
     }
   }
 
@@ -72,6 +77,8 @@ export class TestingScreenComponent implements OnInit {
     // cleans string from whitespace and to lowercase
     if (!rightAnswers.includes(this.submitForm.value.answer.replace(/\s/g, "").toLowerCase())) {
       this.showMistakeScreen = true;
+    }else{
+      this.updateUserWithTestID();
     }
   }
 
@@ -101,8 +108,34 @@ export class TestingScreenComponent implements OnInit {
     //checks if not all right answers are checked and if there are wrong answers
     if (wrongAnswers.length  || rightAnswers!.length ) {
       this.showMistakeScreen = true;
+    }else{
+      this.updateUserWithTestID();
     }
   }
+
+
+// USER INTERACTION
+  initUser() {
+    this.userService.getUser().subscribe(async data => {
+      this.userData = data;
+    }, error => {
+    }, () => {
+    });
+  }
+
+
+  updateUserWithTestID() {
+// Falls nicht enthalten und nicht eingeloggt als Gast
+    if (!this.userData[0].passedTests.includes(this.testData.id) && this.userData[0].name != "Gast") {
+      this.userData[0].passedTests.push(this.testData.id);
+      this.userService.updateUser(this.userData[0])
+    }
+
+
+  }
+
+
+
 
 
 // write Checkboxes into array
@@ -121,4 +154,7 @@ export class TestingScreenComponent implements OnInit {
       });
     }
   }
+
+
+
 }

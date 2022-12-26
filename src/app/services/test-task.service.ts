@@ -39,7 +39,6 @@ export class TestTaskService {
     }));
   }
 
-
   // gets all the flashcards by topic querry
   getTestCardByTopic(topic: string) {
       return this.fireStore.collection('tests', ref => ref.where('topic', '==', topic)).snapshotChanges().pipe(map((changes) => {
@@ -51,7 +50,6 @@ export class TestTaskService {
         })
       }));
     }
-
 
   getTestCard() {
     return this.tests;

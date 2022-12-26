@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {UserModel} from "../../models/user.model";
+import {UserTaskService} from "../../services/user-task.service";
 
 @Component({
   selector: 'app-home-screen',
@@ -7,11 +9,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeScreenComponent implements OnInit {
 
-  userName: string = "User Name";
+  userData!: UserModel[];
   testResultPrecentage: number = 80;
   lastCardName: string = "Arrays and Positions";
 
-  constructor() {
+  constructor(userTaskService: UserTaskService) {
+    userTaskService.getUser().subscribe((data: UserModel[]) => {
+      this.userData = data;
+      });
   }
 
   ngOnInit(): void {
