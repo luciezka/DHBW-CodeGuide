@@ -5,6 +5,7 @@ import {TestCardModel} from "../../models/testCard.model";
 import {TestTaskService} from "../../services/test-task.service";
 import {FlashcardTaskService} from "../../services/flashcard-task.service";
 import {FlashCardModel} from "../../models/flash-card.model";
+import {PushNotificationService} from "../../services/push-notification.service";
 
 @Component({
   selector: 'app-home-screen',
@@ -18,7 +19,7 @@ export class HomeScreenComponent implements OnInit {
   testData!: number;
   isOnline : boolean = true;
 
-  constructor(public userTaskService: UserTaskService, public testTaskService: TestTaskService, public flashCardTaskService: FlashcardTaskService) {
+  constructor(public userTaskService: UserTaskService, public testTaskService: TestTaskService, public flashCardTaskService: FlashcardTaskService,public pushNotificationService : PushNotificationService) {
     this.tryLoginFromCache();
     this.initData()
   }
