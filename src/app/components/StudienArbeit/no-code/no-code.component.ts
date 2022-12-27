@@ -10,6 +10,11 @@ export class NoCodeComponent implements OnInit {
   constructor() {
   }
 
+  isActive = false;
+  toggleIconClass(icon: HTMLElement) {
+    icon.classList.toggle('down');
+  }
+
   ngOnInit(): void {
   }
 

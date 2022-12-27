@@ -1,6 +1,5 @@
 .filter-white {
-  filter: invert(100%) sepia(0%) saturate(11%) hue-rotate(274deg)
-    brightness(104%) contrast(105%);
+  filter: invert(97%) sepia(7%) saturate(18%) hue-rotate(127deg) brightness(113%) contrast(74%);
 }
 
 @media (pointer: none), (pointer: coarse) {
@@ -29,7 +28,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #e2001a;
+    background-color: #141515;
     border-radius: 20px 20px 0px 0px;
     box-shadow: 10px 10px 34px 0px rgba(0, 0, 0, 0.25);
   }

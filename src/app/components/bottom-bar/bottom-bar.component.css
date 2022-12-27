@@ -18,11 +18,8 @@
   }
   footer{
     bottom: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 100px;
-    background-color: #202221;
   }
   .footertxt{
     font-family: 'Montserrat';
@@ -34,6 +31,12 @@
     padding-right: 10px;
     padding-top: 18px;
     padding-bottom: 18px;
+  }
+  .hover-underline-animation {
+    color: gray;
+  }
+  .hover-underline-animation::after {
+    background-color: gray;
   }
 }
 

@@ -1,3 +1,139 @@
-.container{
-  margin-top: 3vh;
+.Answer {
+  margin-top: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.Answer p,
+.Answer div {
+  color:white;
+  font-size: xx-large;
+  text-align: center;
+}
+.TrueFalse {
+  margin-top: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.TrueFalse p{
+  color:white;
+  font-size: xx-large;
+  text-align: center;
+}
+.TrueFalse button.false{
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  border-radius: 15px;
+  color: #e2001a;
+  border: 2px solid #e2001a;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  width: auto;
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: large;
+  background-color: transparent;
+}
+.TrueFalse button.true{
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  border-radius: 15px;
+  color: #00e24f;
+  border: 2px solid #00e24f;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  width: auto;
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: large;
+  background-color: transparent;
+}
+.MultipleChoice {
+  margin-top: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.MultipleChoice p{
+  color:white;
+  font-size: xx-large;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.MultipleChoice div.Choice{
+  color:rgb(223, 222, 222);
+  align-items: center;
+  font-size: x-large;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.MultipleChoice button {
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  border-radius: 15px;
+  color: rgb(223, 222, 222);
+  border: 2px solid rgb(223, 222, 222);
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  width: auto;
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: large;
+  background-color: transparent;
+}
+.Blank {
+  margin-top: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.Blank p{
+  color:white;
+  font-size: xx-large;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.Blank input {
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  border-radius: 15px;
+  color: rgb(223, 222, 222);
+  border: 2px solid rgb(223, 222, 222);
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: large;
+  background-color: transparent;
+}
+.Blank input:focus {
+  outline: none;
+}
+.Blank button {
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  border-radius: 15px;
+  color: rgb(223, 222, 222);
+  border: 2px solid rgb(223, 222, 222);
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  width: auto;
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: large;
+  background-color: transparent;
 }
