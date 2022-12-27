@@ -17,4 +17,6 @@ To use Service Workers in test mode you will have to change the `production` Var
 further changing the Code will cause the Service Worker to keep updating and it can get stuck in a loop.
 
 Remove the Service Worker in the Developer Tools under Application and Unsubscribe under the Service Worker Tab. 
-Changes in Code with an installed Service Worker can cause Problems with the cache, so after building please clean the Data in LocalStorage
+Changes in Code with an installed Service Worker can cause Problems with the cache, so after building please clean the Data in LocalStorage and unregister the Service worker,
+
+Without Service Worker certain Cache Funktions are not able to start and the Frontpage wont be able to display 
