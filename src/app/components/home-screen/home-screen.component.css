@@ -225,14 +225,14 @@
     font-weight: 100;
     font-size: xx-large;
     font-family: "Montserrat";
-    color: #e2001a;
+    color: white;
   }
   p.selectable {
     padding-bottom: 1vh;
     padding-top: 1vh;
     border-radius: 40px;
-    color: #e2001a;
-    border: 2px solid #e2001a;
+    color: rgb(223, 222, 222);
+    border: 2px solid rgb(223, 222, 222);
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -241,13 +241,6 @@
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
-  }
-  p.selectable:hover,
-  p.selectable:active,
-  p.selectable:focus {
-    letter-spacing: 1.25px;
-    color: white;
-    background-color: #e2001a;
   }
   .container {
     display: flex;
@@ -258,7 +251,7 @@
   }
   .css-list {
     width: 80%;
-    background: linear-gradient(to bottom, #e2001a 100px, transparent 100px);
+    background: linear-gradient(to bottom, rgb(223, 222, 222) 100px, transparent 100px);
   }
   .top-list {
     margin-bottom: 0px;
@@ -282,10 +275,10 @@ a {
   border-radius: 20px;
   background: linear-gradient(
     to bottom,
-    #e2001a calc(2.5vh + 10px),
+    rgb(223, 222, 222) calc(2.5vh + 10px),
     transparent calc(2.5vh + 10px)
   );
-  border: 2px solid #e2001a;
+  border: 2px solid rgb(223, 222, 222);
   width: 82.5%;
   margin-left: auto;
   margin-right: auto;
@@ -296,20 +289,12 @@ a {
   margin-top: 0px;
   margin: 0;
   text-align: center;
-  color: white;
+  color: #262626;
 }
 .list-element {
   margin-top: 2.5px;
   padding: 5px;
   letter-spacing: 1px;
-  color: #e2001a;
+  color: rgb(223, 222, 222);
   text-align: center;
-}
-.list-element:hover,
-.list-element:active,
-.list-element:focus {
-  letter-spacing: 1.25px;
-  color:white;
-  background-color: #e2001a;
-  border: 2px #e2001a solid;
 }
