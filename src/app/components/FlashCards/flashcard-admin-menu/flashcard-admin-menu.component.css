@@ -32,6 +32,14 @@
 }
 
 @media (pointer: none), (pointer: coarse) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20%;
+  }
+  .title{
+    text-align: center;
+  }
   .arrow {
     border: solid rgb(225, 225, 225);
     border-width: 0 3px 3px 0;
@@ -58,8 +66,12 @@
     margin-left: 15px;
     color: rgb(223, 222, 222);
     cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   .delete {
     font-size: small;
+    margin-top: 5px;
+    color: #e2001a;
   }
 }
