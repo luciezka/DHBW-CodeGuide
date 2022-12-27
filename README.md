@@ -32,12 +32,13 @@ Without Service Worker certain Cache Funktions are not able to start and the Fro
 
 Test on device:
 
-Download: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
+Direct Download for Windows: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
+Help for other OS: https://developer.android.com/studio/releases/platform-tools
 
 1. Extract folder
-2. Open CMD inside of folder
+2. Open terminal inside of folder
 3. Connect phone via USB
-4. Run `adb reverse tcp:4200 tcp:4200` in CMD
+4. Run `adb reverse tcp:4200 tcp:4200` in terminal
 5. Make sure that the server is running
 6. Navigate to `http://localhost:4200/` on the mobile device
 
