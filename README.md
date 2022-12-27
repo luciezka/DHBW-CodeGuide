@@ -33,6 +33,7 @@ Without Service Worker certain Cache Funktions are not able to start and the Fro
 Test on device:
 
 Direct Download for Windows: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
+
 Help for other OS: https://developer.android.com/studio/releases/platform-tools
 
 1. Extract folder
