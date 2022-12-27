@@ -27,3 +27,14 @@ Remove the Service Worker in the Developer Tools under Application and Unsubscri
 Changes in Code with an installed Service Worker can cause Problems with the cache, so after building please clean the Data in LocalStorage and unregister the Service worker,
 
 Without Service Worker certain Cache Funktions are not able to start and the Frontpage wont be able to display 
+
+## Test as mobile app
+
+Download: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
+
+1. Extract folder
+2. Open CMD inside of folder
+3. Connect phone via USB
+4. Run `adb reverse tcp:4200 tcp:4200` in CMD
+5. Make sure that the server is running
+6. Navigate to `http://localhost:4200/` on the mobile device
