@@ -30,6 +30,7 @@ Without Service Worker certain Cache Funktions are not able to start and the Fro
 
 ## Test as mobile app
 
+Test on device:
 Download: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
 
 1. Extract folder
@@ -38,3 +39,7 @@ Download: https://dl.google.com/android/repository/platform-tools-latest-windows
 4. Run `adb reverse tcp:4200 tcp:4200` in CMD
 5. Make sure that the server is running
 6. Navigate to `http://localhost:4200/` on the mobile device
+
+Test in browser:
+1. Open developer tools
+2. Enable mobile mode (Toggle device toolbar)
