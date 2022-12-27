@@ -1,5 +1,5 @@
 .filter-white {
-  filter: invert(10%) sepia(94%) saturate(4777%) hue-rotate(346deg) brightness(107%) contrast(112%);
+  filter: invert(97%) sepia(7%) saturate(18%) hue-rotate(127deg) brightness(113%) contrast(74%);
 }
 
 @media (pointer: none), (pointer: coarse) {
