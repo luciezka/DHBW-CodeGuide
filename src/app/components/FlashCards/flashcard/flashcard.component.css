@@ -42,10 +42,10 @@
 @media (pointer:none), (pointer:coarse) {
   .flashcard-face {
     text-align: center;
-    font-size: medium;
+    font-size: x-large;
   }
   .container{
-    margin-top: 10vh;
+    margin-top: 5vh;
   }
 }
 

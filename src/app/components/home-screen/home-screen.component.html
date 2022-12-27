@@ -18,8 +18,8 @@
     </div>
     <div class="buttons">
       <!-- Add Routing -->
-      <div class="fake-terminal">
-          <div style="display:flex; flex-direction:row;justify-content: space-between; margin-left: 2vh; margin-right: 2vh;"><p class="top-list">/usr/etc/NoCode.js</p><p class="top-list">_ ☐ X</p></div>
+      <div class="fake-terminal" style="margin-top: 5vh;">
+          <div style="display:flex; flex-direction:row;justify-content: space-between; margin-left: 2vh; margin-right: 2vh;"><p class="desktop top-list">/usr/etc/NoCode.js</p><p class="desktop top-list">_ ☐ X</p></div>
           <a [routerLink]="['/NoCode']" class="selectable">
               <div class="desktop" style="font-family: 'Courier New', Courier, monospace;color:#9caaae;margin-left:2vh;" [innerHTML]="'function goTo(url) {'+ '<br />' +'&emsp;if(url === `NoCode`) {'+ '<br />' +'&emsp;&emsp;let answer = prompt(`Möchtest du NoCode lernen? [J/N]`);'+ '<br />' +'&emsp;&emsp;if(answer === `J`) {'+ '<br />' +'&emsp;&emsp;&emsp;console.log(`Redirecting...`);'+ '<br />' +'&emsp;&emsp;} else if(answer === `N`) {'+ '<br />' +'&emsp;&emsp;&emsp;console.log(`Ok dann halt nicht :(`);'+ '<br />' +'&emsp;&emsp;}'+ '<br />' +'&emsp;}'+ '<br />' +'}'+ '<br />' +'goTo(`NoCode`);'"></div>
           </a>
@@ -38,7 +38,7 @@
       </a>
 
       <div class="css-list mobile">
-        <p class="top-list">Die letzten hinzugefügten Kartensätze</p>
+        <p class="top-list">Neu hinzugefügte Kartensätze</p>
         <a [routerLink]="['/FlashcardMenu']">
           <p class="response list-element">{{ flashCardData[0].name }}</p>
         </a>

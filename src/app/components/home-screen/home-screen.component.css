@@ -223,9 +223,9 @@
     margin-top: 2.5vh;
     margin-left: 2.5vh;
     font-weight: 100;
-    font-size: large;
+    font-size: xx-large;
     font-family: "Montserrat";
-    color: coral;
+    color: #e2001a;
   }
   p.selectable {
     padding-bottom: 1vh;
@@ -258,10 +258,12 @@
   }
   .css-list {
     width: 80%;
-    background: linear-gradient(to bottom, #e2001a 6.5vh, transparent 6.5vh);
+    background: linear-gradient(to bottom, #e2001a 100px, transparent 100px);
   }
   .top-list {
     margin-bottom: 0px;
+    font-size: large;
+    padding: 2px;
   }
 }
 
@@ -300,11 +302,14 @@ a {
   margin-top: 2.5px;
   padding: 5px;
   letter-spacing: 1px;
-  color: rgb(255, 127, 80);
+  color: #e2001a;
   text-align: center;
 }
 .list-element:hover,
 .list-element:active,
 .list-element:focus {
   letter-spacing: 1.25px;
+  color:white;
+  background-color: #e2001a;
+  border: 2px #e2001a solid;
 }

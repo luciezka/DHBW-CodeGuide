@@ -1,46 +1,18 @@
-
-
-.container{
-  display: flex;
-  margin-top: 5vh;
-  flex-direction: column;
+.title{
+  text-align: center;
+  color: white;
+  font-size: xx-large;
 }
-
-.innerContainer{
-  display:flex;
-  margin-left: 2vh ;
-  margin-top: 1vh;
+h1 {
+  color: white;
+  margin-left: 5px;
+  font-size: xx-large;
 }
-
-
-.centerTheText{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.spaceLeftSmall{
-  margin-left: 3.5vh;
-}
-
-
-.rightText{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  right: 0;
-}
-
-.leftText {
-  align-items: flex-start;
-}
-
-fa-icon{
-  font-size: 3em;
-}
-
-.material-icons{
-  padding-left: 1vh;
-  padding-top: 0.5vh;
+a{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  color: rgb(223, 222, 222);
+  cursor: pointer;
+  font-size: x-large;
 }

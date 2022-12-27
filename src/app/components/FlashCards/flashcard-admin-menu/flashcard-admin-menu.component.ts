@@ -36,6 +36,11 @@ export class FlashcardAdminMenuComponent implements OnInit {
     }
   }
 
+  isActive = false;
+  toggleIconClass(icon: HTMLElement) {
+    icon.classList.toggle('down');
+  }
+
   routeToFlashcardCreator(flashcard: FlashCardModel) {
     // bring the info the the Flashcard
     this._router.navigate(['/FlashcardCreator'], {queryParams: flashcard});

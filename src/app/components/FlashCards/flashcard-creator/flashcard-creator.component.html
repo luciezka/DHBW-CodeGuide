@@ -1,12 +1,15 @@
-<form [formGroup]="flashcardForm" (ngSubmit)="submitFlashcard()">
-  <h1>Kartenbearbeitung</h1>
-  <p>Thema: </p>  <input type="text" formControlName="topic" id="topic"/>
-  <p>Name: </p>  <input type="text" formControlName="name" id="name"/>
-  <p>Text :</p>  <input type="text" formControlName="basetext" id="basetext"/>
-  <p>Rückseite :</p>  <input type="text" formControlName="fliptext" id="fliptext"/>
-  <br>
-  <small>Tipp: nutze < br > um einen Umbruch zu erstellen  </small>
-  <br>
-  <button  type="submit">Absenden</button>
-</form>
+<div style="display: flex; justify-content:center; margin-top: 5%;">
+  <form class="fake-terminal" [formGroup]="flashcardForm" (ngSubmit)="submitFlashcard()">
+    <div style="display:flex; flex-direction:row;justify-content: space-between; margin-left: 2vh; margin-right: 2vh;"><p class="top-list">/usr/etc/Flashcard_Editor.js</p><p class="top-list">_ ☐ X</p></div>
+    <div class="input subtitle">Erstelle oder bearbeite hier die jeweiligen Flashcards<br><br></div>
+    <div class="input subtitle">Was ist das Thema der Flashcard? <br>> <input type="text" formControlName="topic" id="topic"/></div>
+    <div class="input subtitle">Was ist der Name der Flashcard? <br>> <input type="text" formControlName="name" id="name"/></div>
+    <div class="input subtitle">Was ist die Vorderseite der Flashcard? <br>> <input type="text" formControlName="basetext" id="basetext"/></div>
+    <div class="input subtitle">Was ist die Rückseite der Flashcard? <br>> <input type="text" formControlName="fliptext" id="fliptext"/></div>
+    <br>
+    <small>Tipp: Nutze < br > um einen Umbruch zu erstellen  </small>
+    <br>
+    <button  type="submit" class="hover-underline-animation">Absenden</button>
+  </form>
+</div>
 

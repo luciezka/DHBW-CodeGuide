@@ -31,7 +31,7 @@
 .hover-underline-animation {
   display: inline-block;
   position: relative;
-  color: gray;
+  color: rgb(255, 255, 255);
 }
 .hover-underline-animation::after {
   content: "";
@@ -41,7 +41,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: gray;
+  background-color: rgb(255, 255, 255);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -115,3 +115,4 @@ body {
   margin: 0;
   font-family: "Montserrat";
 }
+

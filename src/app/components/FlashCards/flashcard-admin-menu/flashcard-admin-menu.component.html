@@ -1,17 +1,17 @@
 <div class="container">
-  <h1> Flashcards</h1>
+  <h1 class="title">Flashcards Editor</h1>
 </div>
 
 <div  *ngFor="let items of flashCardData ;index as i;">
   <div>
 
-    <div style="background: blueviolet" *ngIf=" i== 0 ||  items.topic != flashCardData[i-1].topic">
-      <h1 (click)="expandTopic(items.topic!)">{{items.topic}}</h1>
+    <div *ngIf=" i== 0 ||  items.topic != flashCardData[i-1].topic">
+      <h1 (click)="expandTopic(items.topic!)" (click)="toggleIconClass(icon)">{{items.topic}} <i #icon [class.icon-class]="isActive" class="arrow icon"></i></h1>
     </div>
 
-    <div id="{{items.topic}}" style="display:none" >
-      <a (click)="routeToFlashcardCreator(items)">{{items.name}}  <img src="assets/icons/svg/edit.svg"></a>
-      <a style="float: right" (click)="deleteFlashcard(items.id)">DELETE</a>
+    <div id="{{items.topic}}" style="display:none" class="items">
+      <a (click)="routeToFlashcardCreator(items)">{{items.name}}  <img src="assets/icons/svg/edit.svg" class="filter-white"></a>
+      <a style="float: right" (click)="deleteFlashcard(items.id)" class="delete">DELETE</a>
     </div>
   </div>
 </div>
