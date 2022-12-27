@@ -1,4 +1,4 @@
-##How to properly run :
+## How to properly run :
 You have to build the Server and run it from a Client as a propper server.
 Another way is to run the server in Development mode using `ng serve`, currently the setting enable it in dev mode but by changing code the Service worker will need some time and reloading the page might take up to a minute with continuous reloading.
 
