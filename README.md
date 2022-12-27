@@ -31,6 +31,7 @@ Without Service Worker certain Cache Funktions are not able to start and the Fro
 ## Test as mobile app
 
 Test on device:
+
 Download: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
 
 1. Extract folder
