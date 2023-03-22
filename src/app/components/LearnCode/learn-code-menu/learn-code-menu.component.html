@@ -1,0 +1,31 @@
+<div>
+  <a [routerLink]="['/LearnCodeCreator']" style="float: right; color:white;" class="hover-underline-animation">Add</a>
+  <a [routerLink]="['/LearnCodeAdminMenu']" style="float: right; color:white;" class="hover-underline-animation">Edit</a>
+</div>
+
+<div class="container">
+  <h1 class="title">Learn Code</h1>
+
+  <div *ngFor="let items of MarkdownData; index as i">
+    <div>
+      <div
+        class="center"
+        *ngIf="i == 0 || items.topic != MarkdownData[i - 1].topic"
+      >
+        <h1 (click)="expandTopic(items.topic!)" (click)="toggleIconClass(icon)">
+          {{ items.topic }}
+          <i #icon [class.icon-class]="isActive" class="arrow icon"></i>
+        </h1>
+      </div>
+
+      <div class="center-items">
+        <a
+          id="{{ items.topic }}"
+          style="display: none"
+          (click)="routeToMarkdown(items)"
+          >{{ items.name }}</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

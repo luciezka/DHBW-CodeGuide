@@ -1,8 +1,3 @@
-.filter-white {
-  filter: invert(97%) sepia(7%) saturate(18%) hue-rotate(127deg) brightness(113%) contrast(74%);
-  height: 24px;
-  width: 24px;
-}
 @media (pointer: fine) {
   .title{
     text-align: center;
@@ -22,16 +17,25 @@
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
-  h1 {
-    color: white;
-    margin-left: 5px;
+  h1{
+    color:white;
   }
-  .items {
-    margin-left: 15px;
+  .center {
+    margin-left: 25%;
+    cursor: pointer;
+  }
+  .center-items {
+    margin-left: 26%;
     color: rgb(223, 222, 222);
     cursor: pointer;
-    display: flex;
-    flex-direction: row;
+  }
+
+  .edit {
+    color: white;
+    letter-spacing: 1px;
+  }
+  .edit:hover {
+    letter-spacing: 1.25px;
   }
 }
 
@@ -43,6 +47,8 @@
   }
   .title{
     text-align: center;
+    color: white;
+    font-size: xx-large;
   }
   .arrow {
     border: solid rgb(225, 225, 225);
@@ -57,27 +63,28 @@
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
-  .down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
-  h1 {
-    color: white;
-    margin-left: 5px;
+  h1{
+    color:white;
     font-size: xx-large;
   }
-  .items {
-    margin-left: 15px;
+  .center {
+    margin-left: 1%;
+    cursor: pointer;
+  }
+  .center-items {
+    margin-left: 2%;
     color: rgb(223, 222, 222);
     cursor: pointer;
+  }
+  a {
     margin-top: 10px;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: row;
   }
-  .delete {
-    font-size: small;
-    margin-top: 5px;
-    color: #e2001a;
+  .edit {
+    color: white;
+    letter-spacing: 1px;
+  }
+  .edit:hover {
+    letter-spacing: 1.25px;
   }
 }

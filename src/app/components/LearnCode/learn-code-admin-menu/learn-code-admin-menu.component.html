@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="title">Learn Code Editor</h1>
+
+
+<div  *ngFor="let items of markdownData ;index as i;">
+  <div>
+
+    <div *ngIf=" i== 0 ||  items.topic != markdownData[i-1].topic">
+      <h1 (click)="expandTopic(items.topic!)" (click)="toggleIconClass(icon)">{{items.topic}} <i #icon [class.icon-class]="isActive" class="arrow icon"></i></h1>
+    </div>
+
+    <div id="{{items.topic}}" style="display:none" class="items">
+      <a (click)="routeToMarkdownCreator(items)">{{items.name}}  <img src="assets/icons/svg/edit.svg" class="filter-white"></a>
+      <a style="float: right" (click)="deleteMarkdown(items.id)" class="delete">DELETE</a>
+    </div>
+  </div>
+</div>
+</div>
+

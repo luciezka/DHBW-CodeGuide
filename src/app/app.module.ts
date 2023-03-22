@@ -21,6 +21,11 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {NoCodeComponent} from "./components/StudienArbeit/no-code/no-code.component";
 import { FlashcardAdminMenuComponent } from './components/FlashCards/flashcard-admin-menu/flashcard-admin-menu.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { LearnCodeMenuComponent } from './components/LearnCode/learn-code-menu/learn-code-menu.component';
+import { LearnCodeComponent } from './components/LearnCode/learn-code/learn-code.component';
+import { MarkdownComponent } from './components/LearnCode/learn-code-creator/markdown.component';
+import { LearnCodeAdminMenuComponent } from './components/LearnCode/learn-code-admin-menu/learn-code-admin-menu.component';
 
 
 
@@ -38,12 +43,17 @@ import { FlashcardAdminMenuComponent } from './components/FlashCards/flashcard-a
     FlashcardMenuComponent,
     FlashcardCreatorComponent,
     NoCodeComponent,
-    FlashcardAdminMenuComponent
-
+    FlashcardAdminMenuComponent,
+    LearnCodeMenuComponent,
+    MarkdownComponent,
+    LearnCodeComponent,
+    LearnCodeAdminMenuComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
+    AngularEditorModule,
     RouterModule.forRoot([
       {path: '', component: HomeScreenComponent},
       {path: 'Flashcard', component: FlashcardComponent},
@@ -55,7 +65,10 @@ import { FlashcardAdminMenuComponent } from './components/FlashCards/flashcard-a
       {path: 'Account', component: UserAccountComponent},
       {path: 'Login', component: LoginScreenComponent},
       {path: 'NoCode', component: NoCodeComponent},
-
+      {path: 'LearnCodeMenu', component: LearnCodeMenuComponent},
+      {path: 'LearnCodeCreator', component: MarkdownComponent},
+      {path: 'LearnCode', component: LearnCodeComponent},
+      {path: 'LearnCodeAdminMenu', component: LearnCodeAdminMenuComponent}
     ]),
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     ReactiveFormsModule,

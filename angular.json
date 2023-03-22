@@ -22,7 +22,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/node_modules/@kolkov/angular-editor/assets/"
             ],
             "styles": [
               "src/styles.css"
@@ -93,7 +94,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/node_modules/@kolkov/angular-editor/assets/"
             ],
             "styles": [
               "src/styles.css"

@@ -30,8 +30,7 @@
     margin-left: 15px;
     color: rgb(223, 222, 222);
     cursor: pointer;
-    display: flex;
-    flex-direction: row;
+    display: inline-block;
   }
 }
 
@@ -72,8 +71,7 @@
     cursor: pointer;
     margin-top: 10px;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: row;
+    display: inline-block;
   }
   .delete {
     font-size: small;

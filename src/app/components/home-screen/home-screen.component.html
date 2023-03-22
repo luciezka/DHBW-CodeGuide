@@ -19,6 +19,14 @@
     </div>
     <div class="buttons">
       <!-- Add Routing -->
+
+      <div class="fake-terminal" style="margin-top: 5vh;">
+        <div style="display:flex; flex-direction:row;justify-content: space-between; margin-left: 2vh; margin-right: 2vh;"><p class="desktop top-list" style="color:white;">/usr/etc/LearnCode.js</p><p class="desktop top-list" style="color:white;">_ ☐ X</p></div>
+        <a [routerLink]="['/LearnCodeMenu']" class="selectable">
+            <div class="desktop" style="font-family: 'Courier New', Courier, monospace;color:#9caaae;margin-left:2vh;" [innerHTML]="'function goTo(url) {'+ '<br />' +'&emsp;if(url === `LearnCode`) {'+ '<br />' +'&emsp;&emsp;let answer = prompt(`Möchtest du JavaScript oder Python lernen? [J/N]`);'+ '<br />' +'&emsp;&emsp;if(answer === `J`) {'+ '<br />' +'&emsp;&emsp;&emsp;console.log(`Redirecting...`);'+ '<br />' +'&emsp;&emsp;} else if(answer === `N`) {'+ '<br />' +'&emsp;&emsp;&emsp;console.log(`Ok dann halt nicht :(`);'+ '<br />' +'&emsp;&emsp;}'+ '<br />' +'&emsp;}'+ '<br />' +'}'+ '<br />' +'goTo(`LearnCode`);'"></div>
+        </a>
+      </div>
+
       <div class="fake-terminal" style="margin-top: 5vh;">
           <div style="display:flex; flex-direction:row;justify-content: space-between; margin-left: 2vh; margin-right: 2vh;"><p class="desktop top-list" style="color:white;">/usr/etc/NoCode.js</p><p class="desktop top-list" style="color:white;">_ ☐ X</p></div>
           <a [routerLink]="['/NoCode']" class="selectable">

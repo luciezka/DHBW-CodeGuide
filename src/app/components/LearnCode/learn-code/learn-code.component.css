@@ -1,0 +1,51 @@
+* {
+  color:white;
+}
+
+.highlight {
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #e2001a 50%);
+}
+h1 {
+  color:white;
+  margin-left: 5px;
+  cursor: pointer;
+}
+p {
+  margin-left: 10px;
+  color: rgb(223, 222, 222);
+}
+a {
+  color:white;
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #e2001a 50%);
+}
+small {
+  color: rgb(183, 181, 181);
+  font-style: italic;
+  margin-left: 10px;
+}
+u {
+  color: rgb(183, 181, 181);
+  font-style: italic;
+  margin-left: 10px;
+}
+img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.arrow {
+  border: solid rgb(225, 225, 225);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-bottom: 2px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
