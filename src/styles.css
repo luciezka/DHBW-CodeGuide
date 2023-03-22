@@ -120,11 +120,57 @@ h1 {
 }
 
 .angular-editor {
-  background-color: #262626;
+  overflow: hidden !important;
 }
 
-div.angular-editor-textarea {
-  margin-top: 0px;
+.angular-editor .angular-editor-toolbar {
+  background-color: #262626 !important;
+  border: none !important;
+}
+
+.angular-editor .angular-editor-toolbar button {
+  background-color: #1B1D1C !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 20px;
+  height: 30px;
+  margin-right: 2.5px;
+}
+
+.ae-font .ae-picker-options {
+  background-color: transparent !important;
+  padding-top: 3px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ae-font .ae-picker-options .ae-picker-item {
+  margin-top: 2px !important; 
+}
+
+.angular-editor .angular-editor-toolbar button:hover {
+  background-color: #363636 !important;
+}
+
+.angular-editor {
+  background-color: #262626;
+  height: 70% !important;
+}
+
+.angular-editor-wrapper {
+  height: 75% !important;
+}
+
+.angular-editor-textarea {
+  margin-top: 0px !important;
+  border: solid #1B1D1C !important;
+  border-radius: 10px !important;
+  resize: none !important;
+  height: 100% !important;
+}
+
+.ae-font .ae-picker-label:before {
+  background: none !important;
 }
 
 p {

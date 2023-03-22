@@ -2,9 +2,27 @@
     color:white;
 }
 
-div.angular-editor-textarea {
-    margin-top: 0px;
+.container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    flex-direction: column;
 }
+
+.form {
+    width: 80%;
+    height: 70vh;
+    background: #262626;
+    border-radius: 40px;
+    padding: 10px;
+    position: relative;
+    box-shadow: 10px 10px 34px 0px rgba(0,0,0,0.25);
+    overflow-y: scroll;
+}
+  
 
 .highlight {
     background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #e2001a 50%);
