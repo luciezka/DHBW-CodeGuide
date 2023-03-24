@@ -39,6 +39,25 @@ export class UserTaskService {
     return this.user;
   }
 
+  getUserByMail(email:string) {
+    this.userCollection = this.fireStore.collection('user', ref => ref.where('email', '==', email).limit(1));
+    this.user = this.userCollection.snapshotChanges().pipe(map((changes) => {
+      // @ts-ignore
+      return changes.map(a => {
+        const data = a.payload.doc.data() as UserModel;
+        data.id = a.payload.doc.id;
+        if (this.updates.isEnabled && navigator.onLine) {
+          this.cache.store('/api/data/user', data);
+        }
+        console.log(data);
+        return data;
+      })
+    }));
+    return this.user;
+  }
+
+
+
   getUser() {
     if(this.user === undefined) {
       this.getUserByName("Gast");

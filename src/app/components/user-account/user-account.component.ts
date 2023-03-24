@@ -27,6 +27,7 @@ export class UserAccountComponent implements OnInit {
       this.userTaskService.getUser().subscribe(async data => {
         this.timeOutConnection(data)
         this.userData = data;
+
       }, error => {
       }, () => {
       });
