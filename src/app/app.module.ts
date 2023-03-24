@@ -1,6 +1,5 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
 import { AppComponent } from './app.component';
 import { LoginScreenComponent } from './components/login-screen/login-screen.component';
@@ -54,18 +53,6 @@ import { LearnCodeAdminMenuComponent } from './components/LearnCode/learn-code-a
     BrowserModule,
     FormsModule,
     AngularEditorModule,
-    /*MarkdownModule.forRoot({
-      markedOptions: {
-        provide: MarkedOptions,
-        useValue: {
-          gfm: true,
-          breaks: false,
-          pedantic: false,
-          smartLists: true,
-          smartypants: false,
-        },
-      },
-    }),*/
     RouterModule.forRoot([
       {path: '', component: HomeScreenComponent},
       {path: 'Flashcard', component: FlashcardComponent},

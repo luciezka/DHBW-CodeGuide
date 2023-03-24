@@ -58,9 +58,9 @@ export class MarkdownComponent implements OnInit {
         class: "highlight",
       },
       {
-        name: "Code / Markdown",
-        class: "code",
-        tag: "markdown",
+        name: "JavaScript",
+        class: "ft-syntax-highlight",
+        tag: "pre",
       },
       {
         name: "Small",
