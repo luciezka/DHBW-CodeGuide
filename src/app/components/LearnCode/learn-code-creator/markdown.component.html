@@ -1,10 +1,13 @@
+<head>
+  <link href="/src/css/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
 <div class="container">
   <form class="form" [formGroup]="markdownForm" (ngSubmit)="submitMarkdown()">
     <angular-editor [config]="config" formControlName="html" required></angular-editor>
-    <label>Thema</label>
-    <input type="text" formControlName="topic" id="topic" required/>
-    <label>Titel</label>
-    <input type="text" formControlName="name" id="name" required/>
-    <button type="submit" class="hover-underline-animation" [disabled]="!markdownForm.valid">Speichern</button>
+    <div style="display: flex;margin-top: 10px;flex-direction: column;flex-wrap: wrap;align-content: space-around;">
+      <input type="text" formControlName="topic" id="topic" placeholder="Thema" required/>
+      <input type="text" formControlName="name" id="name" placeholder="Titel" required/>
+      <button type="submit" class="send" [disabled]="!markdownForm.valid">Speichern</button>
+    </div>
   </form>
 </div>

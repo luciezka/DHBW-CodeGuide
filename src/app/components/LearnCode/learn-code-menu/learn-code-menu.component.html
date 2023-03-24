@@ -1,10 +1,10 @@
-<div>
-  <a [routerLink]="['/LearnCodeCreator']" style="float: right; color:white;" class="hover-underline-animation">Add</a>
-  <a [routerLink]="['/LearnCodeAdminMenu']" style="float: right; color:white;" class="hover-underline-animation">Edit</a>
-</div>
-
 <div class="container">
   <h1 class="title">Learn Code</h1>
+  <div>
+    <img [routerLink]="['/LearnCodeAdminMenu']" style="float: right; color:white;" src="assets/icons/svg/edit.svg" class="filter-white">
+    <img [routerLink]="['/LearnCodeCreator']" style="float: right; color:white;" src="assets/icons/svg/add.svg" class="filter-white">
+  </div>
+  
 
   <div *ngFor="let items of MarkdownData; index as i">
     <div>
@@ -21,7 +21,8 @@
       <div class="center-items">
         <a
           id="{{ items.topic }}"
-          style="display: none"
+          style="display: none; width: max-content;"
+          class = "hover-underline-animation"
           (click)="routeToMarkdown(items)"
           >{{ items.name }}</a
         >

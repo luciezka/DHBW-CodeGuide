@@ -61,7 +61,6 @@ export class FlashcardAdminMenuComponent implements OnInit {
 
 
   deleteFlashcard(flashcardid: FlashCardModel) {
-
     this.flashcardService.deleteFlashcard(flashcardid)
   }
 }

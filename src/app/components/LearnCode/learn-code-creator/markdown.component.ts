@@ -8,7 +8,7 @@ import {MarkdownTaskService} from "../../../services/markdown-task.service";
 @Component({
   selector: 'app-markdown',
   templateUrl: './markdown.component.html',
-  styleUrls: [ './markdown.component.css' ]
+  styleUrls: [ './markdown.component.css' ],
 })
 
 export class MarkdownComponent implements OnInit {
@@ -25,14 +25,12 @@ export class MarkdownComponent implements OnInit {
     });
   }
 
-
   ngOnInit(): void {
     this.markdownForm.patchValue(this.activatedRoute.snapshot.queryParams);
   }
 
   submitMarkdown() {
     this.markdown = this.markdownForm.value as MarkdownModel;
-    console.log(this.markdown);
     this.MarkdownService.addMarkdown(this.markdown,);
     this._router.navigate(['/LearnCodeMenu']);
   }
@@ -58,6 +56,11 @@ export class MarkdownComponent implements OnInit {
       {
         name: "Highlight",
         class: "highlight",
+      },
+      {
+        name: "Code / Markdown",
+        class: "code",
+        tag: "markdown",
       },
       {
         name: "Small",

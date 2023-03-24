@@ -8,8 +8,6 @@
   perspective: 10000px;
 }
 
-
-
 .flashcard {
   width: 80%;
   height: 70vh;
@@ -51,14 +49,14 @@
 
 .flashcard-face--front {
   background-color: #282424;
-  border-radius: 40px;
+  border-radius: 20px;
   border: 2px solid #E2001A;
 }
 
 .flashcard-face--back {
   background-color: #E2001A;
   color: white;
-  border-radius: 40px;
+  border-radius: 20px;
   border: 2px solid #E2001A;
   transform: rotateY(180deg);
 }

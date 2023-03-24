@@ -15,6 +15,9 @@
   body {
     background-color: #262626;
   }
+  .angular-editor-wrapper {
+    height: 60% !important;
+  }
 }
 
 @media (any-pointer: fine) {
@@ -23,6 +26,9 @@
   }
   body {
     background-color: #262626;
+  }
+  .angular-editor-wrapper {
+    height: 80% !important;
   }
 }
 
@@ -137,6 +143,10 @@ h1 {
   margin-right: 2.5px;
 }
 
+.angular-editor .angular-editor-toolbar i::after {
+  background-color: white !important;
+}
+
 .ae-font .ae-picker-options {
   background-color: transparent !important;
   padding-top: 3px !important;
@@ -152,21 +162,36 @@ h1 {
   background-color: #363636 !important;
 }
 
-.angular-editor {
+angular-editor:not(#flashcardEditor) .angular-editor {
   background-color: #262626;
   height: 70% !important;
 }
 
-.angular-editor-wrapper {
-  height: 75% !important;
+.angular-editor {
+  background-color: #262626;
 }
 
-.angular-editor-textarea {
+angular-editor:not(#flashcardEditor) .angular-editor-textarea {
   margin-top: 0px !important;
   border: solid #1B1D1C !important;
   border-radius: 10px !important;
   resize: none !important;
   height: 100% !important;
+}
+
+#flashcardEditor .angular-editor-textarea {
+  margin-top: 0px !important;
+  border: solid #1B1D1C !important;
+  border-radius: 10px !important;
+  resize: none !important;
+}
+
+.angular-editor-textarea:after {
+  background: none !important;
+}
+
+.angular-editor-wrapper #sourceText {
+  background: none !important;
 }
 
 .ae-font .ae-picker-label:before {

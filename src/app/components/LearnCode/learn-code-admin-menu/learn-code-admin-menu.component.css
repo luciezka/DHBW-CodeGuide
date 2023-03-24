@@ -30,7 +30,25 @@
     margin-left: 15px;
     color: rgb(223, 222, 222);
     cursor: pointer;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  a {
+    flex-direction: row;
+    display: flex;
+  }
+  img {
+    margin: 2px !important;
+  }
+  .center {
+      margin-left: 25%;
+      cursor: pointer;
+  }
+  .center-items {
+      margin-left: 26%;
+      color: rgb(223, 222, 222);
+      cursor: pointer;
   }
 }
 
@@ -71,7 +89,16 @@
     cursor: pointer;
     margin-top: 10px;
     margin-bottom: 10px;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  a {
+    flex-direction: row;
+    display: flex;
+  }
+  img {
+    margin: 2px !important;
   }
   .delete {
     font-size: small;

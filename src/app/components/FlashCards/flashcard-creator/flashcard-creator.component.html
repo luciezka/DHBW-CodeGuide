@@ -1,15 +1,12 @@
-<div style="display: flex; justify-content:center; margin-top: 5%;">
-  <form class="fake-terminal" [formGroup]="flashcardForm" (ngSubmit)="submitFlashcard()">
-    <div style="display:flex; flex-direction:row;justify-content: space-between; margin-left: 2vh; margin-right: 2vh;"><p class="top-list">/usr/etc/Flashcard_Editor.js</p><p class="top-list">_ ☐ X</p></div>
-    <div class="input subtitle">Erstelle oder bearbeite hier die jeweiligen Flashcards<br><br></div>
-    <div class="input subtitle">Was ist das Thema der Flashcard? <br>> <input type="text" formControlName="topic" id="topic" required/></div>
-    <div class="input subtitle">Was ist der Name der Flashcard? <br>> <input type="text" formControlName="name" id="name" required/></div>
-    <div class="input subtitle">Was ist die Vorderseite der Flashcard? <br>> <input type="text" formControlName="basetext" id="basetext" required/></div>
-    <div class="input subtitle">Was ist die Rückseite der Flashcard? <br>> <input type="text" formControlName="fliptext" id="fliptext" required/></div>
-    <br>
-    <small>Tipp: Nutze < br > um einen Umbruch zu erstellen  </small>
-    <br>
-    <button  type="submit" class="hover-underline-animation">Absenden</button>
+<div class="container">
+  <form class="form" [formGroup]="flashcardForm" (ngSubmit)="submitFlashcard()">
+      <angular-editor id="flashcardEditor" [config]="config" [placeholder]="front" formControlName="basetext" required></angular-editor>
+      <angular-editor id="flashcardEditor" [config]="config" [placeholder]="back" formControlName="fliptext" required></angular-editor>
+      <div style="display: flex;margin-top: 10px;flex-direction: column;flex-wrap: wrap;align-content: space-around;">
+        <input type="text" formControlName="topic" id="topic" placeholder="Thema" required/>
+        <input type="text" formControlName="name" id="name" placeholder="Name" required/>
+        <button  type="submit" class="send" [disabled]="!flashcardForm.valid">Speichern</button>
+      </div>
   </form>
 </div>
 
