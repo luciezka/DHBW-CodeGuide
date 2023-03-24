@@ -13,21 +13,43 @@ export class LoginScreenComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private userTaskService: UserTaskService){
     this.userTaskService.clearData();
-    //this.initUser();
   }
 
   ngOnInit(): void {
+    this.logedIn = false;
+    this.initUser()
+
   }
+
   logedIn = false;
   user!: Promise<any>;
-  userData!: UserModel[];
+  userData!: UserModel[] ;
 
   loginForm = this.fb.group({
     email: [''],
     password: ['']
   });
 
-   initUserByMail(data: any) {
+
+  async initUser() {
+    // @ts-ignore
+    this.user = await this.fetchExistingUser();
+
+  }
+
+  async fetchExistingUser() {
+    return this.userTaskService.getUser().subscribe(async data => {
+      if (data[0].name !== "Gast"){
+        this.logedIn = true;
+        this.userData = data;
+     }
+      return
+    }, error => {
+    }, () => {
+    });
+  }
+
+   fetchUserByMail(data: any) {
     this.userTaskService.clearData();
     this.userTaskService.getUserByMail(data).subscribe(async data => {
       this.userData = data;
@@ -37,11 +59,11 @@ export class LoginScreenComponent implements OnInit {
   }
 
   async login() {
+    console.log("login calles")
     return firebase.auth().signInWithEmailAndPassword(this.loginForm.value.email!, this.loginForm.value.password!).then((userCredential) => {
       return userCredential.user?.email;
     }).catch((error) => {
       confirm("wrong password or email");
-      this.logedIn = false;
       const errorCode = error.code;
       const errorMessage = error.message;
     });
@@ -50,6 +72,16 @@ export class LoginScreenComponent implements OnInit {
   async loginUser() {
     // @ts-ignore
     this.user = await this.login();
-    await this.initUserByMail(this.user)
+    await this.fetchUserByMail(this.user)
+    this.logedIn = true;
+  }
+
+  logout() {
+    firebase.auth().signOut().then(() => {
+      this.fetchUserByMail("Gast")
+      this.logedIn = false;
+    }).catch((error) => {
+      // An error happened.
+    });
   }
 }

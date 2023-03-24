@@ -49,7 +49,6 @@ export class UserTaskService {
         if (this.updates.isEnabled && navigator.onLine) {
           this.cache.store('/api/data/user', data);
         }
-        console.log(data);
         return data;
       })
     }));

@@ -16,9 +16,7 @@ export class UserAccountComponent implements OnInit {
     this.userTaskService.clearData();
     this.initUser();
   }
-
   ngOnInit(): void {
-
   }
   initUser() {
     if (!navigator.onLine) {
