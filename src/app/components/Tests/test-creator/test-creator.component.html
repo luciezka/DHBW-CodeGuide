@@ -19,44 +19,55 @@
 
     <div>
       <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="testType" value="option1" (change)="inputTest.questionType = 1" checked>
+        <input class="form-check-input" type="radio" name="testType" value="option1" (change)="inputTest.questionType = 1;resetSizes()" checked>
         True / False
       </label>
       <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="testType" value="option2" (change)="inputTest.questionType = 2">
+        <input class="form-check-input" type="radio" name="testType" value="option2" (change)="inputTest.questionType = 2;resetSizes()">
         Multiple Choise
       </label>
       <label class="form-check-label">
-        <input class="form-check-input" type="radio" name="testType" value="option3" (change)="inputTest.questionType = 3">
+        <input class="form-check-input" type="radio" name="testType" value="option3" (change)="inputTest.questionType = 3;resetSizes()">
           Text Abfrage
       </label>
     </div>
 
-      <div *ngIf="inputTest.questionType == 1" class="TrueFalse">input feld 1
 
+
+      <div *ngIf="inputTest.questionType == 1" class="TrueFalse">
         <label class="form-check-label">
           <input class="form-check-input2" type="radio" name="correctInput" value="option2" (change)="changeBooleanTestType(true)">
           True
         </label>
-
         <label class="form-check-label">
-          <input class="form-check-input2" type="radio" name="correctInput" value="option3" (change)="changeBooleanTestType(false)" checked>
+          <input class="form-check-input2" type="radio" name="correctInput" value="option3" (change)="changeBooleanTestType(false)">
           False
         </label>
-
-
       </div>
 
-      <div *ngIf="inputTest.questionType == 2"  class="MultipleChoise">input feld 2</div>
-      <div *ngIf="inputTest.questionType == 3"  class="TextAbfrage">input feld 3</div>
 
 
+      <div *ngIf="inputTest.questionType == 2"  class="MultipleChoise">
+        <div *ngFor="let i of inputSizeCorrect">
+        <input type="text" formControlName="correctMultipleChoiceInput" id="correctMultipleChoiceInput" placeholder="Richtige Antwort" required/>
+        </div>
+        <img (click)="increaseInputSize(inputSizeCorrect)" style="float: right; color:white;" src="assets/icons/svg/add.svg" class="filter-white">
+        <div *ngFor="let i of inputSizeWrong">
+          <input type="text" formControlName="wrongMultipleChoiceInput" id="wrongMultipleChoiceInput" placeholder="Falsche Antwort" required/>
+        </div>
+        <img (click)="increaseInputSize(inputSizeWrong)" style="float: right; color:white;" src="assets/icons/svg/add.svg" class="filter-white">
+      </div>
 
 
-
-
+      <div *ngIf="inputTest.questionType == 3"  class="TextAbfrage">
+        <div *ngFor="let i of inputSizeCorrect">
+          <input type="text" formControlName="correctInput" id="correctInput" placeholder="Richtige Antwort" required/>
+        </div>
+        <img (click)="increaseInputSize(inputSizeCorrect)" style="float: right; color:white;" src="assets/icons/svg/add.svg" class="filter-white">
+      </div>
     </div>
-  </form>
+
+</form>
 
 
 

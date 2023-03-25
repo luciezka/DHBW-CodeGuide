@@ -17,9 +17,12 @@ import {TestCardModel} from "../../../models/testCard.model";
 export class TestCreatorComponent implements OnInit {
 
   markdownForm: FormGroup;
-  markdown!: MarkdownModel;
   userData!: UserModel[] ;
   testType = 1;
+
+  inputSizeCorrect = [""];
+  inputSizeWrong = [""];
+
   inputTest: TestCardModel = {
 
     topic: "",
@@ -40,6 +43,30 @@ export class TestCreatorComponent implements OnInit {
   console.log(this.inputTest);
   }
 
+  increaseInputSize(array : any[]){
+    array.push("");
+  }
+  resetSizes(){
+    this.inputSizeCorrect = [""];
+    this.inputSizeWrong = [""];
+  }
+
+  checkForEmptyValues(){
+    let hasEmptyValues = false;
+    // @ts-ignore
+    let temp = this.inputTest.answerRight[0];
+    console.log(temp);
+
+
+
+    if (temp === ""){
+      // @ts-ignore
+      console.log(this.inputTest.answerRight[0]);
+      alert("Please fill in the correct answer.")
+      let hasEmptyValues = true;
+    }
+    return hasEmptyValues;
+  }
 
 
 
@@ -69,15 +96,14 @@ export class TestCreatorComponent implements OnInit {
     this.inputTest.topic = this.markdownForm.value.topic;
     this.inputTest.name = this.markdownForm.value.name;
     this.inputTest.questionText = this.markdownForm.value.html;
-    console.log(this.markdownForm.value);
-    console.log(this.inputTest);
-
-    if (this.userData[0].isAdmin){
-      //this.markdown = this.markdownForm.value as MarkdownModel;
-      //this.MarkdownService.addMarkdown(this.markdown,);
-      //this._router.navigate(['/LearnCodeMenu']);
-    }else{
-      alert("You are missing certain permissions to create a flashcard.")
+    if(!this.checkForEmptyValues()){
+      if (this.userData[0].isAdmin){
+        //this.markdown = this.markdownForm.value as MarkdownModel;
+        //this.MarkdownService.addMarkdown(this.markdown,);
+        //this._router.navigate(['/LearnCodeMenu']);
+      }else{
+        alert("You are missing certain permissions to create a flashcard.")
+      }
     }
   }
 
