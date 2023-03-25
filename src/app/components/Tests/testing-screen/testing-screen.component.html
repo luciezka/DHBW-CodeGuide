@@ -1,4 +1,4 @@
-<div *ngIf="!showSubmitScreen">
+<div *ngIf="!showSubmitScreen" class="center">
   <form [formGroup]="submitForm" (ngSubmit)="submitTest()">
     <div class="MultipleChoice" *ngIf="testData.questionType ==1">
       <p>{{testData.questionText}}</p>
@@ -20,20 +20,20 @@
       <p>{{testData.questionText}}</p>
       <button formControlName="answer" type="button" (click)="checkRightAnswerBool(true)" class="true">Wahr</button>
       <button formControlName="answer" type="button" (click)="checkRightAnswerBool(false )" class="false">Falsch</button>
-       <br/><br/>
+      <br/><br/>
     </div>
   </form>
 </div>
-
-
-<div class="Answer" *ngIf="showSubmitScreen">
-  <div *ngIf="showMistakeScreen">
-    Die richtige Antwort ist:
-    <div *ngFor="let items of testData.answerRight">
-      <p>{{items}}</p>
+<div class="center">
+  <div class="Answer" *ngIf="showSubmitScreen">
+    <div *ngIf="showMistakeScreen">
+      Die richtige Antwort ist:
+      <div *ngFor="let items of testData.answerRight">
+        <p>{{items}}</p>
+      </div>
     </div>
-  </div>
-  <div *ngIf="!showMistakeScreen">
-    <p>Dies ist richtig</p>
+    <div *ngIf="!showMistakeScreen">
+      <p>Dies ist richtig</p>
+    </div>
   </div>
 </div>

@@ -1,7 +1,21 @@
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
+}
+
 .Answer {
-  margin-top: 50%;
+  /*margin-top: 30vh;*/
   display: flex;
   flex-direction: column;
+  background: #262626;
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 10px 10px 34px 0px rgba(0,0,0,0.25)
 }
 .Answer p,
 .Answer div {
@@ -10,9 +24,14 @@
   text-align: center;
 }
 .TrueFalse {
-  margin-top: 50%;
+  /*margin-top: 30vh;*/
   display: flex;
   flex-direction: column;
+  background: #262626;
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 10px 10px 34px 0px rgba(0,0,0,0.25)
 }
 .TrueFalse p{
   color:white;
@@ -35,6 +54,11 @@
   margin-right: 5px;
   font-size: large;
   background-color: transparent;
+  transition: all 0.25s ease
+}
+.TrueFalse button.false:hover {
+  color: #262626;
+  background-color: #e2001a;
 }
 .TrueFalse button.true{
   padding-bottom: 1vh;
@@ -52,11 +76,21 @@
   margin-right: 5px;
   font-size: large;
   background-color: transparent;
+  transition: all 0.25s ease
+}
+.TrueFalse button.true:hover {
+  color: #262626;
+  background-color: #00e24f;
 }
 .MultipleChoice {
-  margin-top: 50%;
+  /*margin-top: 30vh;*/
   display: flex;
   flex-direction: column;
+  background: #262626;
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 10px 10px 34px 0px rgba(0,0,0,0.25)
 }
 .MultipleChoice p{
   color:white;
@@ -88,11 +122,21 @@
   margin-right: 5px;
   font-size: large;
   background-color: transparent;
+  transition: all 0.25s ease
+}
+.MultipleChoice button:hover {
+  color: #262626;
+  background-color: rgb(223, 222, 222);
 }
 .Blank {
-  margin-top: 50%;
+  /*margin-top: 30vh;*/
   display: flex;
   flex-direction: column;
+  border-radius: 20px;
+  background: #262626;
+  padding: 10px;
+  position: relative;
+  box-shadow: 10px 10px 34px 0px rgba(0,0,0,0.25)
 }
 .Blank p{
   color:white;
@@ -136,4 +180,9 @@
   margin-right: 5px;
   font-size: large;
   background-color: transparent;
+  transition: all 0.25s ease
+}
+.Blank button:hover {
+  color: #262626;
+  background-color: rgb(223, 222, 222);
 }
