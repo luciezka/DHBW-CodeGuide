@@ -67,7 +67,7 @@ export class TestTaskService {
     }
 
 
-  addTestCard(tests: any) {
+  addTest(tests: any) {
     if (tests.id == "") {
       tests.id =[];
       this.testcardCollection.add(tests);
@@ -83,6 +83,12 @@ export class TestTaskService {
 
   clearData() {
     this.cache.clearData();
+  }
+
+
+  deleteTestcard(testCardID: any) {
+    console.log(testCardID);
+    this.testcardCollection.doc(testCardID).delete();
   }
 
 

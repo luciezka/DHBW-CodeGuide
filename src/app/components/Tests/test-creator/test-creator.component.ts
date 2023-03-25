@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MarkdownModel} from "../../../models/markdown.model";
 import {MarkdownTaskService} from "../../../services/markdown-task.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserModel} from "../../../models/user.model";
 import {UserTaskService} from "../../../services/user-task.service";
 import {AngularEditorConfig} from "@kolkov/angular-editor";
@@ -15,53 +15,77 @@ import {TestCardModel} from "../../../models/testCard.model";
   styleUrls: ['./test-creator.component.css']
 })
 export class TestCreatorComponent implements OnInit {
+  testForm: FormGroup;
+  userData!: UserModel[];
 
-  markdownForm: FormGroup;
-  userData!: UserModel[] ;
-  testType = 1;
+  inputSizeWrong =[""];
+  inputSizeCorrect =[""];
 
-  inputSizeCorrect = [""];
-  inputSizeWrong = [""];
 
   inputTest: TestCardModel = {
-
     topic: "",
     name: "",
-    questionType: 1,
     questionText: "",
     answerRight: [""],
     answerWrong: [""],
   }
 
-//
 
+  constructor(public activatedRoute: ActivatedRoute,
+              private formBuilder: FormBuilder,
+              public MarkdownService: MarkdownTaskService,
+              private userTaskService: UserTaskService,
+              private _router: Router,
+              private testtask: TestTaskService) {
 
-
-  changeBooleanTestType(sentenceTrue : boolean){
-      // @ts-ignore
-    this.inputTest.answerRight[0] = sentenceTrue;
-  console.log(this.inputTest);
+    this.testForm = this.formBuilder.group({
+      topic: ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      name: ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      questionText: ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      answerRight :["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]] ,
+      answerWrong :["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]] ,
+      questionType: ["1", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      creationDate: Date.now(),
+    });
   }
 
-  increaseInputSize(array : any[]){
-    array.push("");
-  }
-  resetSizes(){
-    this.inputSizeCorrect = [""];
-    this.inputSizeWrong = [""];
+  ngOnInit(): void {
+    this.testForm.patchValue(this.activatedRoute.snapshot.queryParams);
+    this.fetchExistingUser()
+    this.inputTest = this.testForm.value
+    console.log(this.inputTest)
+
   }
 
-  checkForEmptyValues(){
+  increaseInputSize( data :any[]) {
+      data.push("");
+
+  }
+
+
+  submitTest() {
+  console.log("submitting")
+    console.log(this.inputTest)
+    console.log(this.testForm.value)
+    if (!this.userData[0].isAdmin) {
+
+      if (!this.checkForEmptyValues()) {
+        this.inputTest = this.testForm.value;
+        if(this.testForm.value.answerRight !== Object) {
+          this.inputTest.answerRight = [this.testForm.value.answerRight]
+          this.inputTest.answerWrong = [this.testForm.value.answerWrong]
+          console.log(this.inputTest)
+        }}
+    } else {
+      alert("You are missing certain permissions to create a flashcard.")
+    }
+  }
+
+
+  checkForEmptyValues() {
     let hasEmptyValues = false;
     // @ts-ignore
-    let temp = this.inputTest.answerRight[0];
-    console.log(temp);
-
-
-
-    if (temp === ""){
-      // @ts-ignore
-      console.log(this.inputTest.answerRight[0]);
+    if (this.testForm.value.answerRight[0] === "") {
       alert("Please fill in the correct answer.")
       let hasEmptyValues = true;
     }
@@ -71,45 +95,8 @@ export class TestCreatorComponent implements OnInit {
 
 
 
-
-  constructor(public activatedRoute: ActivatedRoute,
-              private formBuilder: FormBuilder,
-              public MarkdownService: MarkdownTaskService,
-              private userTaskService : UserTaskService,
-              private _router: Router,
-              private testtask : TestTaskService) {
-    this.markdownForm = this.formBuilder.group({
-      topic: ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
-      name : ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
-      html: [null, Validators.required],
-      creationDate : Date.now(),
-      id : ""
-    });
-  }
-
-  ngOnInit(): void {
-    this.markdownForm.patchValue(this.activatedRoute.snapshot.queryParams);
-    this.fetchExistingUser()
-  }
-
-  submitMarkdown() {
-    this.inputTest.topic = this.markdownForm.value.topic;
-    this.inputTest.name = this.markdownForm.value.name;
-    this.inputTest.questionText = this.markdownForm.value.html;
-    if(!this.checkForEmptyValues()){
-      if (this.userData[0].isAdmin){
-        //this.markdown = this.markdownForm.value as MarkdownModel;
-        //this.MarkdownService.addMarkdown(this.markdown,);
-        //this._router.navigate(['/LearnCodeMenu']);
-      }else{
-        alert("You are missing certain permissions to create a flashcard.")
-      }
-    }
-  }
-
-  fetchExistingUser(){
+  fetchExistingUser() {
     this.userTaskService.getUser().subscribe(async data => {
-      console.log(data);
       this.userData = data;
     });
   }
@@ -148,4 +135,5 @@ export class TestCreatorComponent implements OnInit {
       }
     ],
   };
+
 }

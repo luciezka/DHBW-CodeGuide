@@ -13,8 +13,8 @@ import {UserTaskService} from "../../../services/user-task.service";
   styleUrls: ['./flashcard-creator.component.css']
 })
 export class FlashcardCreatorComponent implements OnInit {
-flashcardForm: FormGroup;
-flashcard!: FlashCardModel;
+  flashcardForm: FormGroup;
+  flashcard!: FlashCardModel;
   userData!: UserModel[] ;
 
   constructor(public activatedRoute: ActivatedRoute,

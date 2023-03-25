@@ -4,6 +4,7 @@ import {UserModel} from "../../../models/user.model";
 import {TestTaskService} from "../../../services/test-task.service";
 import {UserTaskService} from "../../../services/user-task.service";
 import {Router} from "@angular/router";
+import {FlashCardModel} from "../../../models/flash-card.model";
 
 @Component({
   selector: 'app-test-admin-menu',
@@ -15,7 +16,12 @@ export class TestAdminMenuComponent implements OnInit {
   userData!: UserModel[] ;
   testCardData!: TestCardModel[];
 
-  constructor(private testcardservice: TestTaskService,private userTaskService : UserTaskService, private _router: Router) {
+
+
+  constructor(private testcardservice: TestTaskService,
+              private userTaskService : UserTaskService,
+              private _router: Router
+  ) {
     this.testcardservice.clearData();
     this.initTestCard();
   }
@@ -23,6 +29,8 @@ export class TestAdminMenuComponent implements OnInit {
   ngOnInit(): void {
     this.fetchExistingUser();
   }
+
+
 
   initTestCard() {
     //If offline get cache
@@ -36,9 +44,10 @@ export class TestAdminMenuComponent implements OnInit {
       }, error => {
       }, () => {
       });
-
     }
   }
+
+
   fetchExistingUser(){
     this.userTaskService.getUser().subscribe(async data => {
       console.log(data);
@@ -46,23 +55,13 @@ export class TestAdminMenuComponent implements OnInit {
     });
   }
 
-
   routeToTestCard(testcard: TestCardModel) {
     // bring the info the the route
-    this._router.navigate(['/Testcard'], {queryParams: testcard});
+    this._router.navigate(['/TestCreator'], {queryParams: testcard});
   }
 
-  selectRandomTestFromTopic(topic: string) {
-    this.testcardservice.getTestCardByTopic(topic).subscribe(async data => {
-      let testDataByTopic = data;
-      try {
-        testDataByTopic.sort(() => Math.random() - 0.5);
-      }catch (e) {
-      }
-      this.routeToTestCard(testDataByTopic[0]);
-    }, error => {
-    }, () => {
-    });
+  deleteFlashcard(flashcardid: FlashCardModel) {
+    this.testcardservice.deleteTestcard(flashcardid)
   }
 
   timeOutConnection(data : any){
