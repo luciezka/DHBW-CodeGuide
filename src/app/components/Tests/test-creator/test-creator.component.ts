@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {MarkdownModel} from "../../../models/markdown.model";
+import {MarkdownTaskService} from "../../../services/markdown-task.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UserModel} from "../../../models/user.model";
+import {UserTaskService} from "../../../services/user-task.service";
+import {AngularEditorConfig} from "@kolkov/angular-editor";
+import {TestTaskService} from "../../../services/test-task.service";
+import {TestCardModel} from "../../../models/testCard.model";
 
 @Component({
   selector: 'app-test-creator',
@@ -7,9 +16,110 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestCreatorComponent implements OnInit {
 
-  constructor() { }
+  markdownForm: FormGroup;
+  markdown!: MarkdownModel;
+  userData!: UserModel[] ;
+  testType = 1;
+  inputTest: TestCardModel = {
 
-  ngOnInit(): void {
+    topic: "",
+    name: "",
+    questionType: 1,
+    questionText: "",
+    answerRight: [""],
+    answerWrong: [""],
   }
 
+//
+
+
+
+  changeBooleanTestType(sentenceTrue : boolean){
+      // @ts-ignore
+    this.inputTest.answerRight[0] = sentenceTrue;
+  console.log(this.inputTest);
+  }
+
+
+
+
+
+
+  constructor(public activatedRoute: ActivatedRoute,
+              private formBuilder: FormBuilder,
+              public MarkdownService: MarkdownTaskService,
+              private userTaskService : UserTaskService,
+              private _router: Router,
+              private testtask : TestTaskService) {
+    this.markdownForm = this.formBuilder.group({
+      topic: ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      name : ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      html: [null, Validators.required],
+      creationDate : Date.now(),
+      id : ""
+    });
+  }
+
+  ngOnInit(): void {
+    this.markdownForm.patchValue(this.activatedRoute.snapshot.queryParams);
+    this.fetchExistingUser()
+  }
+
+  submitMarkdown() {
+    this.inputTest.topic = this.markdownForm.value.topic;
+    this.inputTest.name = this.markdownForm.value.name;
+    this.inputTest.questionText = this.markdownForm.value.html;
+    console.log(this.markdownForm.value);
+    console.log(this.inputTest);
+
+    if (this.userData[0].isAdmin){
+      //this.markdown = this.markdownForm.value as MarkdownModel;
+      //this.MarkdownService.addMarkdown(this.markdown,);
+      //this._router.navigate(['/LearnCodeMenu']);
+    }else{
+      alert("You are missing certain permissions to create a flashcard.")
+    }
+  }
+
+  fetchExistingUser(){
+    this.userTaskService.getUser().subscribe(async data => {
+      console.log(data);
+      this.userData = data;
+    });
+  }
+
+
+  name = 'Angular 6';
+  htmlContent = '';
+
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter question here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'a',
+    defaultFontName: 'Montserrat',
+    outline: false,
+    defaultFontSize: "large",
+    fonts: [
+      {class: 'montserrat', name: 'Montserrat'}
+    ],
+    customClasses: [
+      {
+        name: "Highlight",
+        class: "highlight",
+      },
+      {
+        name: "JavaScript",
+        class: "ft-syntax-highlight",
+        tag: "pre",
+      },
+      {
+        name: "Small",
+        class: "small",
+      }
+    ],
+  };
 }

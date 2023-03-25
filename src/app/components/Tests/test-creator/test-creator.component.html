@@ -1,1 +1,64 @@
-<p>test-creator works!</p>
+<head>
+  <link href="/src/css/ft-syntax-highlight.css" rel="stylesheet" />
+</head>
+<div class="container">
+  <form class="form" [formGroup]="markdownForm" (ngSubmit)="submitMarkdown()">
+
+
+    <angular-editor [config]="config" formControlName="html" required></angular-editor>
+
+
+    <div>
+
+      <div style="display: flex;margin-top: 10px;flex-direction: column;flex-wrap: wrap;align-content: space-around;">
+        <input type="text" formControlName="topic" id="topic" placeholder="Thema" required/>
+        <input type="text" formControlName="name" id="name" placeholder="Titel" required/>
+        <button type="submit" class="send" [disabled]="!markdownForm.valid">Speichern</button>
+      </div>
+
+
+    <div>
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="testType" value="option1" (change)="inputTest.questionType = 1" checked>
+        True / False
+      </label>
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="testType" value="option2" (change)="inputTest.questionType = 2">
+        Multiple Choise
+      </label>
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="testType" value="option3" (change)="inputTest.questionType = 3">
+          Text Abfrage
+      </label>
+    </div>
+
+      <div *ngIf="inputTest.questionType == 1" class="TrueFalse">input feld 1
+
+        <label class="form-check-label">
+          <input class="form-check-input2" type="radio" name="correctInput" value="option2" (change)="changeBooleanTestType(true)">
+          True
+        </label>
+
+        <label class="form-check-label">
+          <input class="form-check-input2" type="radio" name="correctInput" value="option3" (change)="changeBooleanTestType(false)" checked>
+          False
+        </label>
+
+
+      </div>
+
+      <div *ngIf="inputTest.questionType == 2"  class="MultipleChoise">input feld 2</div>
+      <div *ngIf="inputTest.questionType == 3"  class="TextAbfrage">input feld 3</div>
+
+
+
+
+
+
+    </div>
+  </form>
+
+
+
+</div>
+

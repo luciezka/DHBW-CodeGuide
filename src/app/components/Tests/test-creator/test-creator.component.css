@@ -1,0 +1,120 @@
+
+* {
+  color:white;
+}
+
+.container {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  flex-direction: row;
+}
+
+.form {
+  float: left;
+  width: 80%;
+  height: 70vh;
+  background: #262626;
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 10px 10px 34px 0px rgba(0,0,0,0.25);
+  overflow-y: scroll;
+}
+
+input[type="text"] {
+  background-color: #262626;
+  border: solid 2px #e2001a;
+  border-radius: 40px;
+  font-family: "Montserrat";
+  color:#e2001a !important;
+  padding: 10px;
+  width: 40%;
+  margin: 5px;
+}
+
+input[type="text"]:focus,
+input[type="text"]:active,
+input[type="text"]:hover{
+  outline: none;
+  background-color: #e2001a;
+  color: white !important;
+}
+input[type="text"]::placeholder {
+  color: white !important;
+  opacity: 0.5;
+}
+
+
+.highlight {
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #e2001a 50%);
+}
+h1 {
+  color:white;
+  margin-left: 5px;
+  cursor: pointer;
+}
+p {
+  margin-left: 10px;
+  color: rgb(223, 222, 222);
+}
+a {
+  color:white;
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #e2001a 50%);
+}
+small {
+  color: rgb(183, 181, 181);
+  font-style: italic;
+  margin-left: 10px;
+}
+input[type="text"] {
+  color: black;
+}
+u {
+  color: rgb(183, 181, 181);
+  font-style: italic;
+  margin-left: 10px;
+}
+img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.send {
+  cursor: pointer;
+  font-family: 'Montserrat';
+  transition: all 0.25s ease;
+  color: #e2001a;
+  border: 2px solid #e2001a;
+  letter-spacing: 1px;
+  width: 80%;
+  border-radius: 40px;
+  margin-left:auto;
+  margin-right:auto;
+  width: max-content;
+  background-color: transparent;
+  font-size: large;
+  padding: 1vh;
+  justify-content: center;
+  display: flex;
+  margin-top: 5px;
+}
+.send:hover,
+.send:active,
+.send:focus {
+  letter-spacing: 1.25px;
+  color: white;
+  background-color: #e2001a;
+}
+.code {
+  background-color: #1B1D1C;
+  border-radius: 20px;
+}
+
+

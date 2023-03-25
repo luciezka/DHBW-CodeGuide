@@ -5,7 +5,7 @@ export interface TestCardModel {
   name? : string;
   questionType?:number;
   questionText?:string;
-  answerRight?:string[];
+  answerRight?:string[] ;
   answerWrong?:string[];
   creationDate?: Date;
 }
