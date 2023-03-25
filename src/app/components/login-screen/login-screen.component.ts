@@ -18,7 +18,6 @@ export class LoginScreenComponent implements OnInit {
   ngOnInit(): void {
     this.logedIn = false;
     this.initUser()
-
   }
 
   logedIn = false;
@@ -38,11 +37,11 @@ export class LoginScreenComponent implements OnInit {
   }
 
   async fetchExistingUser() {
-    return this.userTaskService.getUser().subscribe(async data => {
+    return this.userTaskService.getUser().subscribe( data => {
       if (data[0].name !== "Gast"){
         this.logedIn = true;
-        this.userData = data;
      }
+      this.userData = data;
       return
     }, error => {
     }, () => {
@@ -51,15 +50,17 @@ export class LoginScreenComponent implements OnInit {
 
    fetchUserByMail(data: any) {
     this.userTaskService.clearData();
-    this.userTaskService.getUserByMail(data).subscribe(async data => {
+    this.userTaskService.getUserByMail(data).subscribe( data => {
       this.userData = data;
+      if (data[0].name !== "Gast"){
+        this.logedIn = true;
+      }
     }, error => {
     }, () => {
     });
   }
 
   async login() {
-    console.log("login calles")
     return firebase.auth().signInWithEmailAndPassword(this.loginForm.value.email!, this.loginForm.value.password!).then((userCredential) => {
       return userCredential.user?.email;
     }).catch((error) => {
@@ -73,7 +74,6 @@ export class LoginScreenComponent implements OnInit {
     // @ts-ignore
     this.user = await this.login();
     await this.fetchUserByMail(this.user)
-    this.logedIn = true;
   }
 
   logout() {

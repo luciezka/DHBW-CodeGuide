@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MarkdownTaskService} from "../../../services/markdown-task.service";
 import {MarkdownModel} from "../../../models/markdown.model";
 import {Router} from "@angular/router";
+import {UserTaskService} from "../../../services/user-task.service";
+import {UserModel} from "../../../models/user.model";
 
 
 @Component({
@@ -14,20 +16,19 @@ export class LearnCodeMenuComponent implements OnInit {
   MarkdownData!: MarkdownModel[];
 
 
-  constructor(private markdownService: MarkdownTaskService, private _router: Router) {
+  constructor(private markdownService: MarkdownTaskService,private userTaskService: UserTaskService , private _router: Router) {
     this.markdownService.clearData();
     this.initMarkdown();
+
   }
   ngOnInit(): void {
+    this.fetchExistingUser();
   }
-
+    userData!: UserModel[] ;
     isActive = false;
     toggleIconClass(icon: HTMLElement) {
     icon.classList.toggle('down');
   }
-
-
-
   initMarkdown() {
       //Subscribe to the available data in Service
       this.markdownService.getMarkdowns().subscribe(async data => {
@@ -39,6 +40,14 @@ export class LearnCodeMenuComponent implements OnInit {
       }, () => {
       });
   }
+
+   fetchExistingUser(){
+      this.userTaskService.getUser().subscribe(async data => {
+        console.log(data);
+        this.userData = data;
+    });
+  }
+
 
   routeToMarkdown(markdown: MarkdownModel) {
     // bring the info the the Flashcard

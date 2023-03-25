@@ -26,6 +26,7 @@ import { LearnCodeMenuComponent } from './components/LearnCode/learn-code-menu/l
 import { LearnCodeComponent } from './components/LearnCode/learn-code/learn-code.component';
 import { MarkdownComponent } from './components/LearnCode/learn-code-creator/markdown.component';
 import { LearnCodeAdminMenuComponent } from './components/LearnCode/learn-code-admin-menu/learn-code-admin-menu.component';
+import { TestCreatorComponent } from './components/Tests/test-creator/test-creator.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LearnCodeAdminMenuComponent } from './components/LearnCode/learn-code-a
     LearnCodeMenuComponent,
     MarkdownComponent,
     LearnCodeComponent,
-    LearnCodeAdminMenuComponent
+    LearnCodeAdminMenuComponent,
+    TestCreatorComponent
   ],
   providers: [],
   imports: [

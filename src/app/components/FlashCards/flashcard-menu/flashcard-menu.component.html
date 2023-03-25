@@ -1,6 +1,7 @@
 <div class="container">
   <h1 class="title">Flashcards</h1>
-  <div>
+
+  <div *ngIf="userData[0].isAdmin">
     <img [routerLink]="['/FlashcardAdminMenu']" style="float: right; color:white;" src="assets/icons/svg/edit.svg" class="filter-white">
     <img [routerLink]="['/FlashcardCreator']" style="float: right; color:white;" src="assets/icons/svg/add.svg" class="filter-white">
   </div>

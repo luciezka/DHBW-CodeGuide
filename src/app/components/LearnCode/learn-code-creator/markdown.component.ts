@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MarkdownModel} from "../../../models/markdown.model";
 import {MarkdownTaskService} from "../../../services/markdown-task.service";
+import {UserTaskService} from "../../../services/user-task.service";
+import {UserModel} from "../../../models/user.model";
 
 @Component({
   selector: 'app-markdown',
@@ -11,11 +13,20 @@ import {MarkdownTaskService} from "../../../services/markdown-task.service";
   styleUrls: [ './markdown.component.css' ],
 })
 
+
+
+
 export class MarkdownComponent implements OnInit {
   markdownForm: FormGroup;
   markdown!: MarkdownModel;
+  userData!: UserModel[] ;
 
-  constructor(public activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, public MarkdownService: MarkdownTaskService,private _router: Router) {
+
+  constructor(public activatedRoute: ActivatedRoute,
+              private formBuilder: FormBuilder,
+              public MarkdownService: MarkdownTaskService,
+              private userTaskService : UserTaskService,
+              private _router: Router) {
     this.markdownForm = this.formBuilder.group({
       topic: ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
       name : ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
@@ -27,13 +38,26 @@ export class MarkdownComponent implements OnInit {
 
   ngOnInit(): void {
     this.markdownForm.patchValue(this.activatedRoute.snapshot.queryParams);
+    this.fetchExistingUser()
   }
 
   submitMarkdown() {
+    if (this.userData[0].isAdmin){
     this.markdown = this.markdownForm.value as MarkdownModel;
     this.MarkdownService.addMarkdown(this.markdown,);
     this._router.navigate(['/LearnCodeMenu']);
+    }else{
+    alert("You are missing certain permissions to create a flashcard.")
+    }
   }
+
+  fetchExistingUser(){
+    this.userTaskService.getUser().subscribe(async data => {
+      console.log(data);
+      this.userData = data;
+    });
+  }
+
 
   name = 'Angular 6';
   htmlContent = '';

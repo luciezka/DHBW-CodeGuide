@@ -1,7 +1,8 @@
 <div style="display:flex; flex-direction: column; text-align:center; justify-content:center; color:white;">Du bist nun als {{userData[0].name}} eingeloggt<br>
 {{userData[0].email}}<br>
-{{userData[0].isAdmin}}<br>
-
+  <div *ngIf="userData[0].isAdmin">
+Du bist ein Administrator<br>
+  </div>
 
 </div>
 

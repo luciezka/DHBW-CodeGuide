@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FlashcardTaskService} from "../../../services/flashcard-task.service";
 import {FlashCardModel} from "../../../models/flash-card.model";
 import {Router} from "@angular/router";
+import {UserTaskService} from "../../../services/user-task.service";
+import {UserModel} from "../../../models/user.model";
 
 
 @Component({
@@ -10,13 +12,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./flashcard-menu.component.css']
 })
 export class FlashcardMenuComponent implements OnInit {
-
+  userData!: UserModel[] ;
   flashCardData!: FlashCardModel[];
 
 
-  constructor(private flashcardService: FlashcardTaskService, private _router: Router) {
+  constructor(private flashcardService: FlashcardTaskService,private userTaskService : UserTaskService, private _router: Router) {
     this.flashcardService.clearData();
     this.initFlashCard();
+    this.fetchExistingUser();
   }
   ngOnInit(): void {
   }
@@ -25,7 +28,6 @@ export class FlashcardMenuComponent implements OnInit {
     toggleIconClass(icon: HTMLElement) {
     icon.classList.toggle('down');
   }
-
 
 
   initFlashCard() {
@@ -39,6 +41,14 @@ export class FlashcardMenuComponent implements OnInit {
       }, () => {
       });
   }
+
+  fetchExistingUser(){
+    this.userTaskService.getUser().subscribe(async data => {
+      console.log(data);
+      this.userData = data;
+    });
+  }
+
 
   routeToFlashcard(flashcard: FlashCardModel) {
     // bring the info the the Flashcard

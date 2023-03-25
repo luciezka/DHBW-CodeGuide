@@ -2,7 +2,7 @@
   <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
     <div class="container center-screen">
       <div class="loginContainer">
-        <div *ngIf="!logedIn">
+        <div *ngIf=" userData[0].name =='Gast'">
          <div class="title" style="color:white;">Login</div>
            <div class="formContainer">
              <div class="form">
@@ -17,7 +17,7 @@
       </div>
     </div>
   </form>
-  <div *ngIf="logedIn">
+  <div *ngIf="userData[0]['name'] !=='Gast'" >
     <div class="title" style="color:white;">Welcome {{userData[0].name}}</div>
     <div style="display:flex; flex-direction: column; text-align:center; justify-content:center;"><button class="button" (click)="logout()">Logout</button></div>
   </div>

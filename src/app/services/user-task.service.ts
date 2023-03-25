@@ -20,8 +20,7 @@ export class UserTaskService {
     private fireStore: AngularFirestore,
               private cache: CacheService,
               private updates: SwUpdate
-  ) {
-  }
+  ) {}
 
   getUserByName(name:string) {
     this.userCollection = this.fireStore.collection('user', ref => ref.where('name', '==', name).limit(1));
@@ -56,7 +55,6 @@ export class UserTaskService {
   }
 
 
-
   getUser() {
     if(this.user === undefined) {
       this.getUserByName("Gast");
@@ -74,6 +72,8 @@ export class UserTaskService {
   clearData() {
     this.cache.clearData();
   }
+
+
 
 
 }
