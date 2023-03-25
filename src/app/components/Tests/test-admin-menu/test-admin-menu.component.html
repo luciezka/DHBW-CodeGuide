@@ -1,1 +1,27 @@
-<p>test-admin-menu works!</p>
+<div class="title">
+  <h1>Tests</h1>
+</div>
+<div *ngIf="userData[0].isAdmin">
+  <img [routerLink]="['/FlashcardAdminMenu']" style="float: right; color:white;" src="assets/icons/svg/edit.svg" class="filter-white">
+  <img [routerLink]="['/TestCreator']" style="float: right; color:white;" src="assets/icons/svg/add.svg" class="filter-white">
+</div>
+
+
+
+<div *ngFor="let items of testCardData ;index as i;">
+
+  <div>
+    <div class="center" *ngIf=" i== 0 ||  items.topic != testCardData[i-1].topic">
+      <h1>{{items.topic}}</h1>
+    </div>
+
+    <div id="{{items.topic}}">
+      <div class="items center-items">
+        <a  class="hover-underline-animation">{{items.name}}  <img src="assets/icons/svg/edit.svg" class="filter-white"></a>
+        <a  class="delete">DELETE</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+

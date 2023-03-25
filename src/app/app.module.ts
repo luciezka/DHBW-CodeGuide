@@ -27,7 +27,8 @@ import { LearnCodeComponent } from './components/LearnCode/learn-code/learn-code
 import { MarkdownComponent } from './components/LearnCode/learn-code-creator/markdown.component';
 import { LearnCodeAdminMenuComponent } from './components/LearnCode/learn-code-admin-menu/learn-code-admin-menu.component';
 import { TestCreatorComponent } from './components/Tests/test-creator/test-creator.component';
-import { TestAdminMenuComponent } from './components/Tests/test-admin-menu/test-admin-menu.component';
+import {TestAdminMenuComponent} from "./components/Tests/test-admin-menu/test-admin-menu.component";
+
 
 @NgModule({
   declarations: [
@@ -49,8 +50,7 @@ import { TestAdminMenuComponent } from './components/Tests/test-admin-menu/test-
     LearnCodeComponent,
     LearnCodeAdminMenuComponent,
     TestCreatorComponent,
-    TestAdminMenuComponent
-
+    TestAdminMenuComponent,
   ],
   providers: [],
   imports: [
@@ -74,6 +74,7 @@ import { TestAdminMenuComponent } from './components/Tests/test-admin-menu/test-
       {path: 'LearnCode', component: LearnCodeComponent},
       {path: 'LearnCodeAdminMenu', component: LearnCodeAdminMenuComponent},
       {path: 'TestCreator', component: TestCreatorComponent},
+      {path: 'TestAdminMenu', component: TestAdminMenuComponent},
     ]),
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     ReactiveFormsModule,
