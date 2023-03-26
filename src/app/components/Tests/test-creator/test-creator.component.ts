@@ -24,6 +24,7 @@ export class TestCreatorComponent implements OnInit {
     topic: "",
     name: "",
     questionText: "",
+    id: "",
     answerRight: [],
     answerWrong: [],
   }
@@ -39,24 +40,29 @@ export class TestCreatorComponent implements OnInit {
       topic: ["", [ Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
       name: ["", [ Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
       questionText: ["", [ Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
-      questionType: ["3", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
+      questionType: ["", [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]],
       answerRight: [""],
+      id: [""],
       creationDate: Date.now(),
     });
     this.testForm.patchValue(this.activatedRoute.snapshot.queryParams);
-    this.testForm.patchValue({answerRight: this.activatedRoute.snapshot.queryParams['answerRight'][0]})
+
+    //get data from params if there are any
+    if (Object.keys(this.activatedRoute.snapshot.queryParams).length !== 0) {
+      this.testForm.patchValue({answerRight: this.activatedRoute.snapshot.queryParams['answerRight'][0]})
+      for (let i = 0; i < this.activatedRoute.snapshot.queryParams['answerRight'].length; i++) {
+        this.newTest.answerRight!.push(this.activatedRoute.snapshot.queryParams['answerRight'][i]);
+      }
+      if(this.testForm.value.questionType == 1){
+        for (let i = 0; i < this.activatedRoute.snapshot.queryParams['answerWrong'].length; i++) {
+          this.newTest.answerWrong!.push(this.activatedRoute.snapshot.queryParams['answerWrong'][i]);
+        }
+      }
+    }
   }
 
   ngOnInit(): void {
     //Push data into InputTest
-    for (let i = 0; i < this.activatedRoute.snapshot.queryParams['answerRight'].length; i++) {
-      this.newTest.answerRight!.push(this.activatedRoute.snapshot.queryParams['answerRight'][i]);
-    }
-    if(this.testForm.value.questionType == 1){
-      for (let i = 0; i < this.activatedRoute.snapshot.queryParams['answerWrong'].length; i++) {
-        this.newTest.answerWrong!.push(this.activatedRoute.snapshot.queryParams['answerWrong'][i]);
-      }
-    }
     this.patchFormToNewTest()
     this.fetchExistingUser()
     console.log(this.testForm.value)
@@ -72,6 +78,7 @@ export class TestCreatorComponent implements OnInit {
     this.newTest.questionText = this.testForm.value.questionText
     this.newTest.questionType = this.testForm.value.questionType
     this.newTest.creationDate = this.testForm.value.creationDate
+    this.newTest.id = this.testForm.value.id
   }
 
   patchDataToUi() {
@@ -94,36 +101,38 @@ export class TestCreatorComponent implements OnInit {
   //if anyone is up to the challenge to understand FormArrays and implement them you can delete this
   // ONLY NEEDED FOR 1 and 2
   fetchAnswersFromDom() {
-    //makes sure we fetching the right data
-    this.patchFormToNewTest()
     for (let i = 0; i < 4; i++) {
-      if (this.newTest.questionType! <= 2) {
+        //make sure the array is defined
         // @ts-ignore
-        if (document.getElementById('correctInput' + i)!.value !== "" || document.getElementById('correctInput' + i)!.value !==  null){
-            // @ts-ignore
-            this.newTest.answerRight![i] = document.getElementById!('correctInput' + i)!.value
+        if (document.getElementById('correctInput' + i)!.value !== "" || document.getElementById('correctInput' + i)!.value !== undefined){
+           // @ts-ignore
+            this.newTest.answerRight![i] = document.getElementById!('correctInput' + i)!.value!
         }
         if (this.newTest.questionType == 1) {
           // @ts-ignore
-          if (document.getElementById('wrongInput' + i)!.value !== ""|| document.getElementById('correctInput' + i)!.value !==  null) {
+          if (document.getElementById('wrongInput' + i)!.value !== ""||  document.getElementById('wrongInput' + i)!.value !== undefined) {
             // @ts-ignore
-            this.newTest.answerRight![i] = document.getElementById('wrongInput' + i).value
+            this.newTest.answerWrong![i] = document.getElementById('wrongInput' + i).value
           }
         }
-      }
     }
   }
-
-
 
 
   checkForEmptyValues() {
     let hasEmptyValues = false;
     // @ts-ignore
-    if (this.newTest.answerRight === "") {
+      this.newTest.answerRight = this.newTest.answerRight!.filter(value => value || value === false);
+      this.newTest.answerWrong = this.newTest.answerWrong!.filter(value => value);
+    if (this.newTest.answerRight.length === 0) {
       alert("Please fill in the correct answer.")
       let hasEmptyValues = true;
-    }if (this.testForm.value.name === "") {
+    } // @ts-ignore
+    if (this.newTest.answerWrong.length === 0 && this.newTest.questionType == 1){
+      alert("Please fill in the wrong answer.")
+      let hasEmptyValues = true;
+    }
+    if (this.testForm.value.name === "") {
       alert("Please fill in the correct name.")
       let hasEmptyValues = true;
     }if (this.testForm.value.topic === "") {
@@ -138,30 +147,42 @@ export class TestCreatorComponent implements OnInit {
 
   fetchDataByQuestionType() {
     //check which answers we need depending on question type
-    if (this.newTest.questionType == 2) {
+    if (this.newTest.questionType! > 1) {
       //making sure there are no wrong answers
       this.newTest.answerWrong = [""]
     // Only getting data from form
-    }else if(this.newTest.questionType == 3) {
-      this.newTest.answerRight = [this.testForm.value.answerRight]
-      this.newTest.answerWrong = [""]
+    }if(this.newTest.questionType! == 3) {
+      if (this.testForm.value.answerRight == "true" || this.testForm.value.answerRight == "false"){
+        this.newTest.answerRight = [JSON.parse(this.testForm.value.answerRight)]
+        this.newTest.answerWrong = [""]
+      }else {
+        this.newTest.answerRight = [""]
+        this.newTest.answerWrong = [""]
+      }
     }
   }
 
 
   submitTest() {
-    console.log("submit")
     //making sure the data is set to the new test
     this.patchFormToNewTest()
-    this.fetchAnswersFromDom()
-      if (!this.checkForEmptyValues()){
-      this.fetchDataByQuestionType()
-        console.log("this Object will be published")
-        console.log(this.newTest)
-      } else {
-        alert("You are missing certain permissions to create a flashcard.")
+    //fetching the answers from the DOM
+    if (this.newTest.questionType! <= 2) {
+      this.newTest.answerRight = []
+      this.newTest.answerWrong = []
+      this.fetchAnswersFromDom()
     }
-  }
+    this.fetchDataByQuestionType()
+      if (!this.checkForEmptyValues()){
+        if (this.userData[0].isAdmin) {
+          this.testtask.addTest(this.newTest)
+          this._router.navigate(['/TestMenu'])
+        } else {
+          alert("You are missing certain permissions to create a test.")
+        }
+      }
+    }
+
 
 
   fetchExistingUser() {
