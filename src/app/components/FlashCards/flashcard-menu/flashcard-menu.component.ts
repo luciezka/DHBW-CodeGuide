@@ -23,7 +23,7 @@ export class FlashcardMenuComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
+    isAdmin = false;
     isActive = false;
     toggleIconClass(icon: HTMLElement) {
     icon.classList.toggle('down');

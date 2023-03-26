@@ -40,7 +40,7 @@ export class LoginScreenComponent implements OnInit {
   userCreationEnabled = false;
   isAdmin = false;
   user!: Promise<any>;
-  userData!: UserModel[] ;
+  userData!: UserModel[];
 
   loginForm! :FormGroup;
   newUserForm!: FormGroup;

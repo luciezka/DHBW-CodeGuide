@@ -41,15 +41,6 @@ export class MarkdownTaskService {
   }
 
 
-  getNewestMarkdown() {
-    return this.fireStore.collection('markdown', ref => ref.orderBy('creationDate', 'desc')).snapshotChanges().pipe(map((changes) => {
-      return changes.map(a => {
-        const data = a.payload.doc.data() as MarkdownModel;
-        data.id = a.payload.doc.id;
-        return data;
-      })
-    }));
-  }
 
   getMarkdowns() {
     return this.markdowns;

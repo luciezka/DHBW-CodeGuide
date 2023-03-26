@@ -15,7 +15,7 @@ import {UserModel} from "../../../models/user.model";
 export class TestMenuComponent implements OnInit {
   userData!: UserModel[] ;
   testCardData!: TestCardModel[];
-
+  isAdmin = false;
 
 
   constructor(private testcardservice: TestTaskService,private userTaskService : UserTaskService, private _router: Router) {

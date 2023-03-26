@@ -2,7 +2,7 @@
   <h1>Tests</h1>
 </div>
 
-<div *ngIf="userData[0].isAdmin">
+<div *ngIf="isAdmin">
   <img [routerLink]="['/TestAdminMenu']" style="float: right; color:white;" src="assets/icons/svg/edit.svg" class="filter-white">
   <img [routerLink]="['/TestCreator']" style="float: right; color:white;" src="assets/icons/svg/add.svg" class="filter-white">
 </div>

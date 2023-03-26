@@ -25,6 +25,7 @@ export class LearnCodeMenuComponent implements OnInit {
     this.fetchExistingUser();
   }
     userData!: UserModel[] ;
+    isAdmin = false;
     isActive = false;
     toggleIconClass(icon: HTMLElement) {
     icon.classList.toggle('down');

@@ -71,7 +71,7 @@ export class UserTaskService {
   }
 
   createUser(user: any,password: string) {
-    if (user.name === "" || user.email === ""|| password.length <= 6){
+    if (user.name === "" || user.email === ""|| password.length < 6){
       console.log("User not created");
       return false;
     }
