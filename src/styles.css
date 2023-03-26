@@ -16,9 +16,8 @@
     background-color: #262626;
   }
   .angular-editor-wrapper {
-    height: 60% !important;
+    height: 50% !important;
   }
-
   .code {
     font-family: monospace;
   }
@@ -32,15 +31,14 @@
     background-color: #262626;
   }
   .angular-editor-wrapper {
-    height: 80% !important;
+    height: 70% !important;
   }
-}
-
-.code {
-  background-color: #333333 !important;
-  border-radius: 5px !important;
-  padding: 5px;
-  font-family: monospace;
+  .code {
+    background-color: #333333 !important;
+    border-radius: 5px !important;
+    padding: 5px;
+    font-family: monospace;
+  }
 }
 
 .filler {
