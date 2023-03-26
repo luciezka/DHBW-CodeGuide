@@ -77,7 +77,6 @@ export class FlashcardCreatorComponent implements OnInit {
       {
         name: "Code",
         class: "code",
-        tag: "code",
       },
       {
         name: "Small",

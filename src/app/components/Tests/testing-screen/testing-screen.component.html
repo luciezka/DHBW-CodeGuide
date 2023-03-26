@@ -2,9 +2,9 @@
   <form [formGroup]="submitForm" (ngSubmit)="submitTest()">
     <div class="MultipleChoice" *ngIf="testData.questionType ==1">
       <p>{{testData.questionText}}</p>
-      <div class="Choice" *ngFor="let option of answerTable index as i">
-        <input type="checkbox" [value]="option" (change)="onCheckboxChange($event)">
-        {{option}}
+      <div class="Choice form-group" *ngFor="let option of answerTable index as i">
+        <input [id]="option" type="checkbox" [value]="option" (change)="onCheckboxChange($event)">
+        <label [for]="option">{{option}}</label>
         <br>
       </div>
       <button type="submit">Submit</button>
@@ -27,7 +27,7 @@
 <div class="center">
   <div class="Answer" *ngIf="showSubmitScreen">
     <div *ngIf="showMistakeScreen">
-      Die richtige Antwort ist:
+      Das ist leider Falsch, die richtige Antwort ist:
       <div *ngFor="let items of testData.answerRight">
         <p>{{items}}</p>
       </div>

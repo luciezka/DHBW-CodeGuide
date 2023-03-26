@@ -1,6 +1,3 @@
-<head>
-  <link href="/src/css/ft-syntax-highlight.css" rel="stylesheet" />
-</head>
 <div class="container">
   <form class="form" [formGroup]="markdownForm" (ngSubmit)="submitMarkdown()">
     <angular-editor [config]="config" formControlName="html" required></angular-editor>

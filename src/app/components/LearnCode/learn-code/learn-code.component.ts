@@ -17,6 +17,5 @@ export class LearnCodeComponent implements OnInit {
     // get the Information from route
     this.markdownData = this.activatedRoute.snapshot.queryParams;
   }
-
 }
 

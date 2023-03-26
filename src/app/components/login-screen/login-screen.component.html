@@ -17,8 +17,9 @@
       </div>
     </div>
   </form>
-  <div *ngIf="userData[0]['name'] !=='Gast'" >
-    <div class="title" style="color:white;">Welcome {{userData[0].name}}</div>
+  <div class="center-screen loginContainer" *ngIf="userData[0]['name'] !=='Gast'" >
+    <div class="title" style="color:white;">Willkommen {{userData[0].name}}</div>
+    <br>
     <div style="display:flex; flex-direction: column; text-align:center; justify-content:center;"><button class="button" (click)="logout()">Logout</button></div>
   </div>
 </div>

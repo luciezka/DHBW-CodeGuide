@@ -4,6 +4,13 @@
   margin: 0;
 }
 
+.code {
+  background-color: #333333 !important;
+  border-radius: 5px !important;
+  padding: 5px;
+  font-family: monospace;
+}
+
 @media (any-pointer: coarse) {
   .container {
     display: flex;
@@ -28,7 +35,7 @@
     background-color: #262626;
   }
   .angular-editor-wrapper {
-    height: 80% !important;
+    height: 70% !important;
   }
 }
 
