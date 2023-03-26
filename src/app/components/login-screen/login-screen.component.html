@@ -27,7 +27,7 @@
     {{userData[0].email}}<br>
   Du hast {{userData[0].passedTests.length}} Tests von {{this.testData}} bearbeitet<br>
 
-    <div *ngIf="isAdmin">
+    <div *ngIf="userData[0].isAdmin">
       Du bist ein Administrator<br>
     </div>
     <div *ngIf="!userCreationEnabled; else userCreation">
@@ -39,7 +39,7 @@
       <input class="form-control" formControlName="name" name="name" type="text" placeholder="username" style="margin-bottom: 1vh;">
       <input class="form-control" formControlName="email" name="email" type="text" placeholder="email" style="margin-bottom: 1vh;">
       <input class="form-control" formControlName="password" name="email" type="text" placeholder="password 6 zeichen mindestens" style="margin-bottom: 1vh;">
-      <div *ngIf="isAdmin" class="form-group">
+      <div *ngIf="userData[0].isAdmin" class="form-group">
         <input id="IsThisAnAdmin" class="form-check-input2" formControlName="isAdmin" name="isAdmin" type="checkbox" value=false>
         <label for="IsThisAnAdmin">Soll der Nutzer Admin sein?</label>
       </div>
