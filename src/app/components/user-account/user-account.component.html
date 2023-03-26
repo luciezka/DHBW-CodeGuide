@@ -3,10 +3,8 @@
 
 
   <div *ngIf="isAdmin">
-
-
-
       Du bist ein Administrator<br>
+  </div>
 
     <div *ngIf="!userCreationEnabled; else userCreation">
     <button class="button" (click)="userCreationEnabled = true"> Neuen Nutzer Erstellen</button>
@@ -14,18 +12,20 @@
 
 <ng-template #userCreation class="container">
     <form class="form" [formGroup]="newUserForm" (ngSubmit)="createNewUser()">
+
       username
       <input class="form-control" formControlName="name" name="name" type="text" placeholder="username">
       email
       <input class="form-control" formControlName="email" name="email" type="text" placeholder="email">
-      Is this an Admin?
+
+      <div *ngIf="isAdmin">
+        Is this an Admin?
       <input class="form-check-input2" formControlName="answerRight" name="answerRight" type="checkbox" value=false>
+      </div>
+
       <button type="submit" class="send" >Erstellen</button>
     </form>
 </ng-template>
-
-  </div>
-
 </div>
 
 
