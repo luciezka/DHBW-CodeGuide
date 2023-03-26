@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserTaskService} from "../../services/user-task.service";
 import {UserModel} from "../../models/user.model";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {TestCardModel} from "../../models/testCard.model";
+import {TestTaskService} from "../../services/test-task.service";
 
 @Component({
   selector: 'app-user-account',
@@ -9,15 +12,38 @@ import {UserModel} from "../../models/user.model";
 })
 export class UserAccountComponent implements OnInit {
 
-
+  testData!: number;
   userData!:UserModel[];
+  newUserForm: FormGroup;
+  userCreationEnabled = false;
+  isAdmin = false;
 
-  constructor(public userTaskService : UserTaskService) {
+  constructor(public userTaskService : UserTaskService,
+              private formBuilder: FormBuilder,
+              public testTaskService: TestTaskService,
+  ) {
+    this.newUserForm = this.formBuilder.group({
+      name: [""],
+      email: [""],
+      isAdmin: [""],
+    });
+
     this.userTaskService.clearData();
     this.initUser();
   }
   ngOnInit(): void {
+    this.initData()
   }
+
+
+
+  initData(){
+    this.testTaskService.returnTestCard().subscribe((data: TestCardModel[]) => {
+      this.testData = data.length;
+    });
+    this.testTaskService.clearData();
+  }
+
   initUser() {
     if (!navigator.onLine) {
       this.userData = JSON.parse("[" + this.userTaskService.getUserCache() + "]");
@@ -25,20 +51,11 @@ export class UserAccountComponent implements OnInit {
       this.userTaskService.getUser().subscribe(async data => {
         this.timeOutConnection(data)
         this.userData = data;
-
+        this.isAdmin = this.userData[0].isAdmin;
       }, error => {
       }, () => {
       });
     }
-  }
-
-  initUserByName(name : string) {
-    this.userTaskService.clearData();
-    this.userTaskService.getUserByName(name).subscribe(async data => {
-      this.userData = data;
-    }, error => {
-    }, () => {
-    });
   }
 
 
@@ -49,5 +66,10 @@ export class UserAccountComponent implements OnInit {
         this.userData = JSON.parse("[" + this.userTaskService.getUserCache() + "]");
       }}, 100);
   }
+
+  createNewUser(){
+  }
+
+
 
 }
