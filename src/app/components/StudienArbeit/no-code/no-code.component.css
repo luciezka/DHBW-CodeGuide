@@ -54,5 +54,5 @@ img{
 }
 
 .animated {
-  animation: entrance 1s ease 0s 1 normal forwards;
+  animation: entrance 2s ease 0s 1 normal forwards;
 }
