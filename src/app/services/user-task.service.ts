@@ -69,6 +69,18 @@ export class UserTaskService {
   updateUser(user: UserModel) {
     this.userCollection.doc(user.id).update(user);
   }
+
+  createUser(user: any) {
+    if (user.name === "" || user.email === ""){
+     console.log("User not created");
+      return false;
+    }
+    else {
+     // this.userCollection.add(user);
+      return true
+    }
+  }
+
   clearData() {
     this.cache.clearData();
   }

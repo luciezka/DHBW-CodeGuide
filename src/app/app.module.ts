@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginScreenComponent } from './components/login-screen/login-screen.component';
 import { FlashcardComponent } from './components/FlashCards/flashcard/flashcard.component';
-import { UserAccountComponent } from './components/user-account/user-account.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
 import { RouterModule } from "@angular/router";
@@ -35,7 +34,6 @@ import {TestAdminMenuComponent} from "./components/Tests/test-admin-menu/test-ad
     AppComponent,
     LoginScreenComponent,
     FlashcardComponent,
-    UserAccountComponent,
     TopBarComponent,
     BottomBarComponent,
     HomeScreenComponent,
@@ -66,7 +64,6 @@ import {TestAdminMenuComponent} from "./components/Tests/test-admin-menu/test-ad
       {path: 'FlashcardAdminMenu', component: FlashcardAdminMenuComponent},
       {path: 'Testcard', component: TestingScreenComponent},
       {path: 'TestMenu', component: TestMenuComponent},
-      {path: 'Account', component: UserAccountComponent},
       {path: 'Login', component: LoginScreenComponent},
       {path: 'NoCode', component: NoCodeComponent},
       {path: 'LearnCodeMenu', component: LearnCodeMenuComponent},

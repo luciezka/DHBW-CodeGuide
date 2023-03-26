@@ -93,6 +93,43 @@ export class TestCreatorComponent implements OnInit {
   }
 
 
+  fetchDataByQuestionType() {
+    //check which answers we need depending on question type
+    if (this.newTest.questionType! > 1) {
+      //making sure there are no wrong answers
+      this.newTest.answerWrong = [""]
+    // Only getting data from form
+    }if(this.newTest.questionType! == 3) {
+      if (this.testForm.value.answerRight == "true" || this.testForm.value.answerRight == "false"){
+        this.newTest.answerRight = [JSON.parse(this.testForm.value.answerRight)]
+        this.newTest.answerWrong = [""]
+      }else {
+        this.newTest.answerRight = [""]
+        this.newTest.answerWrong = [""]
+      }
+    }
+  }
+
+
+  submitTest() {
+    //making sure the data is set to the new test
+    this.patchFormToNewTest()
+    //fetching the answers from the DOM
+    if (this.newTest.questionType! <= 2) {
+      this.newTest.answerRight = []
+      this.newTest.answerWrong = []
+      this.fetchAnswersFromDom()
+    }
+    this.fetchDataByQuestionType()
+      if (!this.checkForEmptyValues()){
+        if (this.userData[0].isAdmin) {
+          this.testtask.createTest(this.newTest)
+          this._router.navigate(['/TestMenu'])
+        } else {
+          alert("You are missing certain permissions to create a test.")
+        }
+      }
+    }
 
 
   fetchExistingUser() {

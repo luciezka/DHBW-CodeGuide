@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 import firebase from "firebase/compat/app";
 import {UserTaskService} from "../../services/user-task.service";
 import {UserModel} from "../../models/user.model";
+import {TestTaskService} from "../../services/test-task.service";
+import {TestCardModel} from "../../models/testCard.model";
 
 @Component({
   selector: 'app-login-screen',
@@ -11,8 +13,23 @@ import {UserModel} from "../../models/user.model";
 })
 export class LoginScreenComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private userTaskService: UserTaskService){
+  constructor(private fb: FormBuilder,
+              private userTaskService: UserTaskService,
+               public testTaskService: TestTaskService,)
+  {
     this.userTaskService.clearData();
+    this.loginForm = this.fb.group({
+      email: [''],
+      password: ['']
+    });
+
+    this.newUserForm = this.fb.group({
+      name: [""],
+      email: [""],
+      isAdmin: [""],
+    });
+
+
   }
 
   ngOnInit(): void {
@@ -20,21 +37,32 @@ export class LoginScreenComponent implements OnInit {
     this.initUser()
   }
 
+
+  testData!: number;
+
+  userCreationEnabled = false;
   logedIn = false;
+  isAdmin = false;
+
+
   user!: Promise<any>;
   userData!: UserModel[] ;
-
-  loginForm = this.fb.group({
-    email: [''],
-    password: ['']
-  });
+  loginForm! :FormGroup;
+  newUserForm!: FormGroup;
 
 
   async initUser() {
     // @ts-ignore
     this.user = await this.fetchExistingUser();
-
   }
+
+  initData() {
+    this.testTaskService.returnTestCard().subscribe((data: TestCardModel[]) => {
+      this.testData = data.length;
+    });
+    this.testTaskService.clearData();
+  }
+
 
   async fetchExistingUser() {
     return this.userTaskService.getUser().subscribe( data => {
@@ -42,6 +70,7 @@ export class LoginScreenComponent implements OnInit {
         this.logedIn = true;
      }
       this.userData = data;
+      this.isAdmin = this.userData[0].isAdmin;
       return
     }, error => {
     }, () => {
@@ -68,6 +97,32 @@ export class LoginScreenComponent implements OnInit {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
+  }
+
+  resetPassword(email: string) {
+    return firebase.auth().sendPasswordResetEmail(email)
+      .then(() => {
+        console.log('Password reset email sent successfully');
+      })
+      .catch((error) => {
+        console.error('Error sending password reset email: ', error);
+      });
+  }
+
+  createNewUser() {
+    if (!this.userData[0].isAdmin) {
+      this.newUserForm.value.isAdmin = false;
+    }
+    let newUserData = {
+      name: this.newUserForm.value.name,
+      email: this.newUserForm.value.email,
+      isAdmin: this.newUserForm.value.isAdmin,
+      passedTests: []
+    }
+    if(this.userTaskService.createUser(newUserData)){
+      this.userCreationEnabled = false;
+    }
+
   }
 
   async loginUser() {

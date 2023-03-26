@@ -67,7 +67,7 @@ export class TestTaskService {
     }
 
 
-  addTest(tests: any) {
+  createTest(tests: any) {
     if (tests.id == "") {
       tests.id =[];
       this.testcardCollection.add(tests);
