@@ -125,9 +125,8 @@ export class TestCreatorComponent implements OnInit {
         class: "highlight",
       },
       {
-        name: "JavaScript",
-        class: "ft-syntax-highlight",
-        tag: "pre",
+        name: "Code",
+        class: "code",
       },
       {
         name: "Small",
