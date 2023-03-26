@@ -134,6 +134,12 @@ h1 {
   color:white;
 }
 
+app-login-screen {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
 .angular-editor {
   overflow: hidden !important;
 }
