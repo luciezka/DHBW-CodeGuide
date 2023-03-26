@@ -70,13 +70,13 @@ export class UserTaskService {
     this.userCollection.doc(user.id).update(user);
   }
 
-  createUser(user: any) {
-    if (user.name === "" || user.email === ""){
+  createUser(user: any,password: string) {
+    if (user.name === "" || user.email === ""|| password.length <= 6){
       console.log("User not created");
       return false;
     }
     else {
-      // this.userCollection.add(user);
+      this.userCollection.add(user);
       return true
     }
   }

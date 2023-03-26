@@ -25,6 +25,7 @@ export class LoginScreenComponent implements OnInit {
     this.newUserForm = this.fb.group({
       name: [""],
       email: [""],
+      password: [""],
       isAdmin: [""],
     });
   }
@@ -47,6 +48,7 @@ export class LoginScreenComponent implements OnInit {
   async initUser() {
     // @ts-ignore
     this.user = await this.fetchExistingUser();
+    this.initData();
 
   }
 
@@ -84,6 +86,18 @@ export class LoginScreenComponent implements OnInit {
     });
   }
 
+  createAccount(email: string, password: string) {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log('Account created successfully');
+        this.resetPassword(email)
+      })
+      .catch((error) => {
+        console.error('Error creating account: ', error);
+      });
+  }
+
+
   resetPassword(email: string) {
     return firebase.auth().sendPasswordResetEmail(email)
       .then(() => {
@@ -93,6 +107,7 @@ export class LoginScreenComponent implements OnInit {
         console.error('Error sending password reset email: ', error);
       });
   }
+
 
   createNewUser() {
     if (!this.userData[0].isAdmin) {
@@ -104,8 +119,11 @@ export class LoginScreenComponent implements OnInit {
       isAdmin: this.newUserForm.value.isAdmin,
       passedTests: []
     }
-    if(this.userTaskService.createUser(newUserData)){
+    if(this.userTaskService.createUser(newUserData, this.newUserForm.value.password)){
       this.userCreationEnabled = false;
+      this.createAccount(this.newUserForm.value.email, this.newUserForm.value.password);
+    }else{
+      alert("Something went wrong, your inputs seem wrong, The Password must be at least 6 characters long")
     }
 
   }

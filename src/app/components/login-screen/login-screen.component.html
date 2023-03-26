@@ -18,6 +18,8 @@
       <input class="form-control" formControlName="name" name="name" type="text" placeholder="username">
       email
       <input class="form-control" formControlName="email" name="email" type="text" placeholder="email">
+      password
+      <input class="form-control" formControlName="password" name="email" type="text" placeholder="password 6 zeichen mindestens">
 
       <div *ngIf="isAdmin">
         Is this an Admin?
@@ -25,6 +27,9 @@
       </div>
       <button type="submit" class="send" >Erstellen</button>
     </form>
+
+
+
   </ng-template>
 </div>
 <div style="display: flex; justify-content:center; margin-top: 5%;">

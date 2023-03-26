@@ -24,7 +24,7 @@ export class MarkdownTaskService {
 
   initTask() {
     // get request to google , get the collection of flashcards ordered by topic
-    this.markdownCollection = this.fireStore.collection('markdown', ref => ref.orderBy('topic', 'desc'));
+    this.markdownCollection = this.fireStore.collection('markdown', ref => ref.orderBy('creationDate', 'desc'));
     // subscribeflashcards to an Observable and detect changes in the Dataset
     this.markdowns = this.markdownCollection.snapshotChanges().pipe(map((changes) => {
       // @ts-ignore
