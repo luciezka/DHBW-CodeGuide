@@ -43,7 +43,6 @@ export class LearnCodeMenuComponent implements OnInit {
 
    fetchExistingUser(){
       this.userTaskService.getUser().subscribe(async data => {
-        console.log(data);
         this.userData = data;
     });
   }
@@ -69,7 +68,6 @@ export class LearnCodeMenuComponent implements OnInit {
   }
 
   timeOutConnection(data : any){
-    console.log(data);
     setTimeout(() => {
       if (data.length < 1) {
         console.log("No Connection, using Cache");

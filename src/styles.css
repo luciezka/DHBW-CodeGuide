@@ -4,13 +4,6 @@
   margin: 0;
 }
 
-.code {
-  background-color: #333333 !important;
-  border-radius: 5px !important;
-  padding: 5px;
-  font-family: monospace;
-}
-
 @media (any-pointer: coarse) {
   .container {
     display: flex;
@@ -25,6 +18,10 @@
   .angular-editor-wrapper {
     height: 60% !important;
   }
+
+  .code {
+    font-family: monospace;
+  }
 }
 
 @media (any-pointer: fine) {
@@ -35,8 +32,15 @@
     background-color: #262626;
   }
   .angular-editor-wrapper {
-    height: 70% !important;
+    height: 80% !important;
   }
+}
+
+.code {
+  background-color: #333333 !important;
+  border-radius: 5px !important;
+  padding: 5px;
+  font-family: monospace;
 }
 
 .filler {
@@ -162,7 +166,7 @@ h1 {
 }
 
 .ae-font .ae-picker-options .ae-picker-item {
-  margin-top: 2px !important; 
+  margin-top: 2px !important;
 }
 
 .angular-editor .angular-editor-toolbar button:hover {

@@ -1,23 +1,23 @@
 <div *ngIf="!showSubmitScreen" class="center">
   <form [formGroup]="submitForm" (ngSubmit)="submitTest()">
     <div class="MultipleChoice" *ngIf="testData.questionType ==1">
-      <p>{{testData.questionText}}</p>
-      <div class="Choice form-group" *ngFor="let option of answerTable index as i">
-        <input [id]="option" type="checkbox" [value]="option" (change)="onCheckboxChange($event)">
-        <label [for]="option">{{option}}</label>
+      <p [innerHTML]="testData.questionText"></p>
+      <div class="Choice" *ngFor="let option of answerTable index as i">
+        <input type="checkbox" [value]="option" (change)="onCheckboxChange($event)">
+        {{option}}
         <br>
       </div>
       <button type="submit">Submit</button>
     </div>
     <div class="Blank" *ngIf="testData.questionType ==2 ">
-      <p>{{testData.questionText}}</p>
+      <p [innerHTML]="testData.questionText"></p>
       <div style="display: flex; flex-direction: row">
         <input type="text" formControlName="answer" id="answer"/>
       </div>
       <button type="submit">Submit</button>
     </div>
     <div class="TrueFalse" *ngIf="testData.questionType == 3">
-      <p>{{testData.questionText}}</p>
+      <p [innerHTML]="testData.questionText"></p>
       <button formControlName="answer" type="button" (click)="checkRightAnswerBool(true)" class="true">Wahr</button>
       <button formControlName="answer" type="button" (click)="checkRightAnswerBool(false )" class="false">Falsch</button>
       <br/><br/>
@@ -27,7 +27,7 @@
 <div class="center">
   <div class="Answer" *ngIf="showSubmitScreen">
     <div *ngIf="showMistakeScreen">
-      Das ist leider Falsch, die richtige Antwort ist:
+      Die richtige Antwort ist:
       <div *ngFor="let items of testData.answerRight">
         <p>{{items}}</p>
       </div>

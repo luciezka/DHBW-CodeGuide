@@ -15,8 +15,7 @@ export class LoginScreenComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private userTaskService: UserTaskService,
-               public testTaskService: TestTaskService,)
-  {
+              public testTaskService: TestTaskService,) {
     this.userTaskService.clearData();
     this.loginForm = this.fb.group({
       email: [''],
@@ -28,32 +27,27 @@ export class LoginScreenComponent implements OnInit {
       email: [""],
       isAdmin: [""],
     });
-
-
   }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.logedIn = false;
     this.initUser()
   }
 
-
   testData!: number;
-
-  userCreationEnabled = false;
   logedIn = false;
+  userCreationEnabled = false;
   isAdmin = false;
-
-
   user!: Promise<any>;
   userData!: UserModel[] ;
+
   loginForm! :FormGroup;
   newUserForm!: FormGroup;
-
 
   async initUser() {
     // @ts-ignore
     this.user = await this.fetchExistingUser();
+
   }
 
   initData() {
@@ -62,6 +56,7 @@ export class LoginScreenComponent implements OnInit {
     });
     this.testTaskService.clearData();
   }
+
 
 
   async fetchExistingUser() {
@@ -89,16 +84,6 @@ export class LoginScreenComponent implements OnInit {
     });
   }
 
-  async login() {
-    return firebase.auth().signInWithEmailAndPassword(this.loginForm.value.email!, this.loginForm.value.password!).then((userCredential) => {
-      return userCredential.user?.email;
-    }).catch((error) => {
-      confirm("wrong password or email");
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-  }
-
   resetPassword(email: string) {
     return firebase.auth().sendPasswordResetEmail(email)
       .then(() => {
@@ -123,6 +108,18 @@ export class LoginScreenComponent implements OnInit {
       this.userCreationEnabled = false;
     }
 
+  }
+
+
+
+  async login() {
+    return firebase.auth().signInWithEmailAndPassword(this.loginForm.value.email!, this.loginForm.value.password!).then((userCredential) => {
+      return userCredential.user?.email;
+    }).catch((error) => {
+      confirm("wrong password or email");
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
   }
 
   async loginUser() {

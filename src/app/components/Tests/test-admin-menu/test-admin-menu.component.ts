@@ -50,7 +50,6 @@ export class TestAdminMenuComponent implements OnInit {
 
   fetchExistingUser(){
     this.userTaskService.getUser().subscribe(async data => {
-      console.log(data);
       this.userData = data;
     });
   }
@@ -65,7 +64,6 @@ export class TestAdminMenuComponent implements OnInit {
   }
 
   timeOutConnection(data : any){
-    console.log(data);
     setTimeout(() => {
       if (data.length < 1) {
         console.log("No Connection, using Cache");

@@ -13,6 +13,9 @@ import {UserModel} from "../../../models/user.model";
   styleUrls: [ './markdown.component.css' ],
 })
 
+
+
+
 export class MarkdownComponent implements OnInit {
   markdownForm: FormGroup;
   markdown!: MarkdownModel;
@@ -40,11 +43,11 @@ export class MarkdownComponent implements OnInit {
 
   submitMarkdown() {
     if (this.userData[0].isAdmin){
-      this.markdown = this.markdownForm.value as MarkdownModel;
-      this.MarkdownService.addMarkdown(this.markdown,);
-      this._router.navigate(['/LearnCodeMenu']);
-    } else {
-      alert("You are missing certain permissions to create a flashcard.")
+    this.markdown = this.markdownForm.value as MarkdownModel;
+    this.MarkdownService.addMarkdown(this.markdown,);
+    this._router.navigate(['/LearnCodeMenu']);
+    }else{
+    alert("You are missing certain permissions to create a flashcard.")
     }
   }
 
@@ -55,6 +58,7 @@ export class MarkdownComponent implements OnInit {
     });
   }
 
+
   name = 'Angular 6';
   htmlContent = '';
 
@@ -63,14 +67,14 @@ export class MarkdownComponent implements OnInit {
     spellcheck: true,
     height: '15rem',
     minHeight: '5rem',
-    placeholder: 'Enter Text here...',
+    placeholder: 'Enter text here...',
     translate: 'no',
     defaultParagraphSeparator: 'a',
     defaultFontName: 'Montserrat',
     outline: false,
     defaultFontSize: "large",
     fonts: [
-      {class: 'montserrat', name: 'Montserrat'}
+        {class: 'montserrat', name: 'Montserrat'}
     ],
     customClasses: [
       {
@@ -78,8 +82,9 @@ export class MarkdownComponent implements OnInit {
         class: "highlight",
       },
       {
-        name: "Code",
-        class: "code",
+        name: "JavaScript",
+        class: "ft-syntax-highlight",
+        tag: "pre",
       },
       {
         name: "Small",

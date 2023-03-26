@@ -1,14 +1,16 @@
 <!--   Einleitung         -->
 
+
 <h1
   (click)="reduceText(0)"
   style="cursor: pointer"
   (click)="toggleIconClass(icon1)"
 >
   Was ist no Code?
-  <i #icon1 [class.icon-class]="isActive" class="arrow icon"></i>
+  <i #icon1 [class.icon-class]="isActive" class="arrow icon "></i>
 </h1>
-<span *ngIf="isTextVisible[0]">
+<span class="animated" *ngIf="isTextVisible[0]">
+
   <p>
     Bevor wir in die tatsächliche Programmierung einsteigen, wollen wir einen
     Ausblick in die No-Code Umgebung wagen

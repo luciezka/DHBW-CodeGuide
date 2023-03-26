@@ -1,3 +1,4 @@
+
 <div style="display:flex; flex-direction: column; text-align:center; justify-content:center; color:white;">Du bist nun als {{userData[0].name}} eingeloggt<br>
   {{userData[0].email}}<br>
 
@@ -26,8 +27,6 @@
     </form>
   </ng-template>
 </div>
-
-
 <div style="display: flex; justify-content:center; margin-top: 5%;">
   <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
     <div class="container center-screen">
@@ -47,9 +46,8 @@
       </div>
     </div>
   </form>
-  <div class="center-screen loginContainer" *ngIf="userData[0]['name'] !=='Gast'" >
-    <div class="title" style="color:white;">Willkommen {{userData[0].name}}</div>
-    <br>
+  <div *ngIf="userData[0]['name'] !=='Gast'" >
+    <div class="title" style="color:white;">Welcome {{userData[0].name}}</div>
     <div style="display:flex; flex-direction: column; text-align:center; justify-content:center;"><button class="button" (click)="logout()">Logout</button></div>
   </div>
 </div>
