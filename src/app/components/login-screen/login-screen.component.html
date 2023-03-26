@@ -1,36 +1,17 @@
 
 <div style="display:flex; flex-direction: column; text-align:center; justify-content:center; color:white;">Du bist nun als {{userData[0].name}} eingeloggt<br>
   {{userData[0].email}}<br>
-
+Du hast {{userData[0].passedTests.length}} Tests von {{this.testData}} bearbeitet<br>
 
   <div *ngIf="isAdmin">
     Du bist ein Administrator<br>
   </div>
-
   <div *ngIf="!userCreationEnabled; else userCreation">
     <button class="button" (click)="userCreationEnabled = true"> Neuen Nutzer Erstellen</button>
   </div>
 
-  <ng-template #userCreation class="container">
-    <form class="form" [formGroup]="newUserForm" (ngSubmit)="createNewUser()">
-
-      username
-      <input class="form-control" formControlName="name" name="name" type="text" placeholder="username">
-      email
-      <input class="form-control" formControlName="email" name="email" type="text" placeholder="email">
-      password
-      <input class="form-control" formControlName="password" name="email" type="text" placeholder="password 6 zeichen mindestens">
-
-      <div *ngIf="isAdmin" class="form-group">
-        <input id="IsThisAnAdmin" class="form-check-input2" formControlName="isAdmin" name="isAdmin" type="checkbox" value=false>
-        <label for="IsThisAnAdmin">Soll der Nutzer Admin sein?</label>
-      </div>
-      <button type="submit" class="send" >Erstellen</button>
-    </form>
 
 
-
-  </ng-template>
 </div>
 <div style="display: flex; justify-content:center; margin-top: 5%;">
   <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
@@ -56,6 +37,23 @@
     <div style="display:flex; flex-direction: column; text-align:center; justify-content:center;"><button class="button" (click)="logout()">Logout</button></div>
   </div>
 </div>
+
+
+<ng-template #userCreation class="container">
+  <form class="form" [formGroup]="newUserForm" (ngSubmit)="createNewUser()">
+    username
+    <input class="form-control" formControlName="name" name="name" type="text" placeholder="username">
+    email
+    <input class="form-control" formControlName="email" name="email" type="text" placeholder="email">
+    password
+    <input class="form-control" formControlName="password" name="email" type="text" placeholder="password 6 zeichen mindestens">
+    <div *ngIf="isAdmin" class="form-group">
+      <input id="IsThisAnAdmin" class="form-check-input2" formControlName="isAdmin" name="isAdmin" type="checkbox" value=false>
+      <label for="IsThisAnAdmin">Soll der Nutzer Admin sein?</label>
+    </div>
+    <button type="submit" class="send" >Erstellen</button>
+  </form>
+</ng-template>
 
 
 
