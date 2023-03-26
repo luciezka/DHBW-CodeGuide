@@ -21,9 +21,9 @@
       password
       <input class="form-control" formControlName="password" name="email" type="text" placeholder="password 6 zeichen mindestens">
 
-      <div *ngIf="isAdmin">
-        Is this an Admin?
-        <input class="form-check-input2" formControlName="isAdmin" name="isAdmin" type="checkbox" value=false>
+      <div *ngIf="isAdmin" class="form-group">
+        <input id="IsThisAnAdmin" class="form-check-input2" formControlName="isAdmin" name="isAdmin" type="checkbox" value=false>
+        <label for="IsThisAnAdmin">Soll der Nutzer Admin sein?</label>
       </div>
       <button type="submit" class="send" >Erstellen</button>
     </form>
@@ -52,7 +52,7 @@
     </div>
   </form>
   <div *ngIf="userData[0]['name'] !=='Gast'" >
-    <div class="title" style="color:white;">Welcome {{userData[0].name}}</div>
+    <div class="title" style="color:white;">Willkommen {{userData[0].name}}</div>
     <div style="display:flex; flex-direction: column; text-align:center; justify-content:center;"><button class="button" (click)="logout()">Logout</button></div>
   </div>
 </div>
