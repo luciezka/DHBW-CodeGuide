@@ -22,7 +22,9 @@ export class FlashcardMenuComponent implements OnInit {
     this.fetchExistingUser();
   }
   ngOnInit(): void {
+    this.fetchExistingUser
   }
+  
     isAdmin = false;
     isActive = false;
     toggleIconClass(icon: HTMLElement) {

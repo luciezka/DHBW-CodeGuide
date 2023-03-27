@@ -25,6 +25,7 @@ export class HomeScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchExistingUser();
   }
 
   initData() {
@@ -53,6 +54,15 @@ export class HomeScreenComponent implements OnInit {
         this.userTaskService.getUserByName(userData[0].name);
        }
     }
+  }
+
+  async fetchExistingUser() {
+    return this.userTaskService.getUser().subscribe( data => {
+      this.userData = data;
+      return
+    }, error => {
+    }, () => {
+    });
   }
 
   // If timeout then get all Data

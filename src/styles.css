@@ -137,7 +137,6 @@ h1 {
 app-login-screen {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
 }
 
 .angular-editor {
