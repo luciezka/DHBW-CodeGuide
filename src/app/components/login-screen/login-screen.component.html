@@ -12,7 +12,7 @@
             <div class="form">
               <input class="input" id="password" type="password" formControlName="password" name="password" placeholder="password">
             </div>
-            <div style="display:flex; flex-direction: column; text-align:center; justify-content:center;"><button class="button" type="submit">Login</button></div>
+            <div style="display:flex; flex-direction: column; text-align:center; justify-content:center; margin-top: 1vh"><button class="button" type="submit">Login</button></div>
             </div>
           </div>
         </div>
@@ -23,22 +23,23 @@
       <div style="display:flex; flex-direction: column; text-align:center; justify-content:center;"><button class="button" (click)="logout()">Logout</button></div>
     </div>
   </div>
-  <div style="display:flex; flex-direction: column; text-align:center; justify-content:center; color:white;">Du bist nun als {{userData[0].name}} eingeloggt<br>
-    {{userData[0].email}}<br>
-  Du hast {{userData[0].passedTests.length}} Tests von {{this.testData}} bearbeitet<br>
+  <div style="display:flex; flex-direction: column; text-align:center; justify-content:center; color:white ">
+    <p>Du bist nun als {{userData[0].name}} eingeloggt</p>
+    <p style="margin: 0.5vh">{{userData[0].email}}</p>
+    <p>Du hast {{userData[0].passedTests.length}} Tests von {{this.testData}} bearbeitet</p>
 
     <div *ngIf="userData[0].isAdmin">
-      Du bist ein Administrator<br>
+      <p>  Du bist ein Administrator</p>
     </div>
     <div *ngIf="!userCreationEnabled; else userCreation">
-      <button class="button" (click)="userCreationEnabled = true"> Neuen Nutzer Erstellen</button>
+      <button style="margin-top: 1vh" class="button" (click)="userCreationEnabled = true"> Neuen Nutzer Erstellen</button>
     </div>
   </div>
   <ng-template #userCreation class="container">
     <form class="form" [formGroup]="newUserForm" (ngSubmit)="createNewUser()" style="display: flex;flex-direction: column;flex-wrap: wrap;align-content: center;">
       <input class="form-control" formControlName="name" name="name" type="text" placeholder="username" style="margin-bottom: 1vh;">
       <input class="form-control" formControlName="email" name="email" type="text" placeholder="email" style="margin-bottom: 1vh;">
-      <input class="form-control" formControlName="password" name="email" type="text" placeholder="password 6 zeichen mindestens" style="margin-bottom: 1vh;">
+      <input class="form-control" formControlName="password" name="password" type="text" placeholder="password 6 zeichen mindestens" style="margin-bottom: 1vh;">
       <div *ngIf="userData[0].isAdmin" class="form-group">
         <input id="IsThisAnAdmin" class="form-check-input2" formControlName="isAdmin" name="isAdmin" type="checkbox" value=false>
         <label for="IsThisAnAdmin">Soll der Nutzer Admin sein?</label>
@@ -47,7 +48,6 @@
     </form>
   </ng-template>
 </div>
-
 
 
 

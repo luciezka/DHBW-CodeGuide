@@ -38,7 +38,6 @@ export class LoginScreenComponent implements OnInit {
   testData!: number;
   logedIn = false;
   userCreationEnabled = false;
-  isAdmin = false;
   user!: Promise<any>;
   userData!: UserModel[];
 
@@ -67,7 +66,7 @@ export class LoginScreenComponent implements OnInit {
         this.logedIn = true;
      }
       this.userData = data;
-      this.isAdmin = this.userData[0].isAdmin;
+      this.userData[0].isAdmin;
       return
     }, error => {
     }, () => {
