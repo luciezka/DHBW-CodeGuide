@@ -8,18 +8,11 @@
 
     <div>
 
-      <div style="display: flex;margin-top: 10px;flex-direction: column;flex-wrap: wrap;align-content: space-around;">
-        <input type="text" formControlName="topic" id="topic" placeholder="Thema" />
-        <input type="text" formControlName="name" id="name" placeholder="Titel" />
-        <button type="submit" class="send" [disabled]="!testForm.valid">Speichern</button>
-      </div>
-
-
-      <div>
+      <div class="optionform">
         <label class="form-check-label">
           <input class="form-check-input" formControlName="questionType" type="radio" name="questionType" value=1
                  (change)="newTest = testForm.value">
-          Multiple Choise
+          Multiple Choice
         </label>
         <label class="form-check-label">
           <input class="form-check-input" formControlName="questionType" type="radio" name="questionType" value=2
@@ -33,10 +26,7 @@
         </label>
       </div>
 
-
-
-
-      <div *ngIf="newTest.questionType == 3" class="TrueFalse">
+      <div *ngIf="newTest.questionType == 3" class="TrueFalse optionform">
         <label class="form-check-label">
           <input class="form-check-input2" formControlName="answerRight" name="answerRight" type="radio" value=true>
           True
@@ -47,24 +37,30 @@
         </label>
       </div>
 
+      <div>
+        <div *ngIf="newTest.questionType == 1 || newTest.questionType == 2 " class="MultipleChoise" style="display: flex;flex-direction: column;align-items: center;">
+          <i>Korreke Eingaben</i>
+          <input type="text" id="correctInput0" placeholder="Richtige Antwort" />
+          <input type="text" id="correctInput1" placeholder="Richtige Antwort" />
+          <input type="text" id="correctInput2" placeholder="Richtige Antwort" />
+          <input type="text" id="correctInput3" placeholder="Richtige Antwort" />
 
-      <div *ngIf="newTest.questionType == 1 || newTest.questionType == 2 " class="MultipleChoise">
-        <i>Korreke Eingaben</i>
-        <input type="text" id="correctInput0" placeholder="Richtige Antwort" />
-        <input type="text" id="correctInput1" placeholder="Richtige Antwort" />
-        <input type="text" id="correctInput2" placeholder="Richtige Antwort" />
-        <input type="text" id="correctInput3" placeholder="Richtige Antwort" />
 
-
-        <div *ngIf="newTest.questionType == 1 ">
-          <i>Falsche Eingaben</i>
-          <input type="text" id="wrongInput0" placeholder="Falsche Antwort" />
-          <input type="text" id="wrongInput1" placeholder="Falsche Antwort" />
-          <input type="text" id="wrongInput2" placeholder="Falsche Antwort" />
-          <input type="text" id="wrongInput3" placeholder="Falsche Antwort" />
+          <div *ngIf="newTest.questionType == 1" style="display: flex;flex-direction: column;align-items: center;width: 100%;">
+            <i>Falsche Eingaben</i>
+            <input type="text" id="wrongInput0" placeholder="Falsche Antwort" />
+            <input type="text" id="wrongInput1" placeholder="Falsche Antwort" />
+            <input type="text" id="wrongInput2" placeholder="Falsche Antwort" />
+            <input type="text" id="wrongInput3" placeholder="Falsche Antwort" />
+          </div>
         </div>
       </div>
 
+      <div style="display: flex;margin-top: 10px;flex-direction: column;flex-wrap: wrap;align-content: space-around;">
+        <input type="text" formControlName="topic" id="topic" placeholder="Thema" />
+        <input type="text" formControlName="name" id="name" placeholder="Titel" />
+        <button type="submit" class="send" [disabled]="!testForm.valid">Speichern</button>
+      </div>
 
     </div>
   </form>

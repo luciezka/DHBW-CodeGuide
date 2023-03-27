@@ -3,6 +3,22 @@
   color:white;
 }
 
+.optionform {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.centerform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
 .container {
   width: 100%;
   height: 70%;
