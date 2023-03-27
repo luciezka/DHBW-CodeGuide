@@ -7,5 +7,5 @@ export const environment = {
     authDomain: 'exmatrikulator.firebaseapp.com',
     messagingSenderId: '697757132757',
   },
-  production: false
+  production: true
 };
